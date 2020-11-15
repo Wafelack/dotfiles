@@ -1,6 +1,8 @@
 set number numberwidth=1 tabstop=4
 colorscheme desert
 
+set noshowmode
+
 let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
 
@@ -27,8 +29,8 @@ vnoremap <leader>sl <esc>0v$
 nnoremap <leader>f :call ToggleTabSize()<cr>
 
 " Remaping without leaders
-inoremap sd <esc>
-vnoremap sd <esc>
+inoremap sd <esc>:w<cr>
+vnoremap sd <esc>:w<cr>
 " Other maps
 	" Comment current line
 	nnoremap // 0i// <space><esc>
@@ -73,4 +75,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-runtime fancystatus/status.vim
+" Lightline
+let g:lightline = {
+	\ 'colorscheme' : 'seoul256',
+	\ }
