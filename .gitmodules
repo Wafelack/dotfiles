@@ -1,0 +1,3 @@
+[submodule ".vim/fancystatus"]
+	path = .vim/fancystatus
+	url = https://github.com/Wafelack/fancystatus

@@ -71,4 +71,6 @@ iabbrev { {}<Left>
 " Plugins
 execute pathogen#infect()
 syntax on
-filetype plugin indent on 
+filetype plugin indent on
+
+runtime fancystatus/status.vim
