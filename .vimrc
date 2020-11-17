@@ -6,6 +6,9 @@ set noshowmode
 let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
 
+set path+=** " Getting fuzzy
+set wildmenu
+
 set laststatus=2 " Always display a status line
 
 set statusline=--\ File:%f " Displaying filename
@@ -16,7 +19,7 @@ set statusline+=Line:%l/%L " Displaying line number
 set statusline+=\ \ -- " Displaying fancy end
 
 " Leaders remaping
-nnoremap <leader>ev :vsplit<space>$MYVIMRC<cr>
+nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
 noremap <leader>sv :source<space>$MYVIMRC<cr>
 nnoremap <leader>d dd
 nnoremap <leader>c ddO
@@ -24,8 +27,6 @@ vnoremap <leader>" <esc>`<i"<esc>`>i"<esc>v
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>i gg=G
-nnoremap <leader>sl ov$
-vnoremap <leader>sl <esc>0v$
 nnoremap <leader>f :call ToggleTabSize()<cr>
 
 " Remaping without leaders
@@ -49,14 +50,6 @@ vnoremap sd <esc>:w<cr>
 iabbrev @@ wafelack@protonmail.com
 iabbrev web https://wafelack.fr
 
-" Functions
-function! CargoRun()
-	silent !clear
-	silent "!rm result.txt"
-	execute "!cargo run > result.txt"
-endfunction
-nnoremap <leader>cg :call CargoRun()<cr>:vsplit<cr><c-w><c-w>:e result.txt
-
 function! ToggleTabSize()
 	if &tabstop == 4
 		set tabstop=2
@@ -69,6 +62,18 @@ endfunction
 
 " Coding abbreviations
 iabbrev { {}<Left>
+
+" Tabs
+nnoremap & :tabm 0<cr>
+nnoremap é :tabm 2<cr>
+nnoremap " :tabm 3<cr>
+nnoremap ' :tabm 4<cr>
+nnoremap ( :tabm 5<cr>
+nnoremap - :tabm 6<cr>
+
+" Tabs abberviations
+nnoremap <leader>nt :tabnew<cr>
+nnoremap <leader>ct :tabclose<cr>
 
 " Plugins
 execute pathogen#infect()
