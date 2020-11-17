@@ -22,8 +22,11 @@ let g:currentmode={
 
 hi StatusLine ctermfg=Red ctermbg=White
 
-au InsertEnter * hi StatusLine ctermfg=Green ctermbg=White
-au InsertLeave * hi StatusLine ctermfg=Red ctermbg=White
+augroup colors
+	autocmd!
+	au InsertEnter * hi StatusLine ctermfg=Green ctermbg=White
+	au InsertLeave * hi StatusLine ctermfg=Red ctermbg=White
+augroup end
 
 set laststatus=2 " Always display a status line
 set statusline=--\  " Displaying fancy beggining
@@ -84,26 +87,33 @@ function! OpenFolderInRightPane()
 	:tabnew .	
 endfunction
 
-" Simili NerdTree
-nnoremap <leader>tree :call OpenFolderInRightPane()<cr>
-
 " Coding abbreviations
 iabbrev { {}<Left>
 
 " Tabs
-nnoremap & :tabm 0<cr>
-nnoremap é :tabm 2<cr>
-nnoremap " :tabm 3<cr>
-nnoremap ' :tabm 4<cr>
-nnoremap ( :tabm 5<cr>
-nnoremap - :tabm 6<cr>
+nnoremap & 1gt<cr>
+nnoremap é 2gt<cr>
+nnoremap " 3gt<cr>
+nnoremap ' 4gt<cr>
+nnoremap ( 5gt<cr>
+nnoremap - 6gt<cr>
+
+" Remaping Ctrl + space for autocomplete
+inoremap <c-@> <C-n> 
+
+nnoremap <leader>nt :tabn<cr>
+nnoremap <leader>pt :tabp<cr>
 
 " Tabs abberviations
-nnoremap <leader>nt :tabnew<cr>
+nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>ct :tabclose<cr>
 nnoremap <leader>to :tabonly<cr>
 
 " Plugins
+"
+" Used plugins :
+" - NERDTree
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
