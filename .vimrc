@@ -1,21 +1,41 @@
 set number numberwidth=1 tabstop=4
 colorscheme desert
 
-set noshowmode
-
 let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
 
 set path+=** " Getting fuzzy
 set wildmenu
 
-set laststatus=2 " Always display a status line
+set noshowmode
 
-set statusline=--\ File:%f " Displaying filename
+let g:currentmode={
+       \ 'n'  : 'NORMAL',
+       \ 'v'  : 'VISUAL',
+       \ 'V'  : 'VISUAL-LINE',
+       \ '' : 'VISUAL-BLOCK',
+       \ 'i'  : 'INSERT',
+       \ 'R'  : 'REPLACE',
+       \ 'Rv' : 'VISUAL-REPLACE',
+       \ 'c'  : 'COMMAND',
+       \}
+
+hi StatusLine ctermfg=Red ctermbg=White
+
+au InsertEnter * hi StatusLine ctermfg=Green ctermbg=White
+au InsertLeave * hi StatusLine ctermfg=Red ctermbg=White
+
+set laststatus=2 " Always display a status line
+set statusline=--\  " Displaying fancy beggining
+set statusline+=[
+set statusline+=%{toupper(g:currentmode[mode()])} " Displaying mode
+set statusline+=]
+set statusline+=\ %f " Displaying filename
 set statusline+=\ (%Y) " Displaying filetype
 set statusline+=\ %m " Displaying [+] if the file is modified
 set statusline+=%= " Switching to right side
-set statusline+=Line:%l/%L " Displaying line number
+set statusline+=%l,%c\ -\ %p " Displaying line number
+set statusline+=%% " Displaying % symbol
 set statusline+=\ \ -- " Displaying fancy end
 
 " Leaders remaping
@@ -60,6 +80,13 @@ function! ToggleTabSize()
 	endif
 endfunction
 
+function! OpenFolderInRightPane()
+	:tabnew .	
+endfunction
+
+" Simili NerdTree
+nnoremap <leader>tree :call OpenFolderInRightPane()<cr>
+
 " Coding abbreviations
 iabbrev { {}<Left>
 
@@ -74,13 +101,9 @@ nnoremap - :tabm 6<cr>
 " Tabs abberviations
 nnoremap <leader>nt :tabnew<cr>
 nnoremap <leader>ct :tabclose<cr>
+nnoremap <leader>to :tabonly<cr>
 
 " Plugins
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-
-" Lightline
-let g:lightline = {
-	\ 'colorscheme' : 'seoul256',
-	\ }
