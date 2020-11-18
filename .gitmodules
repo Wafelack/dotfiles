@@ -1,3 +1,12 @@
 [submodule ".vim/fancystatus"]
 	path = .vim/fancystatus
 	url = https://github.com/Wafelack/fancystatus
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule ".vim/bundle/vim-wakatime"]
+	path = .vim/bundle/vim-wakatime
+	url = https://github.com/wakatime/vim-wakatime
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/Wafelack/vim-markdown
