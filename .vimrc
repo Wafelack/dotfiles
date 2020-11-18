@@ -110,10 +110,6 @@ nnoremap <leader>ct :tabclose<cr>
 nnoremap <leader>to :tabonly<cr>
 
 " Plugins
-"
-" Used plugins :
-" - NERDTree
-" - markdown-vim
 
 execute pathogen#infect()
 syntax on
