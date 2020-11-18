@@ -18,28 +18,40 @@ let g:currentmode={
 						\ 'R'  : 'REPLACE',
 						\ 'Rv' : 'VISUAL-REPLACE',
 						\ 'c'  : 'COMMAND',
-						\}
+						\ 't'  : 'TERMINAL',
+						\ }
+
 
 
 augroup colors
 		autocmd!
+		au BufEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+		au InsertEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+		au InsertLeave * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+		au BufEnter * hi TabLine ctermfg=White ctermbg=Grey
+		au BufEnter * hi TabLineSel ctermfg=White ctermbg=DarkGrey
 		au BufEnter * hi StatusLine ctermfg=Red ctermbg=White
+		au BufEnter * hi TabLineFill ctermfg=Grey ctermbg=Grey
 		au InsertEnter * hi StatusLine ctermfg=Green ctermbg=White
 		au InsertLeave * hi StatusLine ctermfg=Red ctermbg=White
 augroup end
 
+let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+
 set laststatus=2 " Always display a status line
-set statusline=--\  " Displaying fancy beggining
-set statusline+=[
-set statusline+=%{toupper(g:currentmode[mode()])} " Displaying mode
-set statusline+=]
+set statusline=\\|  " Displaying fancy beggining
+set statusline+=\ %{toupper(g:currentmode[mode()])} " Displaying mode
+set statusline+=\ \\|
 set statusline+=\ %f " Displaying filename
-set statusline+=\ (%Y) " Displaying filetype
-set statusline+=\ %m " Displaying [+] if the file is modified
+set statusline+=\ \\|
+set statusline+=\ %Y\ \\|\  " Displaying filetype
+set statusline+=%{tolower(g:branch)}\ \\|
 set statusline+=%= " Switching to right side
-set statusline+=%l,%c\ -\ %p " Displaying line number
+set statusline+=\\|
+set statusline+=\ Ln\ %l,Col\ %c " Displaying line number
+set statusline+=\ \\|\ %p
 set statusline+=%% " Displaying % symbol
-set statusline+=\ \ -- " Displaying fancy end
+set statusline+=\ \\|
 
 " Leaders remaping
 nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
@@ -56,8 +68,6 @@ nnoremap <leader>f :call ToggleTabSize()<cr>
 inoremap sd <esc>:w<cr>
 vnoremap sd <esc>:w<cr>
 " Other maps
-" Comment current line
-nnoremap // 0i// <space><esc>
 " Uppercase word
 nnoremap <c-u> wvbu
 " Delete current line
@@ -83,13 +93,6 @@ function! ToggleTabSize()
 		endif
 endfunction
 
-function! OpenFolderInRightPane()
-		:tabnew .	
-endfunction
-
-" Coding abbreviations
-iabbrev { {}<Left>
-
 " Tabs
 nnoremap & 1gt<cr>
 nnoremap é 2gt<cr>
@@ -97,9 +100,6 @@ nnoremap " 3gt<cr>
 nnoremap ' 4gt<cr>
 nnoremap ( 5gt<cr>
 nnoremap - 6gt<cr>
-
-" Remaping Ctrl + space for autocomplete
-inoremap <c-@> <C-n> 
 
 nnoremap <leader>nt :tabn<cr>
 nnoremap <leader>pt :tabp<cr>
