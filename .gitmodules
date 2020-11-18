@@ -9,4 +9,4 @@
 	url = https://github.com/wakatime/vim-wakatime
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
-	url = https://github.com/Wafelack/vim-markdown
+	url = https://github.com/Wafelack/markdown-vim
