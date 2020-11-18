@@ -10,22 +10,22 @@ set wildmenu
 set noshowmode
 
 let g:currentmode={
-       \ 'n'  : 'NORMAL',
-       \ 'v'  : 'VISUAL',
-       \ 'V'  : 'VISUAL-LINE',
-       \ '' : 'VISUAL-BLOCK',
-       \ 'i'  : 'INSERT',
-       \ 'R'  : 'REPLACE',
-       \ 'Rv' : 'VISUAL-REPLACE',
-       \ 'c'  : 'COMMAND',
-       \}
+						\ 'n'  : 'NORMAL',
+						\ 'v'  : 'VISUAL',
+						\ 'V'  : 'VISUAL-LINE',
+						\ '' : 'VISUAL-BLOCK',
+						\ 'i'  : 'INSERT',
+						\ 'R'  : 'REPLACE',
+						\ 'Rv' : 'VISUAL-REPLACE',
+						\ 'c'  : 'COMMAND',
+						\}
 
-hi StatusLine ctermfg=Red ctermbg=White
 
 augroup colors
-	autocmd!
-	au InsertEnter * hi StatusLine ctermfg=Green ctermbg=White
-	au InsertLeave * hi StatusLine ctermfg=Red ctermbg=White
+		autocmd!
+		au BufEnter * hi StatusLine ctermfg=Red ctermbg=White
+		au InsertEnter * hi StatusLine ctermfg=Green ctermbg=White
+		au InsertLeave * hi StatusLine ctermfg=Red ctermbg=White
 augroup end
 
 set laststatus=2 " Always display a status line
@@ -43,48 +43,48 @@ set statusline+=\ \ -- " Displaying fancy end
 
 " Leaders remaping
 nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
-noremap <leader>sv :source<space>$MYVIMRC<cr>
+noremap <leader>sv :source<space>$MYVIMRC<cr>:hi StatusLine ctermfg=Red ctermbg=White<cr>
 nnoremap <leader>d dd
 nnoremap <leader>c ddO
 vnoremap <leader>" <esc>`<i"<esc>`>i"<esc>v
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
-nnoremap <leader>i gg=G
+nnoremap <leader>i mmgg=G`m
 nnoremap <leader>f :call ToggleTabSize()<cr>
 
 " Remaping without leaders
 inoremap sd <esc>:w<cr>
 vnoremap sd <esc>:w<cr>
 " Other maps
-	" Comment current line
-	nnoremap // 0i// <space><esc>
-	" Uppercase word
-	nnoremap <c-u> wvbu
-        " Delete current line
-	nnoremap <c-d> dd
-	" Select the whole buffer
-	nnoremap <c-a> ggvG$
-	vnoremap <c-a> <esc>ggvG$
-	" Increase or dicrease panel size
-	nnoremap is <c-w>>
-	nnoremap ds <c-w><
+" Comment current line
+nnoremap // 0i// <space><esc>
+" Uppercase word
+nnoremap <c-u> wvbu
+" Delete current line
+nnoremap <c-d> dd
+" Select the whole buffer
+nnoremap <c-a> ggvG$
+vnoremap <c-a> <esc>ggvG$
+" Increase or dicrease panel size
+nnoremap is <c-w>>
+nnoremap ds <c-w><
 
 " abbreviations
 iabbrev @@ wafelack@protonmail.com
 iabbrev web https://wafelack.fr
 
 function! ToggleTabSize()
-	if &tabstop == 4
-		set tabstop=2
-	elseif &tabstop == 8
-		set tabstop=4
-	else
-		set tabstop=8
-	endif
+		if &tabstop == 4
+				set tabstop=2
+		elseif &tabstop == 8
+				set tabstop=4
+		else
+				set tabstop=8
+		endif
 endfunction
 
 function! OpenFolderInRightPane()
-	:tabnew .	
+		:tabnew .	
 endfunction
 
 " Coding abbreviations
@@ -113,6 +113,7 @@ nnoremap <leader>to :tabonly<cr>
 "
 " Used plugins :
 " - NERDTree
+" - markdown-vim
 
 execute pathogen#infect()
 syntax on
