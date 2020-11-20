@@ -6,7 +6,10 @@ let maplocalleader = "!" " leader for local commands
 
 set path+=** " Getting fuzzy
 set wildmenu
-
+set noswapfile
+set noundofile
+set nowritebackup
+set nobackup
 set noshowmode
 
 let g:currentmode={
