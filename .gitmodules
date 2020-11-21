@@ -25,3 +25,12 @@
 [submodule ".vim/bundle/vim-cargo"]
 	path = .vim/bundle/vim-cargo
 	url = https://github.com/timonv/vim-cargo
+[submodule ".vim/bundle/ark.vim"]
+	path = .vim/bundle/ark.vim
+	url = https://github.com/wafelack/ark.vim
+[submodule ".vim/bundle/rainbow"]
+	path = .vim/bundle/rainbow
+	url = https://github.com/luochen1990/rainbow
+[submodule ".vim/bundle/rainbow_parentheses.vim"]
+	path = .vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim
