@@ -1,8 +1,12 @@
 set number numberwidth=1 tabstop=4
-colorscheme desert
 
 let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
+
+nnoremap s <NOP>
+
+" Completion options
+set completeopt=menuone,longest
 
 set path+=** " Getting fuzzy
 set wildmenu
@@ -26,17 +30,11 @@ let g:currentmode={
 
 
 
-augroup colors
+augroup git
 		autocmd!
 		au BufEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
 		au InsertEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
 		au InsertLeave * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-		au BufEnter * hi TabLine ctermfg=White ctermbg=Grey
-		au BufEnter * hi TabLineSel ctermfg=White ctermbg=DarkGrey
-		au BufEnter * hi StatusLine ctermfg=Red ctermbg=White
-		au BufEnter * hi TabLineFill ctermfg=Grey ctermbg=Grey
-		au InsertEnter * hi StatusLine ctermfg=Green ctermbg=White
-		au InsertLeave * hi StatusLine ctermfg=Red ctermbg=White
 augroup end
 
 let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
@@ -49,12 +47,16 @@ set statusline+=\ %f " Displaying filename
 set statusline+=\ \\|
 set statusline+=\ %Y\ \\|\  " Displaying filetype
 set statusline+=%{tolower(g:branch)}\ \\|
+set statusline+=\ %m
 set statusline+=%= " Switching to right side
 set statusline+=\\|
 set statusline+=\ Ln\ %l,Col\ %c " Displaying line number
 set statusline+=\ \\|\ %p
 set statusline+=%% " Displaying % symbol
 set statusline+=\ \\|
+
+" Remaping enter to select the current item in completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" 
 
 " Leaders remaping
 nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
@@ -66,11 +68,12 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>i mmgg=G`m
 nnoremap <leader>f :call ToggleTabSize()<cr>
+nnoremap <cr> $i<Right><cr><esc>
 
 " Remaping without leaders
-inoremap sd <esc>:w<cr>
-vnoremap sd <esc>:w<cr>
-" Other maps
+inoremap sd <esc>:w<cr>:hi statusline guibg=White guifg=#6c6f93<cr>
+vnoremap sd <esc>:w<cr>:hi statusline guibg=White guifg=#6c6f93<cr>
+
 " Uppercase word
 nnoremap <c-u> wvbu
 " Delete current line
@@ -81,10 +84,6 @@ vnoremap <c-a> <esc>ggvG$
 " Increase or dicrease panel size
 nnoremap is <c-w>>
 nnoremap ds <c-w><
-
-" abbreviations
-iabbrev @@ wafelack@protonmail.com
-iabbrev web https://wafelack.fr
 
 function! ToggleTabSize()
 		if &tabstop == 4
@@ -117,3 +116,16 @@ nnoremap <leader>to :tabonly<cr>
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+set termguicolors
+execute "colorscheme horizon"
+
+hi statusline guibg=White guifg=#6c6f93
+
+nnoremap v v:<BS><BS><BS><BS><BS>hi statusline guibg=White guifg=#c78463<cr>v
+
+augroup bar
+	autocmd!
+	au InsertLeave * hi statusline guibg=White guifg=#6c6f93
+	au InsertEnter * hi statusline guibg=White guifg=#fa1235
+augroup end

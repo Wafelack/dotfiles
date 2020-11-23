@@ -1,5 +1,5 @@
 " Remapings
-	" Remaping ctrl + espace for completion
+	" Remaping tab for completion
 	inoremap <c-@> <c-n>
 
 " Abbreviations

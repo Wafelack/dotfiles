@@ -39,5 +39,5 @@ Place this in your .vimrc:
 
 ```
 :source %
-:PlugInstall
+:PluginInstall
 ```
