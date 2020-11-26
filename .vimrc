@@ -60,7 +60,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Leaders remaping
 nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
-noremap <leader>sv :source<space>$MYVIMRC<cr>:hi StatusLine ctermfg=Red ctermbg=White<cr>
+noremap <leader>sv :source<space>$MYVIMRC<cr>
 nnoremap <leader>d dd
 nnoremap <leader>c ddO
 vnoremap <leader>" <esc>`<i"<esc>`>i"<esc>v
@@ -124,8 +124,14 @@ hi statusline guibg=White guifg=#6c6f93
 
 nnoremap v v:<BS><BS><BS><BS><BS>hi statusline guibg=White guifg=#c78463<cr>v
 
+" Disabling Arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 augroup bar
 	autocmd!
 	au InsertLeave * hi statusline guibg=White guifg=#6c6f93
-	au InsertEnter * hi statusline guibg=White guifg=#fa1235
+	au InsertEnter * hi statusline guibg=White guifg=#c65555
 augroup end
