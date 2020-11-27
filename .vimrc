@@ -8,6 +8,8 @@ nnoremap s <NOP>
 " Completion options
 set completeopt=menuone,longest
 
+set makeprg=cargo
+
 set path+=** " Getting fuzzy
 set wildmenu
 set noswapfile
@@ -39,21 +41,16 @@ augroup end
 
 let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
 
+
 set laststatus=2 " Always display a status line
-set statusline=\\|  " Displaying fancy beggining
-set statusline+=\ %{toupper(g:currentmode[mode()])} " Displaying mode
-set statusline+=\ \\|
+set statusline=%1*\ %{toupper(g:currentmode[mode()])}\ %* " Displaying mode
+set statusline+=%2*\ %{tolower(g:branch)}\ %*
 set statusline+=\ %f " Displaying filename
-set statusline+=\ \\|
-set statusline+=\ %{tolower(g:branch)}\ \\|
 set statusline+=\ %m
 set statusline+=%= " Switching to right side
-set statusline+=\\|
-set statusline+=\ %{tolower(&filetype)}\ \\|\  " Displaying filetype
-set statusline+=\ Ln\ %l,Col\ %c " Displaying line number
-set statusline+=\ \\|\ %p
-set statusline+=%% " Displaying % symbol
-set statusline+=\ \\|
+set statusline+=%{tolower(&filetype)}\  
+set statusline+=%3*\ %p%%\ ≡\  
+set statusline+=\ \ \ %l/%L\ \ \ col\ :\ %c\ %* 
 
 " Remaping enter to select the current item in completion
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" 
@@ -70,17 +67,13 @@ nnoremap <leader>i mmgg=G`m
 nnoremap <leader>f :call ToggleTabSize()<cr>
 nnoremap <cr> $i<Right><cr><esc>
 
-" Remaping without leaders
-inoremap sd <esc>:w<cr>:hi statusline guibg=White guifg=#6c6f93<cr>
-vnoremap sd <esc>:w<cr>:hi statusline guibg=White guifg=#6c6f93<cr>
-
 " Uppercase word
 nnoremap <c-u> wvbu
 " Delete current line
 nnoremap <c-d> dd
 " Select the whole buffer
-nnoremap <c-a> ggvG$
-vnoremap <c-a> <esc>ggvG$
+nmap <c-a> ggvG$
+vmap <c-a> <esc>ggvG$
 " Increase or dicrease panel size
 nnoremap is <c-w>>
 nnoremap ds <c-w><
@@ -120,9 +113,16 @@ filetype plugin indent on
 set termguicolors
 execute "colorscheme horizon"
 
-hi statusline guibg=White guifg=#6c6f93
+hi User1 guifg=White guibg=#6666ff
+hi User2 guifg=#cccccc guibg=#4a4c71
+hi User3 guifg=White guibg=#6666ff
 
-nnoremap v v:<BS><BS><BS><BS><BS>hi statusline guibg=White guifg=#c78463<cr>v
+inoremap sd <esc>:w<cr>:hi User1 guifg=White guibg=#8888ff<cr> 
+vnoremap sd <esc>:w<cr>:hi User1 guifg=White guibg=#8888ff<cr> 
+
+hi statusline guibg=#666666 guifg=#282a50
+
+nnoremap v v:<BS><BS><BS><BS><BS>hi User1 guifg=White guibg=#c78463<cr>v
 
 " Disabling Arrow keys
 noremap <Up> <NOP>
@@ -131,7 +131,7 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 augroup bar
-	autocmd!
-	au InsertLeave * hi statusline guibg=White guifg=#6c6f93
-	au InsertEnter * hi statusline guibg=White guifg=#c65555
+		autocmd!
+		au InsertLeave * hi User1 guifg=White guibg=#8888ff
+		au InsertEnter * hi User1 guifg=White guibg=#c65555
 augroup end
