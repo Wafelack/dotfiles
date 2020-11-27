@@ -3,21 +3,25 @@
 " It is a complete mess so good luck to find things in
 
 
-set number numberwidth=1 tabstop=4
-
+set spell 
+nnoremap <c-k> :set number!<cr>
+set number numberwidth=4  
 let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
 
+" Pick first completion option and apply it
+imap <tab><tab> <c-n><c-n><cr> 
 nnoremap s <NOP>
 
 " Completion options
 set completeopt=menuone,longest
 
 set makeprg=cargo
-
+" Source current file (useful while developing plugins)
+nnoremap <leader>sop :source %<cr>
 set scrolloff=5
 set showcmd " Show the actual command
-set cursorline " Hightlight current line
+set cursorline " Highlight current line
 
 set path+=** " Getting fuzzy
 set wildmenu
@@ -28,22 +32,22 @@ set nobackup
 set noshowmode
 
 let g:currentmode={
-						\ 'n'  : 'NORMAL',
-						\ 'v'  : 'VISUAL',
-						\ 'V'  : 'VISUAL-LINE',
-						\ '' : 'VISUAL-BLOCK',
-						\ 'i'  : 'INSERT',
-						\ 'R'  : 'REPLACE',
-						\ 'Rv' : 'VISUAL-REPLACE',
-						\ 'c'  : 'COMMAND',
-						\ 't'  : 'TERMINAL',
-						\ }
+			\ 'n'  : 'NORMAL',
+			\ 'v'  : 'VISUAL',
+			\ 'V'  : 'VISUAL-LINE',
+			\ '' : 'VISUAL-BLOCK',
+			\ 'i'  : 'INSERT',
+			\ 'R'  : 'REPLACE',
+			\ 'Rv' : 'VISUAL-REPLACE',
+			\ 'c'  : 'COMMAND',
+			\ 't'  : 'TERMINAL',
+			\ }
 
 augroup git
-		autocmd!
-		au BufEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-		au InsertEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-		au InsertLeave * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+	autocmd!
+	au BufEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+	au InsertEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+	au InsertLeave * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
 augroup end
 
 let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
@@ -59,10 +63,10 @@ set statusline+=%{tolower(&filetype)}\
 set statusline+=%3*\ %p%%\ ≡\  
 set statusline+=\ \ \ %l/%L\ \ \ col\ :\ %c\ %* 
 
-" Remaping enter to select the current item in completion
+" Remapping enter to select the current item in completion
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" 
 
-" Leaders remaping
+" Leaders remapping
 nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
 noremap <leader>sv :source<space>$MYVIMRC<cr>
 nnoremap <leader>d dd
@@ -82,18 +86,18 @@ nnoremap <c-d> dd
 nmap <c-a> ggvG$
 vmap <c-a> <esc>ggvG$
 imap <c-a> <esc>ggvG$
-" Increase or dicrease panel size
+" Increase or decrease panel size
 nnoremap is <c-w>>
 nnoremap ds <c-w><
 
 function! ToggleTabSize()
-		if &tabstop == 4
-				set tabstop=2
-		elseif &tabstop == 8
-				set tabstop=4
-		else
-				set tabstop=8
-		endif
+	if &tabstop == 4
+		set tabstop=2
+	elseif &tabstop == 8
+		set tabstop=4
+	else
+		set tabstop=8
+	endif
 endfunction
 
 " Tabs
@@ -107,7 +111,9 @@ nnoremap - 6gt<cr>
 nnoremap <leader>nt :tabn<cr>
 nnoremap <leader>pt :tabp<cr>
 
-" Tabs abberviations
+" hello world
+
+" Tabs abbreviations
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>ct :tabclose<cr>
 nnoremap <leader>to :tabonly<cr>
@@ -138,15 +144,8 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-set relativenumber!
-
-augroup relative
-	au InsertLeave * set relativenumber!
-	au InsertEnter * set relativenumber!
-augroup end
-
 augroup bar
-		autocmd!
-		au InsertLeave * hi User1 guifg=White guibg=#8888ff
-		au InsertEnter * hi User1 guifg=White guibg=#c65555
+	autocmd!
+	au InsertLeave * hi User1 guifg=White guibg=#8888ff
+	au InsertEnter * hi User1 guifg=White guibg=#c65555
 augroup end
