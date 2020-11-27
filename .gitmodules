@@ -40,3 +40,12 @@
 [submodule ".vim/bundle/vim-complete"]
 	path = .vim/bundle/vim-complete
 	url = https://github.com/wafelack/vim-complete
+[submodule ".vim/bundle/delimitmate"]
+	path = .vim/bundle/delimitmate
+	url = https://github.com/raimondi/delimitmate
+[submodule ".vim/bundle/indentline"]
+	path = .vim/bundle/indentline
+	url = https://github.com/yggdroot/indentline
+[submodule ".vim/bundle/OpenURL"]
+	path = .vim/bundle/OpenURL
+	url = https://github.com/vim-scripts/OpenURL

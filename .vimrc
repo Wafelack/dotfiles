@@ -1,3 +1,8 @@
+" My .vimrc
+"
+" It is a complete mess so good luck to find things in
+
+
 set number numberwidth=1 tabstop=4
 
 let mapleader = "," " leader for commands
@@ -9,6 +14,10 @@ nnoremap s <NOP>
 set completeopt=menuone,longest
 
 set makeprg=cargo
+
+set scrolloff=5
+set showcmd " Show the actual command
+set cursorline " Hightlight current line
 
 set path+=** " Getting fuzzy
 set wildmenu
@@ -30,8 +39,6 @@ let g:currentmode={
 						\ 't'  : 'TERMINAL',
 						\ }
 
-
-
 augroup git
 		autocmd!
 		au BufEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
@@ -44,9 +51,9 @@ let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
 
 set laststatus=2 " Always display a status line
 set statusline=%1*\ %{toupper(g:currentmode[mode()])}\ %* " Displaying mode
-set statusline+=%2*\ %{tolower(g:branch)}\ %*
-set statusline+=\ %f " Displaying filename
-set statusline+=\ %m
+set statusline+=%2*\ %{tolower(g:branch)}\ %* " Display actual git branch
+set statusline+=\ %t\ (%f) " Displaying filename
+set statusline+=\ %m " Display modified flag
 set statusline+=%= " Switching to right side
 set statusline+=%{tolower(&filetype)}\  
 set statusline+=%3*\ %p%%\ ≡\  
@@ -74,6 +81,7 @@ nnoremap <c-d> dd
 " Select the whole buffer
 nmap <c-a> ggvG$
 vmap <c-a> <esc>ggvG$
+imap <c-a> <esc>ggvG$
 " Increase or dicrease panel size
 nnoremap is <c-w>>
 nnoremap ds <c-w><
@@ -129,6 +137,13 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+set relativenumber!
+
+augroup relative
+	au InsertLeave * set relativenumber!
+	au InsertEnter * set relativenumber!
+augroup end
 
 augroup bar
 		autocmd!
