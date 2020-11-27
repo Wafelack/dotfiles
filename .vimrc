@@ -45,11 +45,11 @@ set statusline+=\ %{toupper(g:currentmode[mode()])} " Displaying mode
 set statusline+=\ \\|
 set statusline+=\ %f " Displaying filename
 set statusline+=\ \\|
-set statusline+=\ %Y\ \\|\  " Displaying filetype
-set statusline+=%{tolower(g:branch)}\ \\|
+set statusline+=\ %{tolower(g:branch)}\ \\|
 set statusline+=\ %m
 set statusline+=%= " Switching to right side
 set statusline+=\\|
+set statusline+=\ %{tolower(&filetype)}\ \\|\  " Displaying filetype
 set statusline+=\ Ln\ %l,Col\ %c " Displaying line number
 set statusline+=\ \\|\ %p
 set statusline+=%% " Displaying % symbol
