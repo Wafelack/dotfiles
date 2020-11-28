@@ -2,15 +2,16 @@
 "
 " It is a complete mess so good luck to find things in
 
+iabbrev Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 set spell 
-nnoremap <c-k> :set number!<cr>
+set relativenumber
 set number numberwidth=4  
 let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
 
 " Pick first completion option and apply it
-imap <tab><tab> <c-n><c-n><cr> 
+imap <c-@> <c-n><c-n><cr> 
 nnoremap s <NOP>
 
 " Completion options
@@ -19,7 +20,7 @@ set completeopt=menuone,longest
 set makeprg=cargo
 " Source current file (useful while developing plugins)
 nnoremap <leader>sop :source %<cr>
-set scrolloff=5
+set scrolloff=15
 set showcmd " Show the actual command
 set cursorline " Highlight current line
 
@@ -150,3 +151,4 @@ augroup bar
 	au InsertLeave * hi User1 guifg=White guibg=#8888ff
 	au InsertEnter * hi User1 guifg=White guibg=#c65555
 augroup end
+
