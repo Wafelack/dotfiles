@@ -73,6 +73,9 @@ nnoremap <leader>d dd
 nnoremap <leader>c ddO
 vnoremap <leader>" <esc>`<i"<esc>`>i"<esc>v
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+" Comment selected text
+vnoremap <leader>\ <esc>`<i/*<cr><esc>`>i<cr>*/<esc>mm`<v`m
+
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>i mmgg=G`m
 nnoremap <leader>f :call ToggleTabSize()<cr>
@@ -111,8 +114,6 @@ nnoremap - 6gt<cr>
 nnoremap <leader>nt :tabn<cr>
 nnoremap <leader>pt :tabp<cr>
 
-" hello world
-
 " Tabs abbreviations
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>ct :tabclose<cr>
@@ -131,8 +132,8 @@ hi User1 guifg=White guibg=#6666ff
 hi User2 guifg=#cccccc guibg=#4a4c71
 hi User3 guifg=White guibg=#6666ff
 
-inoremap sd <esc>:w<cr>:hi User1 guifg=White guibg=#8888ff<cr> 
-vnoremap sd <esc>:w<cr>:hi User1 guifg=White guibg=#8888ff<cr> 
+inoremap sd <esc>:hi User1 guifg=White guibg=#8888ff<cr> 
+vnoremap sd <esc>:hi User1 guifg=White guibg=#8888ff<cr> 
 
 hi statusline guibg=#666666 guifg=#282a50
 
