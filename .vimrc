@@ -1,6 +1,4 @@
 " My .vimrc
-"
-" It is a complete mess so good luck to find things in
 
 iabbrev Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -32,23 +30,25 @@ set nowritebackup
 set nobackup
 set noshowmode
 
+nnoremap <leader>spe mm[sz=1<cr>`m
+
 let g:currentmode={
-			\ 'n'  : 'NORMAL',
-			\ 'v'  : 'VISUAL',
-			\ 'V'  : 'VISUAL-LINE',
-			\ '' : 'VISUAL-BLOCK',
-			\ 'i'  : 'INSERT',
-			\ 'R'  : 'REPLACE',
-			\ 'Rv' : 'VISUAL-REPLACE',
-			\ 'c'  : 'COMMAND',
-			\ 't'  : 'TERMINAL',
-			\ }
+      \ 'n'  : 'NORMAL',
+      \ 'v'  : 'VISUAL',
+      \ 'V'  : 'VISUAL-LINE',
+      \ '' : 'VISUAL-BLOCK',
+      \ 'i'  : 'INSERT',
+      \ 'R'  : 'REPLACE',
+      \ 'Rv' : 'VISUAL-REPLACE',
+      \ 'c'  : 'COMMAND',
+      \ 't'  : 'TERMINAL',
+      \ }
 
 augroup git
-	autocmd!
-	au BufEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-	au InsertEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-	au InsertLeave * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+  autocmd!
+  au BufEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+  au InsertEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+  au InsertLeave * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
 augroup end
 
 let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
@@ -67,8 +67,24 @@ set statusline+=\ \ \ %l/%L\ \ \ col\ :\ %c\ %*
 " Remapping enter to select the current item in completion
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" 
 
+function! AddUse()
+  let path = input('Write module path : ')
+  normal! mmgg
+  execute "normal! iuse " . path . ";\<cr>\<esc>"
+  normal! `m
+endfunction
+
+function! FindFileUnderCursor()
+  let under_cursor = expand("<cword>")
+  echom under_cursor
+  execute "normal! :find " . under_cursor . "\<Tab>"
+endfunction
+
+
 " Leaders remapping
+nnoremap <leader>au :call AddUse()<cr>
 nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
+nnoremap <leader>fu :call FindFileUnderCursor()<cr>
 noremap <leader>sv :source<space>$MYVIMRC<cr>
 nnoremap <leader>d dd
 nnoremap <leader>c ddO
@@ -79,7 +95,6 @@ vnoremap <leader>\ <esc>`<i/*<cr><esc>`>i<cr>*/<esc>mm`<v`m
 
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>i mmgg=G`m
-nnoremap <leader>f :call ToggleTabSize()<cr>
 nnoremap <cr> $i<Right><cr><esc>
 
 " Uppercase word
@@ -94,15 +109,9 @@ imap <c-a> <esc>ggvG$
 nnoremap is <c-w>>
 nnoremap ds <c-w><
 
-function! ToggleTabSize()
-	if &tabstop == 4
-		set tabstop=2
-	elseif &tabstop == 8
-		set tabstop=4
-	else
-		set tabstop=8
-	endif
-endfunction
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " Tabs
 nnoremap & 1gt<cr>
@@ -117,7 +126,7 @@ nnoremap <leader>pt :tabp<cr>
 
 " Tabs abbreviations
 nnoremap <leader>tn :tabnew<cr>
-nnoremap <leader>ct :tabclose<cr>
+nnoremap main<leader>ct :tabclose<cr>
 nnoremap <leader>to :tabonly<cr>
 
 " Plugins
@@ -147,8 +156,7 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 augroup bar
-	autocmd!
-	au InsertLeave * hi User1 guifg=White guibg=#8888ff
-	au InsertEnter * hi User1 guifg=White guibg=#c65555
+  autocmd!
+  au InsertLeave * hi User1 guifg=White guibg=#8888ff
+  au InsertEnter * hi User1 guifg=White guibg=#c65555
 augroup end
-

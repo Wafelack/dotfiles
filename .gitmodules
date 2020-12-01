@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/OpenURL"]
 	path = .vim/bundle/OpenURL
 	url = https://github.com/vim-scripts/OpenURL
+[submodule ".vim/bundle/vlugger-vim"]
+	path = .vim/bundle/vlugger-vim
+	url = https://github.com/wafelack/vlugger-vim

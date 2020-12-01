@@ -4,7 +4,6 @@
 
 export ARKSCRIPT_PATH=/home/wafelack/.ark/
 
-export PS1="$(whoami)@$(hostname) [$(pwd)] 🧇"
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -119,3 +118,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
+PS1="\033[0;36m[\t] \033[1;32m\u@\h at \033[0;31m$(__git_ps1 '%s') \033[1;33m(\w)\033[0m\r\nλ "
