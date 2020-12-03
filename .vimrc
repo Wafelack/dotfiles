@@ -9,7 +9,7 @@ let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
 
 " Pick first completion option and apply it
-imap <c-@> <c-n><c-n><cr> 
+imap <c-@> <c-n><c-n>
 nnoremap s <NOP>
 
 " Completion options
