@@ -2,7 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export ARKSCRIPT_PATH=/home/wafelack/.ark/
+export ARKSCRIPT_PATH=/home/wafelack/ark/
 
 # If not running interactively, don't do anything
 case $- in
@@ -94,7 +94,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
+alias eb='vim ~/.bashrc'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -126,4 +126,7 @@ else
   branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null || echo HEAD`)"
 fi
 
-PS1='\033[0;36m[\t] \033[1;32m\u@\h\033[0m at \033[0;31m$(__git_ps1 '%s')\033[1;33m:\w\033[0m λ '
+PS1='\033[0;36m\u\033[0m @ \033[1;32m\h\033[0m in \033[1;33m\w\033[0m on git:\033[0;36m$(__git_ps1 '%s') \033[0m[\t]\r\n\033[1;31m$\033[0m '
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
