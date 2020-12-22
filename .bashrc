@@ -4,6 +4,8 @@
 
 export ARKSCRIPT_PATH=/home/wafelack/ark/
 
+
+
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
@@ -126,7 +128,30 @@ else
   branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null || echo HEAD`)"
 fi
 
-PS1='\033[0;36m\u\033[0m @ \033[1;32m\h\033[0m in \033[1;33m\w\033[0m on git:\033[0;36m$(__git_ps1 '%s') ($(git log --format="%h" -n 1)) \033[0m[\t]\r\n\033[1;31m$\033[0m '
+export PS1='\033[0;36m\u\033[0m @ \033[1;32m\h\033[0m in \033[1;33m\w\033[0m on git:\033[0;36m$(__git_ps1 '%s') ($(git log --format="%h" -n 1)) \033[0m[\t]\r\n\033[1;31m\033[0m '
+
+export PS1='\033[0;37m[\t] \033[1;31m\u\033[1;30m in \033[1;32m\w\033[1;30m on\033[1;34m $(__git_ps1 '%s')\033[0m\r\n$ '
+
+# Color codes
+
+# BLACK="\033[0;30m"
+# RED="\033[0;31m"
+# GREEN="\033[0;32m"
+# BROWN="\033[0;33m"
+# BLUE="\033[0;34m"
+# PURPLE="\033[0;35m"
+# CYAN="\033[0;36m"
+# LIGHT_GRAY="\033[0;37m"
+# DARK_GRAY="\033[1;30m"
+# LIGHT_RED="\033[1;31m"
+# LIGHT_GREEN="\033[1;32m"
+# YELLOW="\033[1;33m"
+# LIGHT_BLUE="\033[1;34m"
+# LIGHT_PURPLE="\033[1;35m"
+# LIGHT_CYAN="\033[1;36m"
+# LIGHT_WHITE="\033[1;37m"
+# RESET="\033[0m"
+
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
