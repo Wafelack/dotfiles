@@ -128,9 +128,10 @@ else
   branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null || echo HEAD`)"
 fi
 
-export PS1='\033[0;36m\u\033[0m @ \033[1;32m\h\033[0m in \033[1;33m\w\033[0m on git:\033[0;36m$(__git_ps1 '%s') ($(git log --format="%h" -n 1)) \033[0m[\t]\r\n\033[1;31m\033[0m '
 
 export PS1='\033[0;37m[\t] \033[1;31m\u\033[1;30m in \033[1;32m\w\033[1;30m on\033[1;34m $(__git_ps1 '%s')\033[0m\r\n🧇 '
+
+export PS1='\033[1;31m\u\033[0m at\033[1;33m \h\033[0m in\033[1;32m \w\033[0m on\033[0;36m $(__git_ps1 '%s') \033[0;37m[\033[1;33m$(git log --format="%h" -n 1 2> /dev/null)\033[0;37m] \033[0m \D{%H:%M}\r\n🧇 '
 
 # Color codes
 
@@ -158,3 +159,5 @@ export PATH="$HOME/gems/bin:$PATH"
 export PATH="/home/wafelack/.yarpm/bin:$PATH"
 export DENO_INSTALL="/home/wafelack/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH=$(echo "$PATH" | sed 's|:/mnt/c/Program Files/nodejs/||') # removing windows annoying npm installation
+alias commit='git add . && gitmoji -c'
