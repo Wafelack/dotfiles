@@ -160,4 +160,9 @@ export PATH="/home/wafelack/.yarpm/bin:$PATH"
 export DENO_INSTALL="/home/wafelack/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH=$(echo "$PATH" | sed 's|:/mnt/c/Program Files/nodejs/||') # removing windows annoying npm installation
-alias commit='git add . && gitmoji -c'
+export alias commit='git add . && gitmoji -c'
+source "$HOME/.cargo/env"
+sshd_status=$(service ssh status)
+if [[ $sshd_status = *"is not running"* ]]; then
+  sudo service ssh --full-restart
+fi

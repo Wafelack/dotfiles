@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vlugger-vim"]
 	path = .vim/bundle/vlugger-vim
 	url = https://github.com/wafelack/vlugger-vim
+[submodule "/home/wafelack/.vim/bundle/vim-quark"]
+	path = /home/wafelack/.vim/bundle/vim-quark
+	url = hhttps://github.com/quark-lang/vim-quark
