@@ -55,3 +55,6 @@
 [submodule "/home/wafelack/.vim/bundle/vim-quark"]
 	path = /home/wafelack/.vim/bundle/vim-quark
 	url = hhttps://github.com/quark-lang/vim-quark
+[submodule ".vim/bundle/vimcord"]
+	path = .vim/bundle/vimcord
+	url = https://github.com/stoozy/vimcord

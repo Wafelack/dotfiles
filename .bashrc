@@ -166,3 +166,6 @@ sshd_status=$(service ssh status)
 if [[ $sshd_status = *"is not running"* ]]; then
   sudo service ssh --full-restart
 fi
+
+eval "$(ssh-agent -s)"
+ssh-add # Used to avoid pass phrase on git push

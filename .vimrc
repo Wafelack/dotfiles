@@ -93,7 +93,8 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 vnoremap <leader>\ <esc>`<i/*<cr><esc>`>i<cr>*/<esc>mm`<v`m
 
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
-nnoremap <leader>i mmgg=G`m
+vnoremap <leader>i >
+vnoremap <leader>u <
 nnoremap <cr> $i<Right><cr><esc>
 
 " Uppercase word
@@ -161,3 +162,5 @@ augroup bar
 augroup end
 
 let g:rainbow_active = 1
+
+nnoremap <leader>t :NERDTreeToggle<cr>
