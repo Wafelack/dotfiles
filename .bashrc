@@ -168,3 +168,6 @@ fi
 
 eval "$(ssh-agent -s)"
 ssh-add # Used to avoid pass phrase on git push
+export PATH="/home/wafelack/:$PATH"
+
+export PATH="/home/wafelack/.yarpm_bin:$PATH"
