@@ -130,7 +130,7 @@ fi
 
 
 
-export PS1='\033[0;31m\u\033[0m at\033[1;33m \h\033[0m in\033[1;32m \w\033[0m on\033[0;36m $(__git_ps1 '%s') \033[0;37m[\033[1;33m$(git log --format="%h" -n 1 2> /dev/null)\033[0;37m] \033[0m \D{%H:%M}\r\n🧇 '
+export PS1='\033[0;31m\u\033[0m at\033[1;33m \h\033[0m in\033[1;32m \w\033[0m on\033[0;36m $(git branch --show-current) \033[0;37m[\033[1;33m$(git log --format="%h" -n 1 2> /dev/null)\033[0;37m] \033[0m \D{%H:%M}\r\n> '
 
 # Color codes
 
@@ -161,10 +161,6 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH=$(echo "$PATH" | sed 's|:/mnt/c/Program Files/nodejs/||') # removing windows annoying npm installation
 export alias commit='git add . && gitmoji -c'
 source "$HOME/.cargo/env"
-sshd_status=$(service ssh status)
-if [[ $sshd_status = *"is not running"* ]]; then
-  sudo service ssh --full-restart
-fi
 
 eval "$(ssh-agent -s)"
 ssh-add # Used to avoid pass phrase on git push
