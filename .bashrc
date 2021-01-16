@@ -158,12 +158,10 @@ export PATH="$HOME/gems/bin:$PATH"
 export PATH="/home/wafelack/.yarpm/bin:$PATH"
 export DENO_INSTALL="/home/wafelack/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH=$(echo "$PATH" | sed 's|:/mnt/c/Program Files/nodejs/||') # removing windows annoying npm installation
-export alias commit='git add . && gitmoji -c'
 source "$HOME/.cargo/env"
 
 eval "$(ssh-agent -s)"
 ssh-add # Used to avoid pass phrase on git push
 export PATH="/home/wafelack/:$PATH"
 
-export PATH="/home/wafelack/.yarpm_bin:$PATH"
+export PATH="/home/wafelack/.werb_bin:$PATH"
