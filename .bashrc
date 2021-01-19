@@ -153,9 +153,6 @@ export PS1='\033[0;31m\u\033[0m at\033[1;33m \h\033[0m in\033[1;32m \w\033[0m on
 # RESET="\033[0m"
 
 # Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
-export PATH="/home/wafelack/.yarpm/bin:$PATH"
 export DENO_INSTALL="/home/wafelack/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 source "$HOME/.cargo/env"
