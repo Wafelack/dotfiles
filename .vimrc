@@ -93,9 +93,8 @@ nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 vnoremap <leader>\ <esc>`<i/*<cr><esc>`>i<cr>*/<esc>mm`<v`m
 
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
-vnoremap <leader>i >
-vnoremap <leader>u <
 nnoremap <cr> $i<Right><cr><esc>
+nnoremap <leader>i mmgg=G`m
 
 " Uppercase word
 nnoremap <c-u> wvbu
