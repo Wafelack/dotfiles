@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/vimcord"]
 	path = .vim/bundle/vimcord
 	url = https://github.com/stoozy/vimcord
+[submodule ".vim/bundle/delimitMate"]
+	path = .vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate
