@@ -27,4 +27,10 @@ alias py="python3"
 export PATH="/home/wafelack/:$PATH"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/home/wafelack/.werb_bin:$PATH"
+export PATH="/home/wafelack/.lua:$PATH"
+export PATH="/home/wafelack/.gem/ruby/2.7.0/bin:$PATH"
 
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin

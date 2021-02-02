@@ -2,10 +2,10 @@
 
 iabbrev Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-set relativenumber
 set number numberwidth=4  
 let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
+
 
 " Pick first completion option and apply it
 imap <c-@> <c-n><c-n>
