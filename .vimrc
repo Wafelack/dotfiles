@@ -83,6 +83,8 @@ endfunction
 " Leaders remapping
 nnoremap <leader>au :call AddUse()<cr>
 nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
+nnoremap <leader>kitty :tabfind<space>~/.config/kitty/kitty.conf<cr>
+
 nnoremap <leader>fu :call FindFileUnderCursor()<cr>
 noremap <leader>sv :source<space>$MYVIMRC<cr>
 nnoremap <leader>d dd
