@@ -15,6 +15,7 @@ source $ZSH/oh-my-zsh.sh
 
 export DENO_INSTALL="/home/wafelack/.deno"
 
+
 eval "$(ssh-agent -s)"
 ssh-add # Used to avoid pass phrase on git push
 
