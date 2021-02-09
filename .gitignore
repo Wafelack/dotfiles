@@ -1,0 +1,15 @@
+*
+!.vimrc
+!.vim/
+!.vim/**
+!.bashrc
+!color-test
+!.fonts/**
+!.fonts/
+!.zshrc
+!.oh-my-zsh/
+!.oh-my-zsh/**
+!.config/kitty/
+!.config/kitty/**
+!.config/
+!.gitignore

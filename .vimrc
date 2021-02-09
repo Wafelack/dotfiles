@@ -106,9 +106,6 @@ nnoremap <c-d> dd
 nmap <c-a> ggvG$
 vmap <c-a> <esc>ggvG$
 imap <c-a> <esc>ggvG$
-" Increase or decrease panel size
-nnoremap is <c-w>>
-nnoremap ds <c-w><
 
 set tabstop=2
 set shiftwidth=2
