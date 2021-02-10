@@ -6,10 +6,9 @@
 !color-test
 !.fonts/**
 !.fonts/
-!.zshrc
-!.oh-my-zsh/
-!.oh-my-zsh/**
 !.config/kitty/
 !.config/kitty/**
 !.config/
 !.gitignore
+!.config/fish/
+!.config/fish/**

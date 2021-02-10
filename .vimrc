@@ -7,6 +7,9 @@ let mapleader = "," " leader for commands
 let maplocalleader = "!" " leader for local commands
 
 
+syntax enable
+set termguicolors
+
 " Pick first completion option and apply it
 imap <c-@> <c-n><c-n>
 nnoremap s <NOP>
@@ -130,11 +133,9 @@ nnoremap <leader>to :tabonly<cr>
 " Plugins
 
 execute pathogen#infect()
-syntax on
 filetype plugin indent on
 
-set termguicolors
-execute "colorscheme horizon"
+colorscheme horizon
 
 hi User1 guifg=White guibg=#6666ff
 hi User2 guifg=#cccccc guibg=#4a4c71
