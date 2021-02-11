@@ -9,13 +9,17 @@ function rl
   source $HOME/.config/fish/config.fish
 end
 
+# Ssh keys management
+eval (ssh-agent -c)
+ssh-add
+
 # Path
 set PATH /home/wafelack/ $PATH
 set PATH $DENO_INSTALL/bin $PATH
 set PATH /home/wafelack/.werb_bin $PATH
 set PATH /home/wafelack/.lua $PATH
 set PATH /home/wafelack/.gem/ruby/2.7.0/bin $PATH
-
+set PATH /home/wafelack/.cargo/bin $PATH
 
 
 # Prompt
