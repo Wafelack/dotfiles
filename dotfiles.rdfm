@@ -1,0 +1,7 @@
+/home/wafelack/.gitmodules->/home/wafelack/.dotfiles/.gitmodules
+/home/wafelack/.vim->/home/wafelack/.dotfiles/vim/
+/home/wafelack/.vimrc->/home/wafelack/.dotfiles/vim/.vimrc
+/home/wafelack/.fonts/->/home/wafelack/.dotfiles/fonts/
+/home/wafelack/.config/kitty/kitty.conf->/home/wafelack/.dotfiles/kitty/kitty.conf
+/home/wafelack/.config/kitty/default.session->/home/wafelack/.dotfiles/kitty/default.session
+/home/wafelack/.config/fish/config.fish->/home/wafelack/.dotfiles/fish/config.fish

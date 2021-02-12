@@ -53,8 +53,11 @@ augroup git
   au InsertLeave * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
 augroup end
 
-let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-
+if system('git rev-parse --is-inside-work-tree 2> /dev/null') == 'true'
+  let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+else
+  let g:branch = 'none'
+endif
 
 set laststatus=2 " Always display a status line
 set statusline=%1*\ %{toupper(g:currentmode[mode()])}\ %* " Displaying mode
@@ -86,7 +89,8 @@ endfunction
 " Leaders remapping
 nnoremap <leader>au :call AddUse()<cr>
 nnoremap <leader>ev :tabfind<space>$MYVIMRC<cr>
-nnoremap <leader>kitty :tabfind<space>~/.config/kitty/kitty.conf<cr>
+nnoremap <leader>kty :tabfind<space>~/.config/kitty/kitty.conf<cr>
+nnoremap <leader>fish :tabfind<space>~/.config/fish/config.fish<cr>
 
 nnoremap <leader>fu :call FindFileUnderCursor()<cr>
 noremap <leader>sv :source<space>$MYVIMRC<cr>
