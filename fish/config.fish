@@ -13,6 +13,10 @@ end
 eval (ssh-agent -c)
 ssh-add
 
+# Gpg   "      "
+GPG_TTY=(tty)
+export GPG_TTY
+
 # Path
 set PATH /home/wafelack/ $PATH
 set PATH $DENO_INSTALL/bin $PATH
