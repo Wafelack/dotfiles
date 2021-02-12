@@ -61,21 +61,3 @@
 [submodule ".vim/bundle/delimitMate"]
 	path = .vim/bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate
-[submodule "vim/.vim/bundle/vim-fugitive"]
-	path = vim/.vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule "vim/.vim/bundle/nerdtree"]
-	path = vim/.vim/bundle/nerdtree
-	url = https://github.com/preservim/nerdtree
-[submodule "vim/.vim/bundle/vim-quark"]
-	path = vim/.vim/bundle/vim-quark
-	url = https://github.com/quark-lang/vim-quark
-[submodule "vim/.vim/bundle/vim-wakatime"]
-	path = vim/.vim/bundle/vim-wakatime
-	url = https://github.com/wakatime/vim-wakatime
-[submodule "vim/.vim/bundle/vim-horizon"]
-	path = vim/.vim/bundle/vim-horizon
-	url = https://github.com/ntk148v/vim-horizon
-[submodule "vim/.vim/bundle/delimitMate"]
-	path = vim/.vim/bundle/delimitMate
-	url = https://github.com/Raimondi/delimitMate

@@ -46,18 +46,22 @@ let g:currentmode={
       \ 't'  : 'TERMINAL',
       \ }
 
+function! GetBranch()
+  if system('git rev-parse --is-inside-work-tree 2> /dev/null') == 'true'
+    return substitute(system('git branch --show-current'), '\n', '', 'g')
+  else
+    return 'none'
+  endif
+endfunction
+
 augroup git
   autocmd!
-  au BufEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-  au InsertEnter * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-  au InsertLeave * let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
+  au BufEnter * let g:branch = GetBranch()
+  au InsertEnter * let g:branch = GetBranch()
+  au InsertLeave * let g:branch = GetBranch()
 augroup end
 
-if system('git rev-parse --is-inside-work-tree 2> /dev/null') == 'true'
-  let g:branch = substitute(system('git branch --show-current'), '\n', '', 'g')
-else
-  let g:branch = 'none'
-endif
+let g:branch = GetBranch()
 
 set laststatus=2 " Always display a status line
 set statusline=%1*\ %{toupper(g:currentmode[mode()])}\ %* " Displaying mode
