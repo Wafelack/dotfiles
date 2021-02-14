@@ -6,3 +6,5 @@
 /home/wafelack/.config/kitty/default.session->/home/wafelack/.dotfiles/kitty/default.session
 /home/wafelack/.config/fish/config.fish->/home/wafelack/.dotfiles/fish/config.fish
 /home/wafelack/.config/i3/config->/home/wafelack/.dotfiles/i3/config
+/home/wafelack/show_battery.sh->/home/wafelack/.dotfilesi3/status/battery.sh
+/etc/i3blocks.conf->/home/wafelack/.dotfilesi3/status/i3blocks.conf
