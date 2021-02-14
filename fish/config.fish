@@ -2,7 +2,11 @@
 
 # aliases
 function py
-python3
+  python3
+end
+
+function sc
+  scrot -c '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'
 end
 
 function rl

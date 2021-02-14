@@ -38,7 +38,7 @@ let g:currentmode={
       \ 'n'  : 'NORMAL',
       \ 'v'  : 'VISUAL',
       \ 'V'  : 'VISUAL-LINE',
-      \ '' : 'VISUAL-BLOCK',
+      \ '^V' : 'VISUAL-BLOCK',
       \ 'i'  : 'INSERT',
       \ 'R'  : 'REPLACE',
       \ 'Rv' : 'VISUAL-REPLACE',
