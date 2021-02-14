@@ -14,7 +14,7 @@ eval (ssh-agent -c)
 ssh-add
 
 # Gpg   "      "
-GPG_TTY=(tty)
+set GPG_TTY (tty)
 export GPG_TTY
 
 # Path
