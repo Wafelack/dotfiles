@@ -4,7 +4,7 @@ set -euo pipefail
 out=$(acpi)
 is_full=$(echo $out | grep -o '[^,]*$')
 
-if [[ $is_full == "100%" ]]
+if [[ $is_full == " 100%" ]]
 then
   echo "100%"
 else
