@@ -15,5 +15,9 @@ interval=45
 command=echo "$(date +'%H:%M')"
 interval=1
 
+[power]
+full_text="⏻"
+command=/home/wafelack/rofi/i3_power.sh
+
 [delimiter]
 full_text=""
