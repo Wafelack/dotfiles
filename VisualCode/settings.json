@@ -2,7 +2,7 @@
     "editor.fontFamily": "SF Mono",
     "workbench.colorTheme": "Horizon",
     "workbench.iconTheme": "material-icon-theme",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "editor.cursorSmoothCaretAnimation": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,

@@ -5,7 +5,5 @@
 /home/wafelack/.config/kitty/kitty.conf->/home/wafelack/.dotfiles/kitty/kitty.conf
 /home/wafelack/.config/kitty/default.session->/home/wafelack/.dotfiles/kitty/default.session
 /home/wafelack/.config/fish/config.fish->/home/wafelack/.dotfiles/fish/config.fish
-/home/wafelack/.config/i3/config->/home/wafelack/.dotfiles/i3/config
-/home/wafelack/show_battery.sh->/home/wafelack/.dotfiles/i3/status/battery.sh
-/etc/i3blocks.conf->/home/wafelack/.dotfiles/i3/status/i3blocks.conf
 /home/wafelack/.config/Code/User/settings.json->/home/wafelack/.dotfiles/VisualCode/settings.json
+/home/wafelack/rofi/i3_screen.sh->/home/wafelack/.dotfiles/rofi/screen.sh

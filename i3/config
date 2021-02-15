@@ -199,3 +199,4 @@ bar {
 }
 
 bindsym Mod1+c exec flameshot gui
+for_window [class="^/*"] border pixel 0
