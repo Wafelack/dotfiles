@@ -7,3 +7,5 @@
 /home/wafelack/.config/fish/config.fish->/home/wafelack/.dotfiles/fish/config.fish
 /home/wafelack/.config/Code/User/settings.json->/home/wafelack/.dotfiles/VisualCode/settings.json
 /home/wafelack/rofi/i3_screen.sh->/home/wafelack/.dotfiles/rofi/screen.sh
+/home/wafelack/.config/i3blocks/battery.sh->/home/wafelack/.dotfiles/i3blocks/battery.sh
+/home/wafelack/.config/i3blocks/config->/home/wafelack/.dotfiles/i3blocks/config
