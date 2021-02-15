@@ -197,3 +197,5 @@ bar {
   }
 
 }
+
+bindsym Mod1+c exec flameshot gui
