@@ -16,5 +16,6 @@
             "strings": true
         },
         "editor.suggest.insertMode": "replace"
-    }
+    },
+    "terminal.integrated.cursorStyle": "line"
 }
