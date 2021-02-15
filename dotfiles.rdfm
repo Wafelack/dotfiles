@@ -8,3 +8,4 @@
 /home/wafelack/.config/i3/config->/home/wafelack/.dotfiles/i3/config
 /home/wafelack/show_battery.sh->/home/wafelack/.dotfiles/i3/status/battery.sh
 /etc/i3blocks.conf->/home/wafelack/.dotfiles/i3/status/i3blocks.conf
+/home/wafelack/.config/Code/User/settings.json->/home/wafelack/.dotfiles/VisualCode/settings.json

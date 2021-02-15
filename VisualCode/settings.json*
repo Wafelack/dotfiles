@@ -1,0 +1,20 @@
+{
+    "editor.fontFamily": "SF Mono",
+    "workbench.colorTheme": "Horizon",
+    "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 1,
+    "editor.cursorSmoothCaretAnimation": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.cursorBlinking": "smooth",
+    "workbench.startupEditor": "none",
+    "workbench.panel.defaultLocation": "right",
+    "terminal.integrated.shell.linux": "tmux",
+    "[json]": {
+
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    }
+}
