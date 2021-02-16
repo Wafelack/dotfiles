@@ -2,7 +2,7 @@
     "editor.fontFamily": "SF Mono",
     "workbench.colorTheme": "Horizon",
     "workbench.iconTheme": "material-icon-theme",
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "editor.cursorSmoothCaretAnimation": true,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
@@ -17,5 +17,11 @@
         },
         "editor.suggest.insertMode": "replace"
     },
-    "terminal.integrated.cursorStyle": "line"
+    "terminal.integrated.cursorStyle": "line",
+    "files.autoSave": "afterDelay",
+    "rust-analyzer.cargo.target": null,
+    "window.customMenuBarAltFocus": false,
+    "window.enableMenuBarMnemonics": false,
+    "window.menuBarVisibility": "toggle",
+    "terminal.integrated.fontSize": 13
 }

@@ -186,7 +186,7 @@ bar {
   font pango:SF Pro Display Bold 12
 
   colors {
-    background #15212a
+     background #15212a
   }
 
 }
@@ -198,3 +198,12 @@ bindsym Mod1+c exec flameshot gui
 for_window [class="^/*"] border pixel 0
 bindsym Mod1+Shift+s exec ~/rofi/i3_screen.sh
 bindsym Mod1+Home exec ~/rofi/i3_power.sh
+
+gaps horizontal 10
+gaps vertical 10
+gaps left 10
+gaps right 10
+gaps inner 10
+
+# Background
+exec feh --bg-scale /home/wafelack/Pictures/wallpapers/big_sur_night.jpg

@@ -2,6 +2,10 @@
 separator=true
 separator_block_width=15
 
+[window_name]
+command=xprop -id $(xprop -root | awk '/NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}') | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2
+interval=repeat
+
 [volume]
 command=echo "Volume: $(awk -F"[][]" '/Left: / { print $2}' <(amixer sget Master))"
 interval=1
