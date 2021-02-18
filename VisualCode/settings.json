@@ -22,6 +22,5 @@
     "rust-analyzer.cargo.target": null,
     "window.customMenuBarAltFocus": false,
     "window.enableMenuBarMnemonics": false,
-    "window.menuBarVisibility": "toggle",
-    "terminal.integrated.fontSize": 13
+    "window.menuBarVisibility": "toggle"
 }

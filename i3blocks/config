@@ -2,13 +2,9 @@
 separator=true
 separator_block_width=15
 
-[window_name]
-command=xprop -id $(xprop -root | awk '/NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}') | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2
-interval=repeat
-
 [volume]
 command=echo "Volume: $(awk -F"[][]" '/Left: / { print $2}' <(amixer sget Master))"
-interval=1
+interval=repeat
 
 [battery]
 SCRIPT_PATH=/home/wafelack/.config/i3blocks/battery.sh
@@ -17,7 +13,11 @@ interval=45
 
 [time]
 command=echo "$(date +'%H:%M')"
-interval=1
+interval=59
+
+[layout]
+command=echo $(echo $(setxkbmap -query | grep layout) | sed "s/layout://")
+interval=repeat
 
 [power]
 full_text="⏻"
