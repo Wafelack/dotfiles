@@ -13,7 +13,7 @@ interval=45
 
 [time]
 command=echo "$(date +'%H:%M')"
-interval=59
+interval=repeat
 
 [layout]
 command=echo $(echo $(setxkbmap -query | grep layout) | sed "s/layout://")
