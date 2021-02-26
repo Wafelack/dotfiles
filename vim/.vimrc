@@ -17,7 +17,7 @@ nnoremap s <NOP>
 " Completion options
 set completeopt=menuone,longest
 
-set makeprg=cargo
+set makeprg=make
 " Source current file (useful while developing plugins)
 nnoremap <leader>sop :source %<cr>
 set scrolloff=15

@@ -22,5 +22,6 @@
     "rust-analyzer.cargo.target": null,
     "window.customMenuBarAltFocus": false,
     "window.enableMenuBarMnemonics": false,
-    "window.menuBarVisibility": "toggle"
+    "window.menuBarVisibility": "toggle",
+    "zenMode.hideLineNumbers": false
 }

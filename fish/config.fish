@@ -17,9 +17,13 @@ end
 eval (ssh-agent -c)
 ssh-add
 
-# Gpg   "      "
+# Gpg
 set GPG_TTY (tty)
 export GPG_TTY
+
+# OS
+set PREFIX "/home/wafelack/opt/cross"
+set TARGET i686-elf
 
 # Path
 set PATH /home/wafelack/ $PATH
@@ -28,7 +32,7 @@ set PATH /home/wafelack/.werb_bin $PATH
 set PATH /home/wafelack/.lua $PATH
 set PATH /home/wafelack/.gem/ruby/2.7.0/bin $PATH
 set PATH /home/wafelack/.cargo/bin $PATH
-
+set PATH "$PREFIX/bin" $PATH
 
 # Prompt
 function fish_prompt
@@ -38,7 +42,7 @@ function fish_prompt
     case 'true'
       echo '->'(set_color cyan) (git branch --show-current) (set_color normal)'['(set_color yellow)(git log --format='%h' -n 1 2> /dev/null)(set_color normal)']'
   end
-  echo '╰─ » '
+  echo (set_color normal)'╰─ » '
 end
 
 # Variables
