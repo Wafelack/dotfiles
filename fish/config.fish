@@ -43,5 +43,9 @@ function fish_prompt
   echo (set_color cyan)(prompt_pwd)(set_color normal) '$ '
 end
 
+# Remap escape to caps lock
+
+setxkbmap -option caps:escape
+
 # Variables
 export TERM=xterm-256color

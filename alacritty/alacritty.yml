@@ -1,0 +1,46 @@
+colors:
+  primary:
+    background: '#1c1e26'
+    foreground: '#bdc0c2'
+  cursor:
+    cursor: '#e95678'
+  normal:
+    black: '#0a0a0d'
+    red: '#e95678'
+    green: '#29d398'
+    yellow: '#fab795'
+    blue: '#fbc3a7'
+    magenta: '#ee64ac'
+    cyan: '#59e1e3'
+    white: '#e5e5e5'
+  bright:
+    black: '#848484'
+    red: '#3fdaa4'
+    green: '#3fdaa4'
+    yellow: '#fbc3a7'
+    blue: '#3fc4de'
+    magenta: '#f075b5'
+    cyan: '#6be4e6'
+    white: '#e5e5e5'
+env:
+  TERM: xterm-256color
+  SHELL: /usr/bin/fish
+
+window:
+  padding:
+    x: 5
+    y: 5
+  title: Alacritty - Terminal
+
+live_config_reload: true
+
+cursor:
+  style: Beam
+
+font:
+  normal:
+    family: Iosevka Term 
+    style: Regular
+  bold:
+    family: Iosevka Term
+    style: Bold  
