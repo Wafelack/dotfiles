@@ -1,0 +1,63 @@
+[submodule ".vim/fancystatus"]
+	path = .vim/fancystatus
+	url = https://github.com/Wafelack/fancystatus
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule ".vim/bundle/vim-wakatime"]
+	path = .vim/bundle/vim-wakatime
+	url = https://github.com/wakatime/vim-wakatime
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/Wafelack/markdown-vim
+[submodule ".vim/bundle/vim-fugitive"]
+	path = .vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule ".vim/bundle/vimsence"]
+	path = .vim/bundle/vimsence
+	url = https://github.com/anned20/vimsence
+[submodule ".vim/bundle/rscloc"]
+	path = .vim/bundle/rscloc
+	url = https://github.com/wafelack/rscloc
+[submodule ".vim/bundle/rust.vim"]
+	path = .vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule ".vim/bundle/vim-cargo"]
+	path = .vim/bundle/vim-cargo
+	url = https://github.com/timonv/vim-cargo
+[submodule ".vim/bundle/ark.vim"]
+	path = .vim/bundle/ark.vim
+	url = https://github.com/wafelack/ark.vim
+[submodule ".vim/bundle/rainbow"]
+	path = .vim/bundle/rainbow
+	url = https://github.com/luochen1990/rainbow
+[submodule ".vim/bundle/rainbow_parentheses.vim"]
+	path = .vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim
+[submodule ".vim/bundle/vim-horizon"]
+	path = .vim/bundle/vim-horizon
+	url = https://github.com/ntk148v/vim-horizon
+[submodule ".vim/bundle/vim-complete"]
+	path = .vim/bundle/vim-complete
+	url = https://github.com/wafelack/vim-complete
+[submodule ".vim/bundle/delimitmate"]
+	path = .vim/bundle/delimitmate
+	url = https://github.com/raimondi/delimitmate
+[submodule ".vim/bundle/indentline"]
+	path = .vim/bundle/indentline
+	url = https://github.com/yggdroot/indentline
+[submodule ".vim/bundle/OpenURL"]
+	path = .vim/bundle/OpenURL
+	url = https://github.com/vim-scripts/OpenURL
+[submodule ".vim/bundle/vlugger-vim"]
+	path = .vim/bundle/vlugger-vim
+	url = https://github.com/wafelack/vlugger-vim
+[submodule "/home/wafelack/.vim/bundle/vim-quark"]
+	path = /home/wafelack/.vim/bundle/vim-quark
+	url = hhttps://github.com/quark-lang/vim-quark
+[submodule ".vim/bundle/vimcord"]
+	path = .vim/bundle/vimcord
+	url = https://github.com/stoozy/vimcord
+[submodule ".vim/bundle/delimitMate"]
+	path = .vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate

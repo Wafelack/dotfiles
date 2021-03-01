@@ -74,4 +74,9 @@ nnoremap - 6gt<cr>
 " Vim plug
 call plug#begin('~/.vim/plugged')
 
+Plug 'ntk148v/vim-horizon'
+
 call plug#end()
+
+" Colorscheme
+colorscheme horizon
