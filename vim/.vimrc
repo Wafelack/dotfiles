@@ -1,7 +1,21 @@
-" Wafelack <wafelack@protonmail.com>'s .vimrc v0.1.0
+" My .vimrc
+" By Wafelack<wafelack@protonmail.com>
+" Available @ https://github.com/wafelack/dotfiles/
 
-set number numberwidth=4  
-let mapleader = "," " leader for commands
+" Line numbers
+" ============
+
+set number numberwidth=4 
+set relativenumber
+
+" Relative nline numbers only in normal and visual mode (useful for jumping)
+augroup numbers
+	autocmd!
+	au InsertEnter * set norelativenumber
+	au InsertLeave * set relativenumber
+augroup end
+
+let mapleader = "," " Leader for commands
 
 syntax enable
 set termguicolors
@@ -9,61 +23,31 @@ set termguicolors
 " Completion options
 set completeopt=menuone,longest
 
-set makeprg=cargo " I'm a rustacean, so cargo ftw
+set makeprg=cargo " Using Rustlang all day, so cargo ftw
 
-set scrolloff=15
+set scrolloff=15 " Minimum of lines show around the current line
 
-set path+=** " Getting fuzzy
-set wildmenu
+set path+=** " Fuzzy path search
+set wildmenu " Menu options
+
+" We have source control for that (Copyright https://github.com/Chewie for the joke).
 set noswapfile
 set noundofile
-set nowritebackup
 set nobackup
+set nowritebackup
+
+" Status bar replaces that
 set noshowmode
 
-let g:currentmode={
-      \ 'n'  : 'NORMAL',
-      \ 'v'  : 'VISUAL',
-      \ 'V'  : 'VISUAL-LINE',
-      \ '^V' : 'VISUAL-BLOCK',
-      \ 'i'  : 'INSERT',
-      \ 'R'  : 'REPLACE',
-      \ 'Rv' : 'VISUAL-REPLACE',
-      \ 'c'  : 'COMMAND',
-      \ 't'  : 'TERMINAL',
-      \ }
+" Maps
+" ====
 
-function! GetBranch()
-  if system('git rev-parse --is-inside-work-tree 2> /dev/null') == 'true'
-    return substitute(system('git branch --show-current'), '\n', '', 'g')
-  else
-    return 'none'
-  endif
-endfunction
-
-set laststatus=2 " Always display a status line
-set statusline=%1*\ %{toupper(g:currentmode[mode()])}\ %* " Displaying mode
-set statusline+=%2*\ %{tolower(GetBranch())}\ %* " Display actual git branch
-set statusline+=\ %t\ (%f) " Displaying filename
-set statusline+=\ %m " Display modified flag
-set statusline+=%= " Switching to right side
-set statusline+=%{tolower(&filetype)}\  
-set statusline+=%3*\ %p%%\ ≡\  
-set statusline+=\ \ \ %l/%L\ \ \ col\ :\ %c\ %* 
-
-" Status bar colors
-hi User1 guifg=White guibg=#6666ff
-hi User2 guifg=#cccccc guibg=#4a4c71
-hi User3 guifg=White guibg=#6666ff
-hi statusline guibg=#666666 guifg=#282a50
-
-" Reloading vim config without restarting it
-noremap <leader>sv :source<space>$MYVIMRC<cr>
-
-" Indent all buffer (because the command is quite long --')
+nnoremap <leader>sv :source<space>$MYVIMRC<cr>
 nnoremap <leader>i mmgg=G`m
 
-" Tabs indexing
+" Tabs
+" ====
+
 nnoremap & 1gt<cr>
 nnoremap é 2gt<cr>
 nnoremap " 3gt<cr>
@@ -71,12 +55,23 @@ nnoremap ' 4gt<cr>
 nnoremap ( 5gt<cr>
 nnoremap - 6gt<cr>
 
-" Vim plug
+" Plugins
+" =======
+
 call plug#begin('~/.vim/plugged')
 
+" Theming
+" =======
 Plug 'ntk148v/vim-horizon'
+
+" Status line
+" ===========
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " Colorscheme
+" ===========
+
 colorscheme horizon
