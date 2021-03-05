@@ -60,18 +60,21 @@ nnoremap - 6gt<cr>
 
 call plug#begin('~/.vim/plugged')
 
-" Theming
-" =======
 Plug 'ntk148v/vim-horizon'
 
-" Status line
-" ===========
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'kien/rainbow_parentheses.vim'
 
 call plug#end()
 
 " Colorscheme
 " ===========
-
 colorscheme horizon
+
+" Status line
+" ===========
+let g:airline_theme='jellybeans'
