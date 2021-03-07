@@ -2,9 +2,6 @@
 separator=true
 separator_block_width=15
 
-[volume]
-command=echo "Volume: $(awk -F"[][]" '/Left: / { print $2}' <(amixer sget Master))"
-interval=repeat
 
 [battery]
 SCRIPT_PATH=/home/wafelack/.config/i3blocks/battery.sh

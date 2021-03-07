@@ -12,6 +12,5 @@ My dotfiles for GNU/Linux, managed with [rdfm](https://github.com/wafelack/rdfm)
 
 - Terminal emulator: [alacritty](alacritty/)
 - Shell            : [fish](fish/)
-- Code Editor      : [Visual Code](VisualCode/)
 - Text Editor      : [vim](vim/)
 
