@@ -1,6 +1,6 @@
 # dotfiles
 
-My dotfiles for GNU/Linux, managed with [rdfm](https://github.com/wafelack/rdfm).
+My dotfiles for Calculate Linux, managed with [rdfm](https://github.com/wafelack/rdfm).
 
 ## Software
 
@@ -13,4 +13,3 @@ My dotfiles for GNU/Linux, managed with [rdfm](https://github.com/wafelack/rdfm)
 - Terminal emulator: [alacritty](alacritty/)
 - Shell            : [fish](fish/)
 - Text Editor      : [vim](vim/)
-
