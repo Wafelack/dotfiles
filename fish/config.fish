@@ -6,7 +6,7 @@ function py
 end
 
 function please
-	sudo $argv
+	doas $argv
 end
 
 function emacs
@@ -57,3 +57,4 @@ set -l is_git (git rev-parse --is-inside-work-tree 2> /dev/null)
 
 # Variables
 	export TERM=xterm-256color
+	export GPG_TTY=(tty)

@@ -16,9 +16,5 @@ interval=repeat
 command=echo $(echo $(setxkbmap -query | grep layout) | sed "s/layout://")
 interval=repeat
 
-[power]
-full_text="⏻"
-command=/home/wafelack/rofi/i3_power.sh
-
 [delimiter]
 full_text=""
