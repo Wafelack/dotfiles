@@ -9,10 +9,6 @@ function please
 	doas $argv
 end
 
-function emacs
-	vim $argv
-end
-
 function rtfm
 	man $argv
 end
@@ -23,11 +19,9 @@ end
 
 # Ssh keys management
 eval (ssh-agent -c)
-	ssh-add
 
 # Gpg
-set GPG_TTY (tty)
-	export GPG_TTY
+set GPG_AGENT_INFO ""
 
 # Cross compiler
 	set PREFIX "/home/wafelack/opt/cross"
@@ -57,4 +51,3 @@ set -l is_git (git rev-parse --is-inside-work-tree 2> /dev/null)
 
 # Variables
 	export TERM=xterm-256color
-	export GPG_TTY=(tty)

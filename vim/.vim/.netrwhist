@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/usr/share/man/cat7'
+let g:netrw_dirhist_4='/usr/share/man/cat1'
 let g:netrw_dirhist_3='/home/wafelack/Documents/code/small-projects/human/src'
 let g:netrw_dirhist_2='/home/wafelack/.dotfiles'
 let g:netrw_dirhist_1='/home/wafelack/.vim'
