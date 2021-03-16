@@ -30,7 +30,7 @@ window:
   padding:
     x: 5
     y: 5
-  title: Alacritty - Terminal
+  title: Alacritty
 
 live_config_reload: true
 
@@ -39,9 +39,9 @@ cursor:
 
 font:
   normal:
-    family: Iosevka Term 
+    family: Monaco
     style: Regular
   bold:
-    family: Iosevka Term
+    family: Monaco
     style: Bold
-  size: 10
+  size: 9

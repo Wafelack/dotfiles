@@ -21,10 +21,11 @@ end
 eval (ssh-agent -c)
 
 # Gpg
-set GPG_AGENT_INFO ""
+set GPG_TTY (tty)
+export GPG_TTY
 
 # Cross compiler
-	set PREFIX "/home/wafelack/opt/cross"
+	set PREFIX "/home/wafelack/.cross/bin/"
 	set TARGET i686-elf
 
 # Path
@@ -35,6 +36,7 @@ set GPG_AGENT_INFO ""
 	set PATH /home/wafelack/.gem/ruby/2.7.0/bin $PATH
 	set PATH /home/wafelack/.cargo/bin $PATH
 	set PATH "$PREFIX/bin" $PATH
+	set PATH /home/wafelack/.local/bin $PATH
 
 	function fish_prompt
 set -l is_git (git rev-parse --is-inside-work-tree 2> /dev/null)
