@@ -1,12 +1,18 @@
-/home/wafelack/.vim->/home/wafelack/.dotfiles/vim/
-/home/wafelack/.vimrc->/home/wafelack/.dotfiles/vim/.vimrc
-/home/wafelack/.fonts/->/home/wafelack/.dotfiles/fonts/
-/home/wafelack/.config/fish/config.fish->/home/wafelack/.dotfiles/fish/config.fish
-/home/wafelack/rofi/i3_screen.sh->/home/wafelack/.dotfiles/rofi/screen.sh
-/home/wafelack/.config/i3blocks/battery.sh->/home/wafelack/.dotfiles/i3blocks/battery.sh
-/home/wafelack/.config/i3blocks/config->/home/wafelack/.dotfiles/i3blocks/config
-/home/wafelack/.config/i3/config->/home/wafelack/.dotfiles/i3/config
-/home/wafelack/rofi/i3_layout.sh->/home/wafelack/.dotfiles/rofi/layout.sh
-/home/wafelack/.config/i3/change_layout.sh->/home/wafelack/.dotfiles/i3/change_layout.sh
-/home/wafelack/rofi/i3_brightness.sh->/home/wafelack/.dotfiles/rofi/brightness.sh
-/home/wafelack/.config/alacritty.yml->/home/wafelack/.dotfiles/alacritty/alacritty.yml
+# Write here the files that will be linked to your dotfiles folder
+# Refer to rdfm.conf(5) for help.
+
+# Vim dotfiles (.vim folder and .vimrc)
+/home/wafelack/.vim/  = vim/.vim
+/home/wafelack/.vimrc = vim/.vimrc
+
+# Fonts
+/home/wafelack/.fonts/ = fonts/
+
+# i3 / i3blocks / rofi
+/home/wafelack/rofi/             = rofi/
+/home/wafelack/.config/i3blocks/ = i3blocks/
+/home/wafelack/.config/i3/       = i3/
+
+# Terminal / shell
+/home/wafelack/.config/fish/ = fish/
+/home/wafelack/.config/alacritty.yml = alacritty/alacritty.yml

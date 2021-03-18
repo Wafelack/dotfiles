@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/wafelack/Documents/code/small-projects/rdfm/src'
+let g:netrw_dirhist_1='/home/wafelack/Documents/code/small-projects/rdfm'
 let g:netrw_dirhist_0='/home/wafelack/Documents/code/small-projects/rad'
 let g:netrw_dirhist_9='/home/wafelack/Documents/code/small-projects/rad/src'
 let g:netrw_dirhist_8='/home/wafelack/Documents/code/small-projects/rad'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_6='/home/wafelack/Documents/code/small-projects/rad'
 let g:netrw_dirhist_5='/home/wafelack/Documents/code/small-projects/rad/target'
 let g:netrw_dirhist_4='/home/wafelack/Documents/code/small-projects/rad'
 let g:netrw_dirhist_3='/home/wafelack/Documents/code/small-projects/rad/src'
-let g:netrw_dirhist_2='/home/wafelack/Documents/code/small-projects/corsutils/man-pages'
-let g:netrw_dirhist_1='/home/wafelack/Documents/code/small-projects/corsutils/chmod/src'
