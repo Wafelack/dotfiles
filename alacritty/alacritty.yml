@@ -35,13 +35,13 @@ window:
 live_config_reload: true
 
 cursor:
-  style: Beam
+  style: Block
 
 font:
   normal:
-    family: Monaco
+    family: Hack
     style: Regular
   bold:
-    family: Monaco
+    family: Hack
     style: Bold
   size: 9

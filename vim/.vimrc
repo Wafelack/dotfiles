@@ -17,6 +17,12 @@ augroup end
 
 let mapleader = "," " Leader for commands
 
+" Alternative to escape
+" =====================
+
+inoremap qs <esc>
+vnoremap qs <esc>
+
 syntax enable
 set termguicolors
 
@@ -35,6 +41,12 @@ set noswapfile
 set noundofile
 set nobackup
 set nowritebackup
+
+" Abbreviations
+" =============
+
+iabbrev sefl self
+iabbrev lambda λ
 
 " Status bar replaces that
 set noshowmode
@@ -55,15 +67,18 @@ nnoremap ' 4gt<cr>
 nnoremap ( 5gt<cr>
 nnoremap - 6gt<cr>
 
+" Tests
+" =====
+
 " File explorer
 " =============
 
 let g:netrw_baner=0
-let g:netrw_browse_split=4
+let g:netrw_browse_split=0
 let g:netrw_altv=1
 let g:netrw_liststyle=3 "| Tree view
 
-nnoremap <leader>t :Vexplore<cr>
+nnoremap <leader>t :e .<cr>
 
 " Plugins
 " =======
@@ -76,19 +91,24 @@ Plug 'vim-airline/vim-airline' "| Status bar
 Plug 'vim-airline/vim-airline-themes' "| Status bar
 
 Plug 'jiangmiao/auto-pairs' "| Bracket / Quotes / whatever pairing
-Plug 'kien/rainbow_parentheses.vim' "| Bracket colorization
+Plug 'luochen1990/rainbow' "| Bracket colorization
 
 Plug 'wakatime/vim-wakatime' "| Coding activity (kinda tracking)
 
 Plug 'dense-analysis/ale' "| Linting
 
-Plug 'vimsence/vimsence' "| Rich presence, eh flexing on discord is important.
+Plug 'wlangstroth/vim-racket' "| Speaks for itself I guess
 
 call plug#end()
 
 " Colorscheme
 " ===========
 colorscheme horizon
+
+" Colorization
+" ============
+
+let g:rainbow_active = 1
 
 " Status line
 " ===========

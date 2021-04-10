@@ -201,9 +201,8 @@ bindsym Mod4+c exec flameshot gui
 for_window [class="^/*"] border pixel 0
 bindsym Mod4+Shift+s exec ~/rofi/i3_screen.sh
 bindsym Mod4+Home exec ~/rofi/i3_power.sh
-bindsym Mod4+y exec ~/rofi/i3_layout.sh
 bindsym Mod4+b exec ~/rofi/i3_brightness.sh
-bindsym Mod1+y exec ~/.config/i3/change_layout.sh
+bindsym Mod4+y exec ~/.config/i3/change_layout.sh
 bindsym Mod4+Shift+x exec i3lock --color=20272c
 
 gaps horizontal 10
