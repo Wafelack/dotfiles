@@ -22,15 +22,11 @@ set TARGET i686-elf
 
 # Path
 set PATH $DENO_INSTALL/bin $PATH
-set PATH /home/wafelack/.werb_bin $PATH
-set PATH /home/wafelack/.lua $PATH
-set PATH /home/wafelack/.gem/ruby/2.7.0/bin $PATH
 set PATH /home/wafelack/.cargo/bin $PATH
 set PATH "$PREFIX/bin" $PATH
 set PATH /home/wafelack/.local/bin $PATH
 set PATH /usr/local/bin/ $PATH
 set PATH /usr/local/texlive/2021/bin/x86_64-linux $PATH
-set PATH /home/wafelack/.chicken/ $PATH
 
 # Prompt
 

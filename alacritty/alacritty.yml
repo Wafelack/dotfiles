@@ -39,9 +39,9 @@ cursor:
 
 font:
   normal:
-    family: Hack
+    family: Fira Code
     style: Regular
   bold:
-    family: Hack
+    family: Fira Code
     style: Bold
   size: 9

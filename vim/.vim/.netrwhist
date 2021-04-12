@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/wafelack/Documents/code/vimlisp/src'
+let g:netrw_dirhist_0='/home/wafelack/Documents/code/orion'
+let g:netrw_dirhist_9='/home/wafelack/Documents/cours/histoire'
 let g:netrw_dirhist_8='/home/wafelack/Documents/code/site/css'
 let g:netrw_dirhist_7='/etc/portage/package.use'
 let g:netrw_dirhist_6='/home/wafelack/Documents/code/serv_compteurs/moi/src'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_5='/home/wafelack/Documents/code/serv_compteurs/moi'
 let g:netrw_dirhist_4='/home/wafelack/Documents/code/orion/.github/workflows'
 let g:netrw_dirhist_3='/home/wafelack/Documents/code/orion/.github'
 let g:netrw_dirhist_2='/home/wafelack/Documents/code/orion/src'
-let g:netrw_dirhist_1='/home/wafelack/Documents/code/orion'
-let g:netrw_dirhist_0='/home/wafelack/Documents/code'
-let g:netrw_dirhist_9='/home/wafelack/Documents/code/orion/lib'
