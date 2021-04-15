@@ -16,3 +16,6 @@
 # Terminal / shell
 /home/wafelack/.config/fish/ = fish/
 /home/wafelack/.config/alacritty.yml = alacritty/alacritty.yml
+
+# Packages installation on new machine
+/home/wafelack/install_packages.sh = install_packages.sh

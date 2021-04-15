@@ -2,13 +2,6 @@
 set -euo pipefail
 
 out=$(acpi)
-is_full=$(echo $out | grep -o '[^,]*$')
+is_full=$(echo $out | cut -d, -f2)
 
-if [[ $is_full == " 100%" ]]
-then
-  echo "100%"
-else
-  LEVEL=$(echo $out | grep -o '[0-9][0-9]')
-
-  echo $out | grep -o '[0-9][0-9]%'
-fi
+echo $is_full
