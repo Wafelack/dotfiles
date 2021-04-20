@@ -11,6 +11,7 @@ end
 
 # Ssh keys management
 eval (ssh-agent -c)
+ssh-add -t 1h
 
 # Gpg
 set GPG_TTY (tty)

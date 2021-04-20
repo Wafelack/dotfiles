@@ -23,6 +23,7 @@ Software
 
 ---
 
-- Terminal emulator: [alacritty](alacritty/)
-- Shell            : [fish](fish/)
-- Text Editor      : [vim](vim/)
+- Terminal emulator   : [alacritty](alacritty/)
+- Terminal multiplexer: Zellij
+- Shell               : [fish](fish/)
+- Text Editor         : [vim](vim/)

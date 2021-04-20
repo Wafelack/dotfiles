@@ -19,6 +19,12 @@ install_package() {
 	echo "* Sucessfully installed $1."
 }
 
+cargo_install() {
+	echo "* Installing ${1}"
+	cargo install ${1}
+	echo "* Successfully installed $1."
+}
+
 install_rad() {
 	echo "* Installing rad..."
 	git clone https://github.com/wafelack/rad.git
@@ -64,7 +70,12 @@ install_package "www-client/firefox"
 install_package "app-shells/fish"
 install_package "media-fonts/fira-code"
 install_package "media-gfx/inkscape"
+install_package "media-gfx/flameshot"
+install_package "x11-misc/i3lock"
+install_package "app-text/texlive"
+install_package "dev-tex/latexmk"
 install_rust
 install_rad
 install_rdfm
 install_dotfiles
+cargo_install "zellij"

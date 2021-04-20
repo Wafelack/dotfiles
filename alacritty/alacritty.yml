@@ -24,7 +24,9 @@ colors:
     white: '#e5e5e5'
 env:
   TERM: xterm-256color
-  SHELL: /usr/bin/tmux
+
+shell:
+  program: /home/wafelack/.cargo/bin/zellij
 
 window:
   padding:
@@ -33,6 +35,7 @@ window:
   title: Alacritty
 
 live_config_reload: true
+
 
 cursor:
   style: Block
