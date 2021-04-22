@@ -36,13 +36,12 @@ set -l is_git (git rev-parse --is-inside-work-tree 2> /dev/null)
 
 switch $is_git
 case 'true'
-	echo -n "on "(set_color red)" "(git branch --show-current)(set_color normal)
+	echo -n (set_color -b red)(set_color blue)""(set_color black) " "(git branch --show-current)
 end
 end
 
 function git_status
 set -l is_git (git rev-parse --is-inside-work-tree 2> /dev/null)
-
 switch $is_git
 case 'true'
 	set -l output (git status -uno -b -s | head -n 1 | cut -d "[" -f2 | cut -d "]" -f1)
@@ -52,23 +51,28 @@ case 'true'
 
 	if test "$even" = ""
 		if test "ahead" = $type
-			echo -n "["(set_color red)"+"$how_many(set_color normal)"]"
+			echo -n (set_color -b red)"+"$how_many (set_color normal)(set_color -o red)""(set_color normal)
 		else
-			echo -n "["(set_color red)"-"$how_many(set_color normal)"]"
+			echo -n (set_color -b red)"-"$how_many (set_color normal)(set_color -o red)""(set_color normal)
 		end
+	else
+		echo -n (set_color -b normal)(set_color red -o)""
 	end
+case '*'
+	echo -n (set_color -b normal)(set_color blue -o)""
 end
 end
 
 function fish_prompt
 set -l saved_status $status
-echo -n (set_color cyan)(prompt_pwd) (set_color normal)
+echo -n (set_color normal)(set_color -b blue) (set_color black)(prompt_pwd)" "
+# echo -n (set_color cyan)(prompt_pwd) (set_color normal)
 echo (git_branch) (git_status)
 
 if test $saved_status -eq 0
-	echo (set_color green)"➜ "(set_color normal)
+	echo (set_color green)"❯ "(set_color normal)
 else
-	echo (set_color red)"➜ "(set_color normal)
+	echo (set_color red)"❯ "(set_color normal)
 end
 end
 

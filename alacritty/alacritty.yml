@@ -9,12 +9,12 @@ colors:
     red: '#e95678'
     green: '#29d398'
     yellow: '#fab795'
-    blue: '#fbc3a7'
+    blue: '#539bf5'
     magenta: '#ee64ac'
     cyan: '#59e1e3'
     white: '#e5e5e5'
   bright:
-    black: '#848484'
+    black: '#515151'
     red: '#ec6a88'
     green: '#3fdaa4'
     yellow: '#fbc3a7'
@@ -26,7 +26,7 @@ env:
   TERM: xterm-256color
 
 shell:
-  program: /home/wafelack/.cargo/bin/zellij
+  program: /bin/fish
 
 window:
   padding:
