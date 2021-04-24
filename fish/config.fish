@@ -78,3 +78,7 @@ end
 
 # Variables
 export TERM=xterm-256color
+set PATH /home/wafelack/.quark $PATH
+export QUARK=/home/wafelack/.quark
+set PATH /home/wafelack/.orion/bin $PATH
+export ORION_LIB=/home/wafelack/.orion/lib//orion

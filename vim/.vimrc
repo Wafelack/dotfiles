@@ -45,7 +45,6 @@ set nowritebackup
 " Abbreviations
 " =============
 
-iabbrev sefl self
 iabbrev lambda λ
 
 " Status bar replaces that
@@ -103,14 +102,15 @@ call plug#end()
 " ===========
 colorscheme horizon
 
-" Colorization
+" Highlighting
 " ============
 
 let g:rainbow_active = 1
+au BufNewFile,BufRead *.orn setfiletype clojure "| Minimum syntax highlighting for Orion files
 
 " Status line
 " ===========
-let g:airline_theme='jellybeans'
+let g:airline_theme='base16_nord'
 
 " Linter
 " ======
