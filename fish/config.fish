@@ -9,10 +9,6 @@ function rl
 source $HOME/.config/fish/config.fish
 end
 
-# Ssh keys management
-eval (ssh-agent -c)
-ssh-add -t 1h
-
 # Gpg
 set GPG_TTY (tty)
 export GPG_TTY
@@ -80,5 +76,5 @@ end
 export TERM=xterm-256color
 set PATH /home/wafelack/.quark $PATH
 export QUARK=/home/wafelack/.quark
-set PATH /home/wafelack/.orion/bin $PATH
-export ORION_LIB=/home/wafelack/.orion/lib//orion
+set PATH /usr/bin $PATH
+export ORION_LIB=/usr/lib//orion

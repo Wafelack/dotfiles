@@ -96,6 +96,8 @@ Plug 'wakatime/vim-wakatime' "| Coding activity (kinda tracking)
 
 Plug 'dense-analysis/ale' "| Linting
 
+Plug 'wlangstroth/vim-racket' "| Racket highlighting
+
 call plug#end()
 
 " Colorscheme

@@ -63,7 +63,6 @@ install_dotfiles() {
 install_package "x11-wm/i3-gaps"
 install_package "x11-misc/i3blocks"
 install_package "x11-misc/rofi"
-install_package "x11-misc/lightdm"
 install_package "x11-terms/alacritty"
 install_package "app-editors/vim"
 install_package "www-client/firefox"
