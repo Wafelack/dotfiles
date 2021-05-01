@@ -22,11 +22,6 @@ colors:
     magenta: '#f075b5'
     cyan: '#6be4e6'
     white: '#e5e5e5'
-env:
-  TERM: xterm-256color
-
-shell:
-  program: /bin/fish
 
 window:
   padding:
@@ -36,6 +31,11 @@ window:
 
 live_config_reload: true
 
+env:
+  TERM: xterm-256color
+
+shell:
+  program: /bin/fish
 
 cursor:
   style: Block
