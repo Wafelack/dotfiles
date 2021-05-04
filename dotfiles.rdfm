@@ -9,12 +9,12 @@
 /home/wafelack/.fonts/ = fonts/
 
 # i3 / i3blocks / rofi
-/home/wafelack/rofi/             = rofi/
+/home/wafelack/Documents/rofi/             = rofi/
 /home/wafelack/.config/i3blocks/ = i3blocks/
 /home/wafelack/.config/i3/       = i3/
 
 # Terminal / shell
-/home/wafelack/.config/fish/ = fish/
+/home/wafelack/.bashrc = bashrc
 /home/wafelack/.config/alacritty.yml = alacritty/alacritty.yml
 
 # Gentoo

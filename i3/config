@@ -199,17 +199,17 @@ title_align center
 
 bindsym Mod4+c exec flameshot gui
 for_window [class="^/*"] border pixel 0
-bindsym Mod4+Shift+s exec ~/rofi/i3_screen.sh
-bindsym Mod4+Home exec ~/rofi/i3_power.sh
-bindsym Mod4+b exec ~/rofi/i3_brightness.sh
+bindsym Mod4+Shift+s exec ~/Documents/rofi/i3_screen.sh
+bindsym Mod4+Home exec ~/Documents/rofi/i3_power.sh
+bindsym Mod4+b exec ~/Documents/rofi/i3_brightness.sh
 bindsym Mod4+y exec ~/.config/i3/change_layout.sh
 bindsym Mod4+Shift+x exec i3lock --color=20272c
 
-gaps horizontal 20
-gaps vertical 20
-gaps left 20
-gaps right 20
-gaps inner 40
+gaps horizontal 10
+gaps vertical 10
+gaps left 10
+gaps right 10
+gaps inner 20
 
 # Background
 exec feh --bg-scale /home/wafelack/Pictures/wallpapers/big_sur_night.jpg
