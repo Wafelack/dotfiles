@@ -12,6 +12,12 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.quark/:$PATH"
 
+alias rl="source $HOME/.bashrc"
+alias py="python3"
+
+complete -cf rad
+complete -W '-V --version --list --explain -v --verbose -q --quiet --color --frozen --locked --offline --config -Z -h --help build b check c clean doc new init run r test t bench update search publish install uninstall' cargo
+
 git_branch() {
 	IS_GIT=$(git rev-parse --is-inside-work-tree 2> /dev/null)
 	case $IS_GIT in
