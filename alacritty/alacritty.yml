@@ -35,7 +35,7 @@ env:
   TERM: xterm-256color
 
 shell:
-  program: /bin/bash
+  program: /bin/fish
 
 cursor:
   style: Beam

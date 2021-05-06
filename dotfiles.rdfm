@@ -14,7 +14,7 @@
 /home/wafelack/.config/i3/       = i3/
 
 # Terminal / shell
-/home/wafelack/.bashrc = bashrc
+/home/wafelack/.config/fish/ = fish/
 /home/wafelack/.config/alacritty.yml = alacritty/alacritty.yml
 
 # Gentoo
