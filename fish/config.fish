@@ -9,6 +9,8 @@ function rl
 source $HOME/.config/fish/config.fish
 end
 
+setxkbmap -option caps:escape
+
 # Gpg
 set GPG_TTY (tty)
 export GPG_TTY

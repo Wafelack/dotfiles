@@ -8,6 +8,9 @@
 set number numberwidth=4 
 set relativenumber
 
+set tabstop=4
+set noexpandtab
+
 " Relative nline numbers only in normal and visual mode (useful for jumping)
 augroup numbers
 	autocmd!
@@ -16,12 +19,6 @@ augroup numbers
 augroup end
 
 let mapleader = "," " Leader for commands
-
-" Alternative to escape
-" =====================
-
-inoremap qs <esc>
-vnoremap qs <esc>
 
 syntax enable
 set termguicolors
