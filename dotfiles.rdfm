@@ -1,18 +1,16 @@
 # Write here the files that will be linked to your dotfiles folder
 # Refer to rdfm.conf(5) for help.
 
-# Vim dotfiles (.vim folder and .vimrc)
 /home/wafelack/.vim/  = vim/.vim
 /home/wafelack/.vimrc = vim/.vimrc
 
-# Fonts
 /home/wafelack/.fonts/ = fonts/
 
-# i3 / i3blocks / rofi
-/home/wafelack/Documents/rofi/             = rofi/
+/home/wafelack/Documents/rofi/   = rofi/
 /home/wafelack/.config/i3blocks/ = i3blocks/
 /home/wafelack/.config/i3/       = i3/
 
-# Terminal / shell
 /home/wafelack/.config/fish/ = fish/
 /home/wafelack/.config/alacritty.yml = alacritty/alacritty.yml
+
+/home/wafelack/.XCompose = Xcompose
