@@ -16,6 +16,3 @@
 # Terminal / shell
 /home/wafelack/.config/fish/ = fish/
 /home/wafelack/.config/alacritty.yml = alacritty/alacritty.yml
-
-# Gentoo
-/etc/portage/make.conf = make.conf
