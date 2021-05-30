@@ -38,7 +38,7 @@ shell:
   program: /bin/fish
 
 cursor:
-  style: Beam
+  style: Block
 
 font:
   normal:

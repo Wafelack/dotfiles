@@ -9,15 +9,17 @@ source $HOME/.config/fish/config.fish
 end
 
 setxkbmap -option caps:escape
-xmodmap -e "keysym Meta_L = Multi_key"
+xmodmap -e "keysym Shift_R = Multi_key"
 
 set GPG_TTY (tty)
 export GPG_TTY
+eval (ssh-agent -c)
 
 set PATH /home/wafelack/.cargo/bin $PATH
 set PATH "$PREFIX/bin" $PATH
 set PATH /home/wafelack/.local/bin $PATH
 set PATH /usr/local/bin/ $PATH
+set PATH /sbin/ $PATH
 set PATH /usr/local/texlive/2021/bin/x86_64-linux $PATH
 
 function git_branch
@@ -61,8 +63,13 @@ else
 end
 end
 
+# Auto dotfiles linked
+sed '/^#/d' ~/.config/.dotfiles/dotfiles.rdfm | sed -r '/^\s*$/d' | awk -F'=' '{ print $1 }' | rlgl -qs rdfm link
+
 export TERM=xterm-256color
 set PATH /home/wafelack/.quark $PATH
 export QUARK=/home/wafelack/.quark
 set PATH /usr/bin $PATH
-export ORION_LIB=/usr/lib//orion
+export ORION_LIB=/usr/lib/orion
+set PATH /home/wafelack/.ark $PATH
+export ARKSCRIPT_PATH="/home/wafelack/.ark"

@@ -1,0 +1,11 @@
+include "%L"
+
+<Multi_key> <apostrophe> <C>   : "Ç"
+<Multi_key> <apostrophe> <c>   : "ç"
+<Multi_key> <e> <apostrophe>   : "é"
+<Multi_key> <e> <acute_accent> : "è"
+<Multi_key> <e> <asciicircum>  : "ê"
+<Multi_key> <i> <asciicircum>  : "î"
+<Multi_key> <o> <asciicircum>  : "ô"
+<Multi_key> <u> <asciicircum>  : "û"
+<Multi_key> <g> <l> : "λ"
