@@ -59,6 +59,7 @@ Plug 'luochen1990/rainbow' "| Bracket colorization
 Plug 'wakatime/vim-wakatime' "| Coding activity (kinda tracking)
 Plug 'dense-analysis/ale' "| Linting
 Plug 'neovimhaskell/haskell-vim' "| Haskell (you don't say !)
+Plug 'orion-lang/vim-orion' "| Orion (yes)
 call plug#end()
 
 " Colorscheme
@@ -66,7 +67,6 @@ colorscheme horizon
 
 " Highlighting
 let g:rainbow_active = 1
-au BufNewFile,BufRead *.orn setfiletype clojure "| Minimum syntax highlighting for Orion files
 
 " Status line
 let g:airline_theme='base16_nord'

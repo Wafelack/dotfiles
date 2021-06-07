@@ -69,7 +69,7 @@ sed '/^#/d' ~/.config/.dotfiles/dotfiles.rdfm | sed -r '/^\s*$/d' | awk -F'=' '{
 export TERM=xterm-256color
 set PATH /home/wafelack/.quark $PATH
 export QUARK=/home/wafelack/.quark
-set PATH /usr/bin $PATH
 export ORION_LIB=/usr/lib/orion
 set PATH /home/wafelack/.ark $PATH
 export ARKSCRIPT_PATH="/home/wafelack/.ark"
+export EDITOR=vim
