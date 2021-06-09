@@ -51,25 +51,23 @@ nnoremap <leader>t :e .<cr>
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'ntk148v/vim-horizon' "| Theme
+Plug 'chriskempson/base16-vim' "| The Themee
 Plug 'vim-airline/vim-airline' "| Status bar
 Plug 'vim-airline/vim-airline-themes' "| Status bar
 Plug 'jiangmiao/auto-pairs' "| Bracket / Quotes / whatever pairing
 Plug 'luochen1990/rainbow' "| Bracket colorization
 Plug 'wakatime/vim-wakatime' "| Coding activity (kinda tracking)
 Plug 'dense-analysis/ale' "| Linting
-Plug 'neovimhaskell/haskell-vim' "| Haskell (you don't say !)
-Plug 'orion-lang/vim-orion' "| Orion (yes)
 call plug#end()
 
 " Colorscheme
-colorscheme horizon
+colorscheme base16-default-dark
 
 " Highlighting
 let g:rainbow_active = 1
 
 " Status line
-let g:airline_theme='base16_nord'
+let g:airline_theme='base16'
 
 " Linter
 set omnifunc=ale#completion#OmniFunc

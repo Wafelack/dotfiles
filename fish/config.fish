@@ -4,6 +4,10 @@ function py
 python3 $argv
 end
 
+function vim
+/usr/bin/vim -i NONE $argv
+end
+
 function rl
 source $HOME/.config/fish/config.fish
 end

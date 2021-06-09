@@ -212,4 +212,4 @@ gaps right 10
 gaps inner 20
 
 # Background
-exec feh --bg-scale /home/wafelack/Pictures/wallpapers/big_sur_night.jpg
+exec feh --bg-scale /home/wafelack/documents/wallpapers/space_dogs.jpg

@@ -6,7 +6,7 @@
 
 /home/wafelack/.fonts/ = fonts/
 
-/home/wafelack/Documents/rofi/   = rofi/
+/home/wafelack/scripts = scripts
 /home/wafelack/.config/i3blocks/ = i3blocks/
 /home/wafelack/.config/i3/       = i3/
 

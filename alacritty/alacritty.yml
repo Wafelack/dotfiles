@@ -1,28 +1,43 @@
 colors:
+  # Default colors
   primary:
-    background: '#1c1e26'
-    foreground: '#bdc0c2'
-  cursor:
-    cursor: '#e95678'
-  normal:
-    black: '#0a0a0d'
-    red: '#e95678'
-    green: '#29d398'
-    yellow: '#fab795'
-    blue: '#539bf5'
-    magenta: '#ee64ac'
-    cyan: '#59e1e3'
-    white: '#e5e5e5'
-  bright:
-    black: '#515151'
-    red: '#ec6a88'
-    green: '#3fdaa4'
-    yellow: '#fbc3a7'
-    blue: '#3fc4de'
-    magenta: '#f075b5'
-    cyan: '#6be4e6'
-    white: '#e5e5e5'
+    background: '0x090300'
+    foreground: '0xa5a2a2'
 
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x090300'
+    cursor: '0xa5a2a2'
+
+  # Normal colors
+  normal:
+    black:   '0x090300'
+    red:     '0xdb2d20'
+    green:   '0x01a252'
+    yellow:  '0xfded02'
+    blue:    '0x01a0e4'
+    magenta: '0xa16a94'
+    cyan:    '0xb5e4f4'
+    white:   '0xa5a2a2'
+
+  # Bright colors
+  bright:
+    black:   '0x5c5855'
+    red:     '0xdb2d20'
+    green:   '0x01a252'
+    yellow:  '0xfded02'
+    blue:    '0x01a0e4'
+    magenta: '0xa16a94'
+    cyan:    '0xb5e4f4'
+    white:   '0xf7f7f7'
+
+  indexed_colors:
+    - { index: 16, color: '0xe8bbd0' }
+    - { index: 17, color: '0xcdab53' }
+    - { index: 18, color: '0x3a3432' }
+    - { index: 19, color: '0x4a4543' }
+    - { index: 20, color: '0x807d7c' }
+    - { index: 21, color: '0xd6d5d4' }
 window:
   padding:
     x: 5
@@ -30,6 +45,7 @@ window:
   title: Alacritty
 
 live_config_reload: true
+thickness: 1.0
 
 env:
   TERM: xterm-256color
