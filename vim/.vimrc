@@ -1,78 +1,98 @@
-" My .vimrc
-" By Wafelack<wafelack@protonmail.com>
-" Available @ https://github.com/wafelack/dotfiles/
-
-" Line numbers
-set number numberwidth=4 
-set relativenumber
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-" Relative nline numbers only in normal and visual mode (useful for jumping)
-augroup numbers
-	autocmd!
-	au InsertEnter * set norelativenumber
-	au InsertLeave * set relativenumber
+"| Line numbers
+set number " Show line numbers
+set numberwidth=4 " Line number zone is at least 4 chars wide
+augroup numbers " Enable or not relative line numbers depending on the mode
+    autocmd!
+    au InsertEnter * set norelativenumber
+    au InsertLeave * set relativenumber
 augroup end
-let mapleader = "," " Leader for commands
-syntax enable
-set termguicolors
 
-" Completion options
-set completeopt=menuone,longest
-set makeprg=cargo " Using Rustlang all day, so cargo ftw
-set scrolloff=15 " Minimum of lines show around the current line
-set path+=** " Fuzzy path search
-set wildmenu " Menu options
-" We have source control for that (Copyright https://github.com/Chewie for the joke).
-set noswapfile
-set noundofile
-set nobackup
-set nowritebackup
+"| Files created by VIM
+" Source control replaces that.
+set noswapfile 
+set noundofile 
+set nobackup 
+set nowritebackup 
+" Remove useless and annoying logging files.
+set viminfo=
 
-" Abbreviations
-iabbrev lambda λ
+"| Files browsing/search and completion
+set completeopt=menuone " Show completion popup even if there is one match.
+set path+=** " Enable fuzzy path search.
+set wildmenu " Improve completion menu.
+let g:netrw_banner=0 " Disable annoying banner.
+let g:netrw_browse_split=0 " Open the file in the same window as the file explorer.
+let g:netrw_liststyle=3 " Filesystem tree view.
 
-" Status bar replaces that
-set noshowmode
+"| Readbility
+set scrolloff=15 " Absolute minimum to see the code around.
+set noshowmode " Status bar replaces it.
+set termguicolors " Enable GUI colors
+set tabstop=4 " Set tab width to 4.
+set shiftwidth=4
+set expandtab " Replace tabs with spaces.
+syntax enable " Enable syntax items.
 
-" Maps
+"| Keymaps
+let mapleader=","
 nnoremap <leader>sv :source<space>$MYVIMRC<cr>
 nnoremap <leader>i mmgg=G`m
 
-" File explorer
-let g:netrw_baner=0
-let g:netrw_browse_split=0
-let g:netrw_altv=1
-let g:netrw_liststyle=3 "| Tree view
-
-nnoremap <leader>t :e .<cr>
-
-" Plugins
-call plug#begin('~/.vim/plugged')
-Plug 'chriskempson/base16-vim' "| The Themee
-Plug 'vim-airline/vim-airline' "| Status bar
-Plug 'vim-airline/vim-airline-themes' "| Status bar
-Plug 'jiangmiao/auto-pairs' "| Bracket / Quotes / whatever pairing
-Plug 'luochen1990/rainbow' "| Bracket colorization
-Plug 'wakatime/vim-wakatime' "| Coding activity (kinda tracking)
-Plug 'dense-analysis/ale' "| Linting
-call plug#end()
-
-" Colorscheme
-colorscheme base16-default-dark
-
-" Highlighting
-let g:rainbow_active = 1
-
-" Status line
-let g:airline_theme='base16'
-
-" Linter
+"| Linter
 set omnifunc=ale#completion#OmniFunc
 let g:ale_completion_enabled = 1
-let g:ale_completion_autoimport = 1
 let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 1
-let g:ale_linters = {'rust': ['analyzer']}
+let g:ale_linters = { 'rust' : [ 'analyzer' ] }
+
+"| Plugins
+call plug#begin('~/.vim/plugged') "| Setup plugins directory.
+Plug 'jiangmiao/auto-pairs' "| Symbol pairing
+Plug 'luochen1990/rainbow'  "| Symbolo colorization
+Plug 'dense-analysis/ale' "| Linter
+Plug 'arcticicestudio/nord-vim' "| Theme
+call plug#end()
+
+"| Fancy
+colorscheme nord
+set laststatus=2
+let modes = {
+            \ 'n' : 'NORMAL',
+            \ 'i' : 'INSERT',
+            \ 'ic': 'COMPLETE',
+            \ 'ix': 'COMPLETE',
+            \ 'R' :'REPLACE',
+            \ 'Rc': 'R-COMPLETE',
+            \ 'Rv': 'V-REPLACE',
+            \ 'Rx': 'R-COMPLETE',
+            \ 'c' : 'COMMAND',
+            \ 'cv': 'EXECUTE',
+            \ 'ce': 'EXECUTE',
+            \ 'r' : 'PROMPT',
+            \ 'rm': 'MORE',
+            \ 'r?': 'CONFIRM',
+            \ '!' : 'SHELL',
+            \ 't' : 'TERMINAL',
+            \ 'v' : 'VISUAL',
+            \ 'V' : 'VLINE',
+            \ '': 'VBLOCK',
+            \ 's' : 'SELECT',
+            \ 'S' : 'SLINE',
+            \ '^S': 'SBLOCK'}
+function! GitBranch()
+    return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+function! StatusBranch()
+    let l:branch = GitBranch()
+    if strlen(l:branch) > 0
+        return '/  ' . l:branch
+    else
+        return ''
+    endif
+endfunction
+set statusline=\ %{modes[mode()]}\ /
+set statusline+=\ %f
+set statusline+=%{StatusBranch()}
+set statusline+=%=\ %y\ \\
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}\ \\
+set statusline+=\ %p%%\ %l/%L:%c\ 

@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/wafelack/code/c/kernel/src'
+let g:netrw_dirhist_2='/home/wafelack/code/c/kernel'
 let g:netrw_dirhist_1='/home/wafelack/Documents/projects/trouve'
 let g:netrw_dirhist_0='/home/wafelack/.vim'
 let g:netrw_dirhist_9='/home/wafelack/Documents/projects/orion-lang/orion/docs/builtins'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_7='/home/wafelack/Documents/projects/orion-lang/orion/docs/b
 let g:netrw_dirhist_6='/home/wafelack/Documents/projects/orion-lang/orion/lib'
 let g:netrw_dirhist_5='/home/wafelack/Documents/projects/orion-lang/orion/docs/builtins'
 let g:netrw_dirhist_4='/home/wafelack/Documents/projects/orion-lang/orion/docs/std'
-let g:netrw_dirhist_3='/home/wafelack/Documents/projects/orion-lang/orion/src'
-let g:netrw_dirhist_2='/home/wafelack/Documents/projects/orion-lang/orion/lib'

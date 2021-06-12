@@ -4,10 +4,6 @@ function py
 python3 $argv
 end
 
-function vim
-/usr/bin/vim -i NONE $argv
-end
-
 function rl
 source $HOME/.config/fish/config.fish
 end
@@ -20,7 +16,7 @@ export GPG_TTY
 eval (ssh-agent -c)
 
 set PATH /home/wafelack/.cargo/bin $PATH
-set PATH "$PREFIX/bin" $PATH
+set PATH "/home/wafelack/opt/cross/bin" $PATH
 set PATH /home/wafelack/.local/bin $PATH
 set PATH /usr/local/bin/ $PATH
 set PATH /sbin/ $PATH
