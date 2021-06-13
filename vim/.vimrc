@@ -48,13 +48,14 @@ let g:ale_linters = { 'rust' : [ 'analyzer' ] }
 "| Plugins
 call plug#begin('~/.vim/plugged') "| Setup plugins directory.
 Plug 'jiangmiao/auto-pairs' "| Symbol pairing
-Plug 'luochen1990/rainbow'  "| Symbolo colorization
+Plug 'luochen1990/rainbow'  "| Symbol highlighting
 Plug 'dense-analysis/ale' "| Linter
 Plug 'arcticicestudio/nord-vim' "| Theme
 call plug#end()
 
 "| Fancy
 colorscheme nord
+let g:rainbow_active = 1 " Unable symbol highlighting.
 set laststatus=2
 let modes = {
             \ 'n' : 'NORMAL',
@@ -75,10 +76,10 @@ let modes = {
             \ 't' : 'TERMINAL',
             \ 'v' : 'VISUAL',
             \ 'V' : 'VLINE',
-            \ '': 'VBLOCK',
+            \ '': 'VBLOCK',
             \ 's' : 'SELECT',
             \ 'S' : 'SLINE',
-            \ '^S': 'SBLOCK'}
+            \ '': 'SBLOCK'}
 function! GitBranch()
     return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
@@ -92,7 +93,8 @@ function! StatusBranch()
 endfunction
 set statusline=\ %{modes[mode()]}\ /
 set statusline+=\ %f
-set statusline+=%{StatusBranch()}
+set statusline+=\ %{StatusBranch()}
+set statusline+=\ %m
 set statusline+=%=\ %y\ \\
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}\ \\
 set statusline+=\ %p%%\ %l/%L:%c\ 

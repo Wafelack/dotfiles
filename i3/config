@@ -53,7 +53,7 @@ bindsym Mod4+Return exec alacritty
 bindsym Mod4+Shift+q kill
 
 # A more modern dmenu replacement is rofi:
-bindsym Mod4+d exec "rofi -modi drun,run -show drun"
+bindsym Mod4+d exec --no-startup-id dmenu_run
 
 # change focus
 bindsym Mod4+$left focus left
@@ -205,11 +205,11 @@ bindsym Mod4+b exec ~/Documents/rofi/i3_brightness.sh
 bindsym Mod4+y exec ~/.config/i3/change_layout.sh
 bindsym Mod4+Shift+x exec i3lock --color=20272c
 
-gaps horizontal 10
-gaps vertical 10
-gaps left 10
-gaps right 10
-gaps inner 20
+# gaps horizontal 10
+# gaps vertical 10
+# gaps left 10
+# gaps right 10
+# gaps inner 20
 
 # Background
 exec feh --bg-scale /home/wafelack/documents/wallpapers/space_dogs.jpg

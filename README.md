@@ -22,11 +22,10 @@ Software
 
 - Window Manager   : [i3](i3/)
 - Status bar       : [i3blocks](i3blocks/)
-- Dmenu            : [rofi](rofi/)
+- Dmenu            : dmenu
 
 ---
 
-- Terminal emulator   : [alacritty](alacritty/)
-- Terminal multiplexer: Zellij
-- Shell               : [fish](fish/)
+- Terminal Emulator   : [st](st_config.h)
+- Shell               : [bash](bashrc)
 - Text Editor         : [vim](vim/)
