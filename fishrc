@@ -19,6 +19,7 @@ export EDITOR=vim
 set PATH /home/wafelack/.cargo/bin $PATH
 set PATH /home/wafelack/.local/bin $PATH
 set PATH /usr/local/bin/ $PATH
+set PATH /usr/local/sbin $PATH
 set PATH /sbin/ $PATH
 set PATH /usr/local/texlive/2021/bin/x86_64-linux $PATH
 
