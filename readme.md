@@ -20,12 +20,12 @@ $ rdfm install
 Software
 --------
 
-- Window Manager   : [i3](i3/)
-- Status bar       : [i3blocks](i3blocks/)
-- Dmenu            : dmenu
+- Window Manager   : [DWM](dwm/)
+- Status bar       : [Homemade status bar](dwm/status.c)
+- Program launcher : dmenu
 
 ---
 
-- Terminal Emulator   : [st](st_config.h)
+- Terminal Emulator   : [ST](st_config.h)
 - Shell               : [bash](bashrc)
 - Text Editor         : [vim](vim/)

@@ -1,6 +1,7 @@
 alias py='python3'
-alias fuckit="git reset --heard \$(git log --oneline | head -n 1 |awk -F' ' '{ print \$1 }')"
+alias fuckit="git reset --hard \$(git log --oneline | head -n 1 |awk -F' ' '{ print \$1 }')"
 alias rl='source $HOME/.bashrc'
+alias ll='ls -l'
 
 setxkbmap -option caps:escape
 xmodmap -e "keysym Shift_R = Multi_key"
@@ -17,7 +18,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/sbin/:$PATH"
 export PATH="/usr/local/textlive/2021/bin/x86_64-linux:$PATH"
 export PATH="/home/wafelack/.ark:$PATH"
-export ORION_LIB="/usr/lib/orion:$PATH"
+export ORION_LIB="/usr/lib/orion"
 export ARKSCRIPT_PATH="/home/wafelack/.ark"
 export TERM=st-256color
 export EDITOR=vim

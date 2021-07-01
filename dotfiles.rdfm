@@ -1,15 +1,12 @@
 # Write here the files that will be linked to your dotfiles folder
 # Refer to rdfm.conf(5) for help.
 
-/home/wafelack/.vim/  = vim/.vim
-/home/wafelack/.vimrc = vim/.vimrc
+/home/wafelack/.vim/     = vim/.vim
+/home/wafelack/.vimrc    = vim/.vimrc
 
-/home/wafelack/.fonts/ = fonts/
+/home/wafelack/scripts   = scripts
 
-/home/wafelack/scripts = scripts
-/home/wafelack/.config/i3blocks/ = i3blocks/
-/home/wafelack/.config/i3/       = i3/
-
-/home/wafelack/.bashrc               = bashrc
+/home/wafelack/.bashrc   = bashrc
 
 /home/wafelack/.XCompose = Xcompose
+/home/wafelack/.xinitrc  = xinitrc

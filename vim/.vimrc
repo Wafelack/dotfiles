@@ -28,15 +28,14 @@ let g:netrw_liststyle=3 " Filesystem tree view.
 set scrolloff=15 " Absolute minimum to see the code around.
 set noshowmode " Status bar replaces it.
 set termguicolors " Enable GUI colors
-set tabstop=4 " Set tab width to 4.
-set shiftwidth=4
+set tabstop=2 " Set tab width.
+set shiftwidth=2
 set expandtab " Replace tabs with spaces.
 syntax enable " Enable syntax items.
 
 "| Keymaps
 let mapleader=","
 nnoremap <leader>sv :source<space>$MYVIMRC<cr>
-nnoremap <leader>i mmgg=G`m
 
 "| Linter
 set omnifunc=ale#completion#OmniFunc
