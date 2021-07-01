@@ -99,10 +99,10 @@ main (void)
   proc = proc_usage ();
   ram_lvl (&totalram, &usedram);
 
-  printf ("CPU: %d%%", proc);
-  printf (" | Memory: %lu/%lu MiB", usedram / 1024, totalram / 1024);
-  printf (" | %d%% [%c]", btlvl, plug);
-  printf (" | %s", datetime);
+  printf ("CPU: %d%% ", proc);
+  printf ("| Memory: %lu/%lu MiB ", usedram / 1024, totalram / 1024);
+  printf ("| %d%% [%c] ", btlvl, plug);
+  printf ("| %s ", datetime);
 
   return 0;
 }

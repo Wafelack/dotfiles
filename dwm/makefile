@@ -11,4 +11,5 @@ all:
 	$(CC) $(CFLAGS) -o $(OUT) status.c
 install: CFLAGS+=-O3
 install: all
+	strip $(OUT)
 	cp $(OUT) /usr/bin
