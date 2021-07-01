@@ -45,6 +45,13 @@ let g:ale_fix_on_save = 1
 let g:ale_linters = { 'rust' : [ 'analyzer' ] }
 
 "| Plugins
+
+" Vim plug auto install
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged') "| Setup plugins directory.
 Plug 'jiangmiao/auto-pairs' "| Symbol pairing
 Plug 'luochen1990/rainbow'  "| Symbol highlighting
