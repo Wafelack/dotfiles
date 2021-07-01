@@ -28,4 +28,4 @@ Software
 
 - Terminal Emulator   : [ST](st_config.h)
 - Shell               : [bash](bashrc)
-- Text Editor         : [vim](vim/)
+- Text Editor         : [vim](vimrc)
