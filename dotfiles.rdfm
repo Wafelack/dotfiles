@@ -3,6 +3,6 @@
 
 /home/wafelack/.vimrc    = vimrc
 /home/wafelack/scripts   = scripts
-/home/wafelack/.bashrc   = bashrc
+/home/wafelack/.config/fish/config.fish = fishrc
 /home/wafelack/.XCompose = Xcompose
 /home/wafelack/.xinitrc  = xinitrc

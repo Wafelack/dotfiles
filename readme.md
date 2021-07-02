@@ -27,5 +27,5 @@ Software
 ---
 
 - Terminal Emulator   : [ST](st_config.h)
-- Shell               : [bash](bashrc)
+- Shell               : [fish](fishrc)
 - Text Editor         : [vim](vimrc)
