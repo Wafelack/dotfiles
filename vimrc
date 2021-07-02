@@ -60,8 +60,12 @@ Plug 'arcticicestudio/nord-vim' "| Theme
 call plug#end()
 
 "| Fancy
+
 colorscheme nord
-let g:rainbow_active = 1 " Unable symbol highlighting.
+let g:nord_cursor_line_number_background = 1
+let g:nord_italic_comments = 1
+filetype plugin on
+let g:rainbow_active = 1 " Enable symbol highlighting.
 set laststatus=2
 let modes = {
             \ 'n' : 'NORMAL',
