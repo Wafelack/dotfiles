@@ -1,7 +1,7 @@
 static char *font = "Fira Code:pixelsize=16:antialias=true:autohint=true";
 static int borderpx = 2;
 
-static char *shell = "/bin/bash";
+static char *shell = "/bin/fish";
 char *utmp = NULL;
 char *scroll = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";

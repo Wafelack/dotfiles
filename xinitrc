@@ -1,5 +1,1 @@
-while true; do
-  xsetroot -name "$(dwm_status)"
-  sleep 5s
-done &
-exec dwm
+STATUS=0 DWM=1 exec dwm

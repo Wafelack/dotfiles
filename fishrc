@@ -37,6 +37,3 @@ end
 function fish_prompt
   echo -n "["(git_branch)"]" (prompt_pwd) "\$ " 
 end
-
-# Auto dotfiles linker
-sed '/^#/d' ~/.config/.dotfiles/dotfiles.rdfm | sed -r '/^\s*$/d' | awk -F'=' '{ print $1 }' | rlgl -qs rdfm link
