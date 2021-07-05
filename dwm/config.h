@@ -52,12 +52,20 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#2e3440", "-nf", "#eceff4", "-sb", "#2e3440", "-sf", "#eceff4", NULL };
+static const char *screencmd[] = { "flameshot", "gui", NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *increasevol[] = { "pactl", "--", "set-sink-volume", "0", "+10%", NULL };
+static const char *decreasevol[] = { "pactl", "--", "set-sink-volume", "0", "-10%", NULL };
+static const char *mutevol[] = { "pactl", "--", "set-sink-volume", "0", "0%", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+  { MODKEY|ShiftMask,             XK_i,      spawn,          {.v = increasevol} },
+  { MODKEY|ShiftMask,             XK_d,      spawn,          {.v = decreasevol} },
+  { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mutevol} },
+  { MODKEY,                       XK_c,      spawn,          {.v = screencmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
