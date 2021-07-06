@@ -11,9 +11,6 @@ function emacs
   vim $argv
 end
 
-setxkbmap -option caps:escape
-xmodmap -e "keysym Shift_R = Multi_key"
-
 eval (ssh-agent -c)
 export GPG_TTY=(tty)
 export ORION_LIB="/usr/lib/orion"
