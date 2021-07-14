@@ -35,3 +35,5 @@ end
 function fish_prompt
   echo -n "["(git_branch)"]" (prompt_pwd) "\$ " 
 end
+set PATH /usr//bin $PATH
+export ORION_LIB=/usr//lib//orion

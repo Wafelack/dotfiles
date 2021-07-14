@@ -44,6 +44,10 @@ let g:ale_sign_column_always = 1
 let g:ale_fix_on_save = 1
 let g:ale_linters = { 'rust' : [ 'analyzer' ] }
 
+" Projet specific vimrc
+set exrc
+set secure
+
 "| Plugins
 
 " Vim plug auto install
