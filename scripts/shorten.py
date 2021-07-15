@@ -10,12 +10,9 @@ if __name__ == "__main__":
         print(f'Usage: {argv[0]} <link>.', file=stderr)
         exit(1)
     link = argv[1]
-    if is_site(link, 'amazon\.com'):
-        matches = re.search(r'\/dp\/[^/]*', link)
-        if matches:
-            print(f'https://amazon.com{matches.group(0)}')
-        else:
-            print('Invalid amazon product link.')
+    matches = re.search(r'https?://w{3}?\.?amazon.(\w{1,5})/.*(\/?dp\/[^/]*)', link)
+    if matches:
+        print(f'https://amazon.{matches.group(1)}/{matches.group(2)}')
     elif is_site(link, 'youtube\.com'):
         matches = re.search(r'\?v=(.*)', link)
         if matches:
