@@ -1,4 +1,4 @@
-static char *font = "Fira Code:pixelsize=16:antialias=true:autohint=true";
+static char *font = "JetBrains Mono:pixelsize=16:antialias=true:autohint=true";
 static int borderpx = 2;
 
 static char *shell = "/bin/fish";
