@@ -30,27 +30,29 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 static const char *colorname[] =
 {
-    "#3b4252",
-    "#bf616a",
-    "#a3be8c",
-    "#ebcb8b",
-    "#81a1c1",
-    "#b48ead",
-    "#88c0d0",
-    "#e5e9f0",
+    
+    "#3c3836", /*  black  */
+    "#9d0006", /*   red   */
+    "#79740e", /*  green  */
+    "#b57614", /*  yellow */
+    "#076678", /*  blue   */
+    "#8f3f71", /* magenta */
+    "#427b58", /*   cyan  */
+    "#928374", /*  gray   */
 
-    "#4c566a",
-    "#bf616a",
-    "#a3be8c",
-    "#ebcb8b",
-    "#81a1c1",
-    "#b48ead",
-    "#8fbcbb",
-    "#eceff4",
+    "#7c6f64", /*  black  */
+    "#cc241d", /*   red   */
+    "#98971a", /*  green  */
+    "#d79921", /*  yellow */
+    "#458588", /*  blue   */
+    "#b16286", /* magenta */
+    "#689d6a", /*   cyan  */
+    "#fbf1c7", /*  gray   */
+
     [255] = 0,
-    "#2e3440",
-    "#d8dee9",
-    "#d8dee9"
+    "#fbf1c7", /* background */
+    "#3c3836", /* foreground */
+    "#d8dee9" /* rcs */
 };
 unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;

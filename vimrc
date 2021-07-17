@@ -60,12 +60,12 @@ call plug#begin('~/.vim/plugged') "| Setup plugins directory.
 Plug 'jiangmiao/auto-pairs' "| Symbol pairing
 Plug 'luochen1990/rainbow'  "| Symbol highlighting
 Plug 'dense-analysis/ale' "| Linter
-Plug 'arcticicestudio/nord-vim' "| Theme
+Plug 'morhetz/gruvbox' "| Theme
 call plug#end()
 
 "| Fancy
 
-colorscheme nord
+colorscheme gruvbox
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic_comments = 1
 filetype plugin on
