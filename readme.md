@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-My dotfiles for GNU/Linux (Calculate GNU/Linux), managed with [rdfm](https://github.com/wafelack/rdfm).
+My dotfiles for GNU/Linux (Arch GNU/Linux), managed with [rdfm](https://github.com/wafelack/rdfm).
 
 Installing
 ----------
