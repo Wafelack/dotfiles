@@ -1,1 +1,1 @@
-STATUS=0 DWM=1 exec dwm
+STATUS=0 DWM=1 exec dbus-launch dwm

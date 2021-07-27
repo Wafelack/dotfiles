@@ -1,11 +1,17 @@
 "| Line numbers
 set number " Show line numbers
 set numberwidth=4 " Line number zone is at least 4 chars wide
+let g:tabs=1
 augroup numbers " Enable or not relative line numbers depending on the mode
     autocmd!
     au InsertEnter * set norelativenumber
     au InsertLeave * set relativenumber
 augroup end
+
+let &shiftwidth = 2
+let &tabstop = 2
+let mapleader = ","
+set expandtab
 
 "| Files created by VIM
 " Source control replaces that.
@@ -23,18 +29,16 @@ set wildmenu " Improve completion menu.
 let g:netrw_banner=0 " Disable annoying banner.
 let g:netrw_browse_split=0 " Open the file in the same window as the file explorer.
 let g:netrw_liststyle=3 " Filesystem tree view.
+" Duh, who needs NerdTree ?
+nnoremap <leader>t :vs .<CR>70<
 
-"| Readbility
+| Readbility
 set scrolloff=15 " Absolute minimum to see the code around.
 set noshowmode " Status bar replaces it.
 set termguicolors " Enable GUI colors
-set tabstop=2 " Set tab width.
-set shiftwidth=2
-set expandtab " Replace tabs with spaces.
+
 syntax enable " Enable syntax items.
 
-"| Keymaps
-let mapleader=","
 nnoremap <leader>sv :source<space>$MYVIMRC<cr>
 
 "| Linter
@@ -60,12 +64,13 @@ call plug#begin('~/.vim/plugged') "| Setup plugins directory.
 Plug 'jiangmiao/auto-pairs' "| Symbol pairing
 Plug 'luochen1990/rainbow'  "| Symbol highlighting
 Plug 'dense-analysis/ale' "| Linter
-Plug 'morhetz/gruvbox' "| Theme
+Plug 'notpratheek/vim-luna' "| Theme
 call plug#end()
+
 
 "| Fancy
 
-colorscheme gruvbox
+colorscheme luna
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic_comments = 1
 filetype plugin on

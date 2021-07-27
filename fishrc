@@ -7,11 +7,7 @@ end
 function rl
   source $HOME/.config/fish/config.fish
 end
-function emacs
-  vim $argv
-end
 
-eval (ssh-agent -c)
 export GPG_TTY=(tty)
 export ORION_LIB="/usr/lib/orion"
 export TERM=xterm-256color
@@ -33,7 +29,14 @@ function git_branch
 end
 
 function fish_prompt
-  echo -n (prompt_pwd) (git_branch) "% " 
+  set saved_status $status
+  set prev_status
+  if test $saved_status -ne 0
+    set prev_status (set_color red)$saved_status(set_color normal)
+  end
+  echo -n $prev_status (prompt_pwd) (git_branch) "% " 
 end
+set PATH /usr//bin $PATH
+export ORION_LIB=/usr//lib//orion
 set PATH /usr//bin $PATH
 export ORION_LIB=/usr//lib//orion
