@@ -31,27 +31,27 @@ unsigned int tabspaces = 4;
 static const char *colorname[] =
 {
     
-    "#3c3836", /*  black  */
-    "#9d0006", /*   red   */
-    "#79740e", /*  green  */
-    "#b57614", /*  yellow */
-    "#076678", /*  blue   */
-    "#8f3f71", /* magenta */
-    "#427b58", /*   cyan  */
-    "#928374", /*  gray   */
+    "#0a0f14", /*  black  */
+    "#c33027", /*   red   */
+    "#26a98b", /*  green  */
+    "#edb54b", /*  yellow */
+    "#195465", /*  blue   */
+    "#4e5165", /* magenta */
+    "#33859d", /*   cyan  */
+    "#98d1ce", /*  gray   */
 
-    "#7c6f64", /*  black  */
-    "#cc241d", /*   red   */
-    "#98971a", /*  green  */
-    "#d79921", /*  yellow */
-    "#458588", /*  blue   */
-    "#b16286", /* magenta */
-    "#689d6a", /*   cyan  */
-    "#fbf1c7", /*  gray   */
+    "#10151b", /*  black  */
+    "#d26939", /*   red   */
+    "#081f2d", /*  green  */
+    "#245361", /*  yellow */
+    "#093748", /*  blue   */
+    "#888ba5", /* magenta */
+    "#599caa", /*   cyan  */
+    "#d3ebe9", /*  gray   */
 
     [255] = 0,
-    "#fbf1c7", /* background */
-    "#3c3836", /* foreground */
+    "#0a0f14", /* background */
+    "#98d1ce", /* foreground */
     "#d8dee9" /* rcs */
 };
 unsigned int defaultfg = 257;
