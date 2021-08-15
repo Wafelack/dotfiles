@@ -1,0 +1,102 @@
+" Wafelack's vimrc
+" This configuration file and all the `vim` folder content are licensed under
+" the GNU General Public License version 3.0 or later.
+
+
+"" Line numbers
+set number """ Show line numbers
+set numberwidth=4
+set relativenumber
+augroup numbers
+	autocmd!
+	au InsertEnter * set norelativenumber
+	au InsertLeave * set relativenumber
+augroup end
+
+"" Indentation
+set tabstop=4
+set shiftwidth=4
+set expandtab smarttab nowrap
+set ai si
+
+"" Status bar
+
+let modes = {
+            \ 'n' : 'NORMAL',
+            \ 'i' : 'INSERT',
+            \ 'ic': 'COMPLETE',
+            \ 'ix': 'COMPLETE',
+            \ 'R' : 'REPLACE',
+            \ 'Rc': 'R-COMPLETE',
+            \ 'Rx': 'R-COMPLETE',
+            \ 'Rv': 'V-REPLACE',
+            \ 'c' : 'COMMAND',
+            \ 'cv': 'EXECUTE',
+            \ 'ce': 'EXECUTE',
+            \ 'r' : 'PROMPT',
+            \ 'rm': 'MORE',
+            \ 'r?': 'CONFIRM',
+            \ '!' : 'SHELL',
+            \ 'v' : 'VISUAL',
+            \ 'V' : 'V-LINE',
+            \ '': 'V-BLOCK',
+            \ 's' : 'SELECT',
+            \ 'S' : 'S-LINE',
+            \ '': 'SBLOCK',
+            \}
+function! GitBranch()
+   return system('git rev-parse --abbrev-ref HEAD 2> /dev/null | tr -d "\n"') 
+endfunction
+
+function! StatusBranch()
+    let l:branch = GitBranch()
+    if strlen(l:branch) > 0
+        return '[' . l:branch . ']'
+    else
+        return ''
+    endif
+endfunction
+
+set laststatus=2
+set statusline=\ %{modes[mode()]}\ /
+set statusline+=\ %f
+set statusline+=\ %{StatusBranch()}
+set statusline+=\ %y
+set statusline+=\ %m
+set statusline+=\ %=
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}\ \
+set statusline+=\ %l,\ %c\ \\\ %P
+
+"" Readability and handiness
+set completeopt=menuone
+set path+=** """ Fuzzy search
+set wildmenu
+set scrolloff=15
+set noshowmode
+
+"" File tree
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_list_style = 3
+
+"" Mappings
+let mapleader = ' '
+nnoremap <leader>bk :quit<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>t  :vs .<CR>65<
+nnoremap <leader>dt :tabclose<CR>
+nnoremap <leader>nt :tabnew<CR>
+
+"" Backups
+set noswapfile noundofile
+set nobackup nowritebackup
+set undofile
+set undodir=/tmp/
+set viminfo=
+
+"" Plugins
+execute pathogen#infect('plugin/{}')
+syntax enable
+filetype plugin indent on
+
+let g:rainbow_active = 1

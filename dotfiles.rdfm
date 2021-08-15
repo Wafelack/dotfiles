@@ -1,7 +1,9 @@
 # Write here the files that will be linked to your dotfiles folder
 # Refer to rdfm.conf(5) for help.
 
-/home/wafelack/.vimrc    = vimrc
+/home/wafelack/.vimrc    = vim/vimrc
+/home/wafelack/.vim/autoload/pathogen.vim = vim/pathogen.vim
+/home/wafelack/.vim/plugin = vim/plugins/
 /home/wafelack/scripts   = scripts
 /home/wafelack/.bashrc   = bashrc
 /home/wafelack/.XCompose = Xcompose

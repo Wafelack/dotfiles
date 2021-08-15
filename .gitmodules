@@ -1,0 +1,6 @@
+[submodule "vim/plugins/auto-pairs"]
+	path = vim/plugins/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "vim/plugins/rainbow"]
+	path = vim/plugins/rainbow
+	url = https://github.com/luochen1990/rainbow.git
