@@ -4,6 +4,7 @@
 /home/wafelack/.vimrc    = vim/vimrc
 /home/wafelack/.vim/autoload/pathogen.vim = vim/pathogen.vim
 /home/wafelack/.vim/plugin = vim/plugins/
+/home/wafelack/.vim/colors = vim/colors/ 
 /home/wafelack/scripts   = scripts
 /home/wafelack/.bashrc   = bashrc
 /home/wafelack/.XCompose = Xcompose
