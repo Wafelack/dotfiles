@@ -1,6 +1,6 @@
-[submodule "vim/plugins/auto-pairs"]
-	path = vim/plugins/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule "vim/plugins/rainbow"]
 	path = vim/plugins/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "vim/plugins/vim-fugitive"]
+	path = vim/plugins/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git

@@ -1,7 +1,7 @@
-" Wafelack's vimrc
-" This configuration file and all the `vim` folder content are licensed under
-" the GNU General Public License version 3.0 or later.
-
+" Name: Wafelack's vimrc
+" File: ~/.vimrc
+" Author: Wafelack <wafelack@riseup.net>
+" License: GNU General Public License version 3.0 or any later version.
 
 "" Line numbers
 set number """ Show line numbers
@@ -103,7 +103,7 @@ set undofile
 set undodir=/tmp/
 set viminfo=
 
-""  Presentation mode (Stolen and modified from https://github.com/mcantor/no_plugins.)
+""  Presentation mode (Borrowed and modified from https://github.com/mcantor/no_plugins.)
 augroup presentation
     autocmd!
     autocmd BufNewFile,BufRead *.vimp setfiletype vim
@@ -147,9 +147,46 @@ function! DeleteSexpr()
     endif
 endfunction
 
+"" Compiler errors
+augroup compilers
+    autocmd!
+    autocmd BufNewFile,BufRead *.rs
+        \ setlocal makeprg=cargo
+        " Borrowed from https://github.com/rust-lang/rust.vim
+        \ setlocal errorformat=
+            \%-G,
+            \%-Gerror:\ aborting\ %.%#,
+            \%-Gerror:\ Could\ not\ compile\ %.%#,
+            \%Eerror:\ %m,
+            \%Eerror[E%n]:\ %m,
+            \%Wwarning:\ %m,
+            \%Inote:\ %m,
+            \%C\ %#-->\ %f:%l:%c,
+            \%E\ \ left:%m,%C\ right:%m\ %f:%l:%c,%Z
+        \ setlocal errorformat+=
+            \%f:%l:%c:\ %t%*[^:]:\ %m,
+            \%f:%l:%c:\ %*\\d:%*\\d\ %t%*[^:]:\ %m,
+            \%-G%f:%l\ %s,
+            \%-G%*[\ ]^,
+            \%-G%*[\ ]^%*[~],
+            \%-G%*[\ ]...
+        \ setlocal errorformat+=
+            \%-G%\\s%#Downloading%.%#,
+            \%-G%\\s%#Compiling%.%#,
+            \%-G%\\s%#Finished%.%#,
+            \%-G%\\s%#error:\ Could\ not\ compile\ %.%#,
+            \%-G%\\s%#To\ learn\ more\\,%.%#,
+            \%-Gnote:\ Run\ with\ \`RUST_BACKTRACE=%.%#,
+            \%.%#panicked\ at\ \\'%m\\'\\,\ %f:%l:%c
+    autocmd BufNewFile,BufRead *.c,*.cc,*.cpp,*.cxx setlocal makeprg=make
+augroup end
+
+
 "" Plugins
 execute pathogen#infect('plugin/{}')
 syntax enable
 filetype plugin indent on
 
+""" Fancy
+colorscheme pastry
 let g:rainbow_active = 1

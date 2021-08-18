@@ -1,3 +1,10 @@
+" Vim color file
+" File: ~/.vim/colors/pastry.vim
+" Author: Wafelack <wafelack@riseup.net>
+" Last Change: 2021 August 18
+" License: GNU General Public License version 3.0 or any later version
+" Version: 0.1.0
+
 highlight clear
 if exists("syntax_on")
     syntax reset
