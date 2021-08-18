@@ -1,6 +1,7 @@
 alias py="python3"
 alias fuckit="git reset --hard HEAD"
 alias rl="source $HOME/.bashrc"
+alias get_license="curl --silent www.gnu.org/licenses/gpl-3.0.txt -o COPYING"
 
 export GPG_TTY=$(tty)
 export TERM=xterm-256color
@@ -13,6 +14,9 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/sbin/:$PATH"
 export PATH="$HOME/scripts/:$PATH"
 export PATH="/usr/local/texlive/2021/bin/x86_64-linux:$PATH"
+
+export GUILE_LOAD_PATH="/usr/local/share/guile/site/2.2${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH"
+export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/2.2/site-ccache${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_COMPILED_LOAD_PATH"
 
 __stat() {
   STATUS=$?
