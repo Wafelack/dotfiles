@@ -1,1 +1,2 @@
-STATUS=0 DWM=1 exec dbus-launch dwm
+exec dbus-launch dwm
+bash /home/wafelack/scripts/xsetup.sh
