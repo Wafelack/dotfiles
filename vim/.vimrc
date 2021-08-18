@@ -89,7 +89,6 @@ set cursorline
 
 set showmatch
 set incsearch
-set hlsearch
 
 "}}}
 
@@ -115,7 +114,6 @@ nnoremap <leader>bs :source %<CR>
 nnoremap <leader>ds :call DeleteSexpr()<CR>
 nnoremap <C-f> :silent exec "!cargo fmt >& /dev/null"<CR>:exec "redraw!"<CR>
 nnoremap <C-x>q :qa!<CR>
-nnoremap <esc> :noh<CR>
 " Jump to help page
 nnoremap gh T\|yt\|:silent! exec ":help " . @"<CR>
 
@@ -169,6 +167,8 @@ endfunction
 function! DeleteSexpr()
     if GetChar() == "("
         normal da(
+    elseif GetChar() == "\""
+        normal da"
     elseif GetChar() == "'"
         normal x
         call DeleteSexpr()
