@@ -26,3 +26,4 @@ highlight Function ctermfg=5
 highlight Statement ctermfg=3
 highlight Type ctermfg=13
 highlight Todo ctermbg=11
+highlight CursorLine ctermbg=12 cterm=bold
