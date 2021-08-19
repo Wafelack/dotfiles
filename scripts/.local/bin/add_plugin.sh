@@ -13,6 +13,6 @@ then
 fi
 
 cd $VIM_PLUGINS_FOLDER
-git clone --silent $1 $2
+git clone --quiet $1 $2
 git submodule add $1 $2
 cd -

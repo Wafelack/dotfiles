@@ -12,9 +12,8 @@ endif
 
 set background=dark
 let colors_name = "pastry"
-
 highlight Normal ctermbg=0
-highlight Comment ctermfg=9 cterm=bold
+highlight Comment ctermfg=9
 highlight Constant ctermfg=6
 highlight String ctermfg=2
 highlight Character ctermfg=10

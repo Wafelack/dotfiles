@@ -102,7 +102,7 @@ let g:netrw_list_hide = netrw_gitignore#Hide()
 
 "}}}
 
-"{{{Mappings
+"{{{Mappings and Abbrevs
 
 let mapleader = ' '
 nnoremap <leader>bk :x<CR>
@@ -219,6 +219,12 @@ augroup compilers
             \%.%#panicked\ at\ \\'%m\\'\\,\ %f:%l:%c
     autocmd BufNewFile,BufRead *.c,*.cc,*.cpp,*.cxx setlocal makeprg=make
 augroup end
+
+"}}}
+
+"{{{Snippets
+
+iabbrev cmain int<CR>main (int argc, char * const argv[])<CR>{<CR>  <CR>}<ESC>k$i
 
 "}}}
 

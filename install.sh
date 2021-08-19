@@ -9,3 +9,4 @@ link_folder scripts/
 link_folder vim/
 link_folder bash/
 link_folder X/
+link_folder ghci/
