@@ -1,7 +1,10 @@
+
 " Name: Wafelack's vimrc
 " File: ~/.vimrc
 " Author: Wafelack <wafelack@riseup.net>
 " License: GNU General Public License version 3.0 or any later version.
+
+let $MYVIMRC = $HOME . "/.dotfiles/vim/.vimrc"
 
 "{{{Line numbers
 
@@ -117,6 +120,11 @@ nnoremap <C-x>q :qa!<CR>
 " Jump to help page
 nnoremap gh T\|yt\|:silent! exec ":help " . @"<CR>
 
+nnoremap <leader>cc :cclose<CR>
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>cn :cn<CR>
+nnoremap <leader>cp :cp<CR>
+
 "}}}
 
 "{{{Backups
@@ -185,46 +193,43 @@ endfunction
 
 "}}}
 
-"{{{Make and quickfixlist
+"{{{QuickfixList and :make
 
-augroup compilers
+augroup quickfix
     autocmd!
-    autocmd BufNewFile,BufRead *.rs
-        \ setlocal makeprg=cargo
-        " Borrowed from https://github.com/rust-lang/rust.vim
-        \ setlocal errorformat=
-            \%-G,
-            \%-Gerror:\ aborting\ %.%#,
-            \%-Gerror:\ Could\ not\ compile\ %.%#,
-            \%Eerror:\ %m,
-            \%Eerror[E%n]:\ %m,
-            \%Wwarning:\ %m,
-            \%Inote:\ %m,
-            \%C\ %#-->\ %f:%l:%c,
-            \%E\ \ left:%m,%C\ right:%m\ %f:%l:%c,%Z
-        \ setlocal errorformat+=
-            \%f:%l:%c:\ %t%*[^:]:\ %m,
-            \%f:%l:%c:\ %*\\d:%*\\d\ %t%*[^:]:\ %m,
-            \%-G%f:%l\ %s,
-            \%-G%*[\ ]^,
-            \%-G%*[\ ]^%*[~],
-            \%-G%*[\ ]...
-        \ setlocal errorformat+=
-            \%-G%\\s%#Downloading%.%#,
-            \%-G%\\s%#Compiling%.%#,
-            \%-G%\\s%#Finished%.%#,
-            \%-G%\\s%#error:\ Could\ not\ compile\ %.%#,
-            \%-G%\\s%#To\ learn\ more\\,%.%#,
-            \%-Gnote:\ Run\ with\ \`RUST_BACKTRACE=%.%#,
-            \%.%#panicked\ at\ \\'%m\\'\\,\ %f:%l:%c
-    autocmd BufNewFile,BufRead *.c,*.cc,*.cpp,*.cxx setlocal makeprg=make
+    autocmd FileType rust
+        \   if !empty(glob("Cargo.toml"))
+            \ | setlocal makeprg=cargo
+        \ | else
+            \ | setlocal makeprg=rustc
+        \ | endif
+    autocmd FileType haskell
+        \   if !empty(glob("stack.yaml"))
+            \ | setlocal makeprg=stack
+        \ | elseif !empty(glob("*.cabal"))
+            \ | setlocal makeprg=cabal
+        \ | else
+            \ | setlocal makeprg=ghc
+        \ | endif
+    autocmd FileType c
+        \   if !empty(glob("makefile")) || !empty(glob("Makefile"))
+            \ | setlocal makeprg=make
+        \ | else
+            \ | setlocal makeprg=cc
+        \ | endif
+
+    autocmd QuickFixCmdPost make copen
 augroup end
 
 "}}}
 
-"{{{Snippets
+"{{{Language specifics indentation
 
-iabbrev cmain int<CR>main (int argc, char * const argv[])<CR>{<CR>  <CR>}<ESC>k$i
+augroup indentation
+    autocmd!
+    autocmd FileType c setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType scheme,lisp setlocal tabstop=2 shiftwidth=2 softtabstop=2
+augroup end
 
 "}}}
 
