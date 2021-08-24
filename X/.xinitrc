@@ -1,2 +1,2 @@
 exec dbus-launch dwm
-bash /home/wafelack/.local/bin/xsetup.sh
+bash /home/wafelack/.local/bin/xstartup.sh
