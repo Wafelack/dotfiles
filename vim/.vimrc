@@ -131,7 +131,7 @@ nnoremap <leader>cp :cp<CR>
 set noswapfile noundofile
 set nobackup nowritebackup
 set undofile
-set undodir=/tmp/
+set undodir=$HOME/.vim_undo_files
 set viminfo=
 
 "}}}
