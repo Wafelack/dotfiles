@@ -1,4 +1,3 @@
-
 " Name: Wafelack's vimrc
 " File: ~/.vimrc
 " Author: Wafelack <wafelack@riseup.net>
@@ -223,7 +222,17 @@ augroup end
 
 "}}}
 
-"{{{Language specifics indentation
+"{{{Snippets
+
+augroup snippets
+   autocmd!
+   autocmd FileType lisp
+        \ iabbrev <buffer> defun (defun ()<CR>)<ESC>k0wwhi
+augroup end
+
+"}}}
+
+"{{{Language specific indentation
 
 augroup indentation
     autocmd!
