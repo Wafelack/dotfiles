@@ -1,0 +1,12 @@
+== dotfiles
+
+My dotfiles for use with GNU/Linux, managed with link:https://gnu.org/software/stow[GNU Stow].
+
+=== Installing
+
+[source,bash]
+----
+$ git clone git://github.com/wafelack/dotfiles ~/.dotfiles
+$ cd ~/.dotfiles
+$ sh install.sh
+----
