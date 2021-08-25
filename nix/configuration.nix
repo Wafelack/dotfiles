@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -36,7 +36,7 @@
     autorun = false;
     libinput.enable = true;
     displayManager.startx.enable = true;
-    windowManager.dwm.enable = true;
+    windowManager.xmonad.enable = true;
   };
 
   sound.enable = true;
@@ -57,14 +57,15 @@
       xclip
       dmenu
       flameshot
-      rxvt_unicode
+      kitty
       pavucontrol
       tmux
+      ruby
     ];
   };
 
   environment.systemPackages = with pkgs; [
-    vim 
+    vimHugeX
     wget
     gnupg
     gnumake
@@ -112,5 +113,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
 }
