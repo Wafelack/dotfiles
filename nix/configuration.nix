@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -36,11 +36,15 @@
     autorun = false;
     libinput.enable = true;
     displayManager.startx.enable = true;
-    windowManager.xmonad.enable = true;
+    windowManager.dwm.enable = true;
   };
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "osu-lazer"
+    ];
 
   users.users.wafelack = {
     isNormalUser = true;
@@ -61,13 +65,21 @@
       pavucontrol
       tmux
       ruby
+      inkscape
+      xmobar
+      stack
+      cabal-install
+      sbcl
+      feh
+      osu-lazer
     ];
   };
 
   environment.systemPackages = with pkgs; [
-    vimHugeX
+    vim
     wget
     gnupg
+    pinentry-curses
     gnumake
     gcc
     arandr

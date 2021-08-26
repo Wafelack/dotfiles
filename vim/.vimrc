@@ -109,6 +109,7 @@ let g:netrw_list_hide = netrw_gitignore#Hide()
 let mapleader = ' '
 nnoremap <leader>bk :x<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sc :source %<CR>
 nnoremap <leader>t  :vs .<CR>65<
 nnoremap <leader>dt :tabclose<CR>
 nnoremap <leader>nt :tabnew<CR>
