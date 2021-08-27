@@ -4,7 +4,7 @@ alias rl="source $HOME/.bashrc"
 alias get_license="curl --silent www.gnu.org/licenses/gpl-3.0.txt -o COPYING"
 
 export GPG_TTY=$(tty)
-export TERM=xterm-256color
+export TERM=kitty
 export EDITOR=vim
 
 export PATH="$HOME/.cargo/bin:$PATH"

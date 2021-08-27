@@ -42,10 +42,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "osu-lazer"
-    ];
-
   users.users.wafelack = {
     isNormalUser = true;
     home = "/home/wafelack";
@@ -54,7 +50,7 @@
       firefox
       neofetch
       stow
-      git
+      gitAndTools.gitFull
       pinentry
       ghc
       xorg.xmodmap
@@ -71,7 +67,9 @@
       cabal-install
       sbcl
       feh
-      osu-lazer
+      ctags
+      aerc
+      openscad
     ];
   };
 
