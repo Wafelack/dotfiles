@@ -97,7 +97,7 @@ set incsearch
 "{{{File Browsing
 
 let g:netrw_banner = 0
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 0
 let g:netrw_list_style = 3
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = netrw_gitignore#Hide()
@@ -237,7 +237,7 @@ augroup end
 
 augroup indentation
     autocmd!
-    autocmd FileType c setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd FileType c,cpp setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
     autocmd FileType scheme,lisp setlocal tabstop=2 shiftwidth=2 softtabstop=2
 augroup end
 

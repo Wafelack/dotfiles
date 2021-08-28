@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 
-{
-  imports =
+{ imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
     ];
@@ -53,7 +52,6 @@
       gitAndTools.gitFull
       pinentry
       ghc
-      xorg.xmodmap
       xclip
       dmenu
       flameshot
@@ -62,7 +60,6 @@
       tmux
       ruby
       inkscape
-      xmobar
       stack
       cabal-install
       sbcl
@@ -70,6 +67,8 @@
       ctags
       aerc
       openscad
+      man-pages
+      man-pages-posix
     ];
   };
 

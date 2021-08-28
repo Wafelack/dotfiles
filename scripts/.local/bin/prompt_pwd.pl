@@ -4,6 +4,10 @@ use warnings;
 use Cwd;
 
 my $directory = getcwd;
+if ($directory eq "/") { # Dirty hack, sorry for that
+    print "/";
+    exit 0;
+}
 my @parts = split(/\//, $directory);
 shift @parts; # Remove empty value.
 my $username = getpwuid $<;
