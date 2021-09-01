@@ -4,9 +4,6 @@
 [submodule "vim/.vim/plugin/rainbow"]
 	path = vim/.vim/plugin/rainbow
 	url = https://github.com/luochen1990/rainbow
-[submodule "vim/.vim/plugin/VimCompletesMe"]
-	path = vim/.vim/plugin/VimCompletesMe
-	url = https://github.com/ackyshake/VimCompletesMe.git
 [submodule "vim/.vim/plugin/vim-ghci"]
 	path = vim/.vim/plugin/vim-ghci
 	url = https://github.com/wafelack/vim-ghci.git

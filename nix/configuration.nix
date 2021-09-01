@@ -45,6 +45,7 @@
             { users = [ "wafelack" ]; persist = true; keepEnv = true; }
         ];
     };
+    programs.slock.enable = true;
 
     sound.enable = true;
     hardware.pulseaudio.enable = true;
@@ -79,7 +80,8 @@
                 man-pages-posix
                 arandr
                 weechat
-                ];
+                xorg.xmodmap
+        ];
     };
 
     environment.systemPackages = with pkgs; [
@@ -89,6 +91,7 @@
             pinentry-curses
             gnumake
             gcc
+            binutils
     ];
 
     nixpkgs.overlays = [
