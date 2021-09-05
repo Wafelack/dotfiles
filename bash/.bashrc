@@ -4,9 +4,12 @@ alias rl="source $HOME/.bashrc"
 alias get_license="curl --silent www.gnu.org/licenses/gpl-3.0.txt -o COPYING"
 
 export GPG_TTY=$(tty)
-export TERM=kitty
 export EDITOR=vim
 
+export CROSS_PREFIX="$HOME/.cross"
+export CROSS_TARGET="x86_64-elf"
+
+export PATH="$CROSS_PREFIX/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"

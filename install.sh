@@ -10,5 +10,3 @@ link_folder vim/
 link_folder bash/
 link_folder X/
 link_folder ghci/
-link_folder nix/ -t /etc/nixos/
-link_folder kitty/

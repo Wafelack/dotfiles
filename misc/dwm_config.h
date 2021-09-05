@@ -30,6 +30,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static int lockfullscreen = 1;
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -53,7 +54,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#2e3440", "-nf", "#eceff4", "-sb", "#2e3440", "-sf", "#eceff4", NULL };
 static const char *screencmd[] = { "flameshot", "gui", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *increasevol[] = { "pactl", "--", "set-sink-volume", "0", "+10%", NULL };
 static const char *decreasevol[] = { "pactl", "--", "set-sink-volume", "0", "-10%", NULL };
 static const char *mutevol[] = { "pactl", "--", "set-sink-volume", "0", "0%", NULL };
