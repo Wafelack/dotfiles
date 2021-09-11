@@ -28,5 +28,5 @@ highlight Type ctermfg=13
 highlight Todo ctermbg=11
 highlight CursorLineNr ctermbg=7 cterm=none
 highlight CursorLine cterm=none
-highlight StatusLine ctermbg=9 ctermfg=0 cterm=bold
-highlight StatusLineNC ctermbg=2 ctermfg=0 cterm=bold
+highlight StatusLine ctermbg=1 ctermfg=15 cterm=bold
+highlight StatusLineNC ctermbg=2 ctermfg=15 cterm=bold

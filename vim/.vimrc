@@ -4,7 +4,6 @@
 " License: GNU General Public License version 3.0 or any later version.
 
 let $MYVIMRC = $HOME . "/.dotfiles/vim/.vimrc"
-
 "{{{Line numbers
 
 " Show line numbers
@@ -68,7 +67,7 @@ function! StatusBranch()
 endfunction
 
 set laststatus=2
-set statusline=\ %{modes[mode()]}\ \|
+set statusline=[%{modes[mode()]}]
 set statusline+=\ %f
 set statusline+=\ (%F)
 set statusline+=\ %m
@@ -225,10 +224,22 @@ augroup end
 
 "{{{Snippets
 
+function! GetScreamingSnakeBasename(str)
+    let l:basename = split(a:str, '/')[-1]
+    return '_' . toupper(substitute(l:basename, '\.', '_', 'g'))
+endfunction
+
+function! WriteHeaderCode()
+    let l:name = GetScreamingSnakeBasename(expand("%"))
+    execute "normal! i#ifndef " . l:name . "\<CR>"
+    execute "normal! i# define " . l:name . " 1\<CR>"
+    execute "normal! i\<CR>\<CR>\<CR>#endif /* " . l:name . " */"
+    execute "normal! kk"
+endfunction
+
 augroup snippets
-   autocmd!
-   autocmd FileType lisp
-        \ iabbrev <buffer> defun (defun ()<CR>)<ESC>k0wwhi
+    autocmd!
+    autocmd BufNewFile *.h call WriteHeaderCode()
 augroup end
 
 "}}}
