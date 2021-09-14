@@ -256,7 +256,7 @@ augroup end
 
 "{{{Plugins
 
-execute pathogen#infect('plugin/{}')
+execute pathogen#infect('plugin/{}', '~/sources/vim/{}')
 syntax enable
 filetype plugin indent on
 

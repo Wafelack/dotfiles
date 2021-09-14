@@ -28,5 +28,13 @@ __stat() {
     echo -n "$STATUS "
   fi
 }
+
+start_ssh_agent() {
+    if [[ -z ${SSH_AGENT_PID+x} ]]
+    then
+        eval $(ssh-agent)
+    fi
+}
+
+start_ssh_agent
 PS1="(\$(git branch 2> /dev/null | grep '^*' | colrm 1 2)) \$(__stat)\$(prompt_pwd.pl) % "
-[ -f "/home/wafelack/.ghcup/env" ] && source "/home/wafelack/.ghcup/env" # ghcup-env
