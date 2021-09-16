@@ -47,7 +47,7 @@ let modes = {
             \ '!' : 'S',
             \ 'v' : 'V',
             \ 'V' : 'VL',
-            \ '': 'VB',
+            \ '': 'VB',
             \ 's' : 'S',
             \ 'S' : 'SL',
             \ '': 'SB',
@@ -103,13 +103,24 @@ let g:netrw_list_hide = netrw_gitignore#Hide()
 
 "}}}
 
+"{{{Sessions
+
+let g:session_file = "~/.vimsession"
+
+augroup session
+    autocmd!
+    autocmd VimLeave * execute "mksession! " . g:session_file
+augroup end
+
+"}}}
+
 "{{{Mappings and Abbrevs
 
 let mapleader = ' '
 nnoremap <leader>bk :x<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>sc :source %<CR>
-nnoremap <leader>t  :vs .<CR>65<
+nnoremap <leader>t  :vs .<CR65<
 nnoremap <leader>dt :tabclose<CR>
 nnoremap <leader>nt :tabnew<CR>
 nnoremap <leader>bs :source %<CR>
@@ -123,6 +134,7 @@ nnoremap <leader>cc :cclose<CR>
 nnoremap <leader>co :copen<CR>
 nnoremap <leader>cn :cn<CR>
 nnoremap <leader>cp :cp<CR>
+nnoremap <leader>l :execute ("source" . g:session_file)<CR>
 
 "}}}
 
@@ -197,25 +209,25 @@ endfunction
 augroup quickfix
     autocmd!
     autocmd FileType rust
-        \   if !empty(glob("Cargo.toml"))
-            \ | setlocal makeprg=cargo
-        \ | else
-            \ | setlocal makeprg=rustc
-        \ | endif
+                \   if !empty(glob("Cargo.toml"))
+                \ | setlocal makeprg=cargo
+                \ | else
+                    \ | setlocal makeprg=rustc
+                    \ | endif
     autocmd FileType haskell
-        \   if !empty(glob("stack.yaml"))
-            \ | setlocal makeprg=stack
-        \ | elseif !empty(glob("*.cabal"))
-            \ | setlocal makeprg=cabal
-        \ | else
-            \ | setlocal makeprg=ghc
-        \ | endif
+                \   if !empty(glob("stack.yaml"))
+                \ | setlocal makeprg=stack
+                \ | elseif !empty(glob("*.cabal"))
+                    \ | setlocal makeprg=cabal
+                    \ | else
+                        \ | setlocal makeprg=ghc
+                        \ | endif
     autocmd FileType c
-        \   if !empty(glob("makefile")) || !empty(glob("Makefile"))
-            \ | setlocal makeprg=make
-        \ | else
-            \ | setlocal makeprg=cc
-        \ | endif
+                \   if !empty(glob("makefile")) || !empty(glob("Makefile"))
+                \ | setlocal makeprg=make
+                \ | else
+                    \ | setlocal makeprg=cc
+                    \ | endif
 
     autocmd QuickFixCmdPost make copen
 augroup end
@@ -267,4 +279,60 @@ filetype plugin indent on
 colorscheme pastry
 let g:rainbow_active = 1
 
+function! s:FillWindow(height)
+    let l:i = 0
+    while l:i < a:height
+        call append(line('$'), '')
+        let l:i += 1
+    endwhile
+endfunction
+
+function! s:FillWidth(width)
+    let l:i = 0
+    let l:s = ''
+    while l:i < a:width
+        let l:s .= ' '
+        let l:i += 1
+    endwhile
+    return l:s
+endfunction
+
+function! StartPage()
+    let l:content = ['                  .                     ',
+                \ ' ##############..... ##############    ',
+                \ ' ##############......##############    ',
+                \ '    ##########..........##########     ',
+                \ '    ##########........##########       ',
+                \ '    ##########.......##########        ',
+                \ '    ##########.....##########..        ',
+                \ '    ##########....##########.....      ',
+                \ '  ..##########..##########.........    ',
+                \ '....##########.#########.............  ',
+                \ '  ..################JJJ............    ',
+                \ '    ################.............      ',
+                \ '    ##############.JJJ.JJJJJJJJJJ      ',
+                \ '    ############...JJ...JJ..JJ  JJ     ',
+                \ '    ##########....JJ...JJ..JJ  JJ      ',
+                \ '    ########......JJJ..JJJ JJJ JJJ     ',
+                \ '    ######    .........                ',
+                \ '                .....                  ',
+                \ '',
+                \ 'VIM - Vi IMproved - The magnificent text editor',
+                \ '',
+                \ '',
+                \ '',
+                \ '',
+                \ '',
+                \ 'Reload last session      SPC l']
+    let l:winheight = (winheight(0) - len(content)) / 2
+    call s:FillWindow(l:winheight - 1)
+    for line in l:content
+        let l:winwidth = (winwidth(0) - len(line)) / 2
+        let l:filled = s:FillWidth(l:winwidth - 1) . line . s:FillWidth(l:winwidth)
+        call append('$', l:filled)
+    endfor
+    call s:FillWindow(l:winheight + 1)
+endfunction
+
+let g:Startscreen_function = function('StartPage')
 "}}}
