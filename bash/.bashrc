@@ -2,6 +2,7 @@ alias py="python3"
 alias fuckit="git reset --hard HEAD"
 alias rl="source $HOME/.bashrc"
 alias get_license="curl --silent www.gnu.org/licenses/gpl-3.0.txt -o COPYING"
+alias ls="ls --color=always"
 
 export GPG_TTY=$(tty)
 export EDITOR=vim
