@@ -1,5 +1,38 @@
 include "%L"
 
+# Zbalermorna
+<Multi_key> <l> <p> : ""
+<Multi_key> <l> <t> : ""
+<Multi_key> <l> <k> : ""
+<Multi_key> <l> <f> : ""
+<Multi_key> <l> <l> : ""
+<Multi_key> <l> <s> : ""
+<Multi_key> <l> <c> : ""
+<Multi_key> <l> <m> : ""
+
+<Multi_key> <l> <x> : ""
+<Multi_key> <l> <period> : ""
+<Multi_key> <l> <apostrophe> : ""
+<Multi_key> <l> <colon> : ""
+<Multi_key> <l> <q> : ""
+<Multi_key> <l> <w> : ""
+
+<Multi_key> <l> <b> : ""
+<Multi_key> <l> <d> : ""
+<Multi_key> <l> <g> : ""
+<Multi_key> <l> <v> : ""
+<Multi_key> <l> <r> : ""
+<Multi_key> <l> <z> : ""
+<Multi_key> <l> <j> : ""
+<Multi_key> <l> <n> : ""
+
+<Multi_key> <l> <a> : ""
+<Multi_key> <l> <e> : ""
+<Multi_key> <l> <i> : ""
+<Multi_key> <l> <o> : ""
+<Multi_key> <l> <u> : ""
+<Multi_key> <l> <y> : ""
+
 # Cyrillic
 <Multi_key> <c> <A> : "А"
 <Multi_key> <c> <a> : "a"

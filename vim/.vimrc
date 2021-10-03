@@ -4,6 +4,7 @@
 " License: GNU General Public License version 3.0 or any later version.
 
 let $MYVIMRC = $HOME . "/.dotfiles/vim/.vimrc"
+
 "{{{Line numbers
 
 " Show line numbers
@@ -100,6 +101,7 @@ let g:netrw_browse_split = 0
 let g:netrw_list_style = 3
 let g:netrw_dirhistmax = 0
 let g:netrw_list_hide = netrw_gitignore#Hide()
+let g:netrw_winsize = 25
 
 "}}}
 
@@ -114,13 +116,28 @@ augroup end
 
 "}}}
 
+"{{{Sourcing
+
+function! SourceFolder(folder)
+    for file in split(globpath(len(a:folder) > 0 ? a:folder : '.', '**'), '\n')
+        if file =~ '.*\.vim'
+            echom "[+] Sourcing `" . file . "`."
+            execute "source " . file
+        endif
+    endfor
+endfunction
+
+"}}}
+
 "{{{Mappings and Abbrevs
 
 let mapleader = ' '
 nnoremap <leader>bk :x<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>sc :source %<CR>
-nnoremap <leader>t  :vs .<CR65<
+nnoremap <leader>sf :call SourceFolder(input("Folder to source (default: `.`): "))<CR>
+nnoremap <leader>sl :call SourceFolder('./autoload/')<CR>
+nnoremap <leader>t  :Vexplore<CR>
 nnoremap <leader>dt :tabclose<CR>
 nnoremap <leader>nt :tabnew<CR>
 nnoremap <leader>bs :source %<CR>
@@ -296,6 +313,15 @@ function! s:FillWidth(width)
     endwhile
     return l:s
 endfunction
+
+"{{{Filetypes
+
+augroup filetypes
+    autocmd!
+    autocmd BufNewFile,BufRead *.sc setfiletype scala
+augroup end
+
+"}}}
 
 function! StartPage()
     let l:content = ['                  .                     ',
