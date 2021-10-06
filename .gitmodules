@@ -1,12 +1,3 @@
-[submodule "vim/.vim/plugin/vim-fugitive"]
-	path = vim/.vim/plugin/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
 [submodule "vim/.vim/plugin/rainbow"]
 	path = vim/.vim/plugin/rainbow
 	url = https://github.com/luochen1990/rainbow
-[submodule "vim/.vim/plugin/vim-ghci"]
-	path = vim/.vim/plugin/vim-ghci
-	url = https://github.com/wafelack/vim-ghci.git
-[submodule "vim/.vim/plugin/startscreen"]
-	path = vim/.vim/plugin/startscreen
-	url = https://github.com/arp242/startscreen.vim

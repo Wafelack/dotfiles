@@ -296,24 +296,6 @@ filetype plugin indent on
 colorscheme pastry
 let g:rainbow_active = 1
 
-function! s:FillWindow(height)
-    let l:i = 0
-    while l:i < a:height
-        call append(line('$'), '')
-        let l:i += 1
-    endwhile
-endfunction
-
-function! s:FillWidth(width)
-    let l:i = 0
-    let l:s = ''
-    while l:i < a:width
-        let l:s .= ' '
-        let l:i += 1
-    endwhile
-    return l:s
-endfunction
-
 "{{{Filetypes
 
 augroup filetypes
@@ -321,44 +303,4 @@ augroup filetypes
     autocmd BufNewFile,BufRead *.sc setfiletype scala
 augroup end
 
-"}}}
-
-function! StartPage()
-    let l:content = ['                  .                     ',
-                \ ' ##############..... ##############    ',
-                \ ' ##############......##############    ',
-                \ '    ##########..........##########     ',
-                \ '    ##########........##########       ',
-                \ '    ##########.......##########        ',
-                \ '    ##########.....##########..        ',
-                \ '    ##########....##########.....      ',
-                \ '  ..##########..##########.........    ',
-                \ '....##########.#########.............  ',
-                \ '  ..################JJJ............    ',
-                \ '    ################.............      ',
-                \ '    ##############.JJJ.JJJJJJJJJJ      ',
-                \ '    ############...JJ...JJ..JJ  JJ     ',
-                \ '    ##########....JJ...JJ..JJ  JJ      ',
-                \ '    ########......JJJ..JJJ JJJ JJJ     ',
-                \ '    ######    .........                ',
-                \ '                .....                  ',
-                \ '',
-                \ 'VIM - Vi IMproved - The magnificent text editor',
-                \ '',
-                \ '',
-                \ '',
-                \ '',
-                \ '',
-                \ 'Reload last session      SPC l']
-    let l:winheight = (winheight(0) - len(content)) / 2
-    call s:FillWindow(l:winheight - 1)
-    for line in l:content
-        let l:winwidth = (winwidth(0) - len(line)) / 2
-        let l:filled = s:FillWidth(l:winwidth - 1) . line . s:FillWidth(l:winwidth)
-        call append('$', l:filled)
-    endfor
-    call s:FillWindow(l:winheight + 1)
-endfunction
-
-let g:Startscreen_function = function('StartPage')
 "}}}
