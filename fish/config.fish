@@ -1,5 +1,5 @@
 function py
-    py $argv
+    python3 $argv
 end
 function fuckit
     git reset --hard HEAD
@@ -10,11 +10,18 @@ end
 function get_license
     curl --silent www.gnu.org/licenses/gpl-3.0.txt -o COPYING
 end
+function c
+    xclip -selection clipboard
+end
 
 function start_ssh_agent
     if not set -q SSH_AGENT_PID
         eval (ssh-agent -c)
     end
+end
+
+function transfer
+    curl --progress-bar --upload-file $argv[1] http://transfer.sh/$argv[1]
 end
 
 set -gx GPG_TTY (tty)

@@ -95,6 +95,8 @@ include "%L"
 <Multi_key> <c> <e> : "э"
 <Multi_key> <c> <i> <U> : "Ю"
 <Multi_key> <c> <i> <u> : "ю"
+<Multi_key> <c> <i> <A> : "Я"
+<Multi_key> <c> <i> <a> : "я"
 
 # Blackboard
 <Multi_key> <b> <A> : "𝔸"

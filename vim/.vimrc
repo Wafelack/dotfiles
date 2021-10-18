@@ -280,6 +280,19 @@ augroup indentation
     autocmd FileType c,cpp setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
     autocmd FileType scheme,lisp setlocal tabstop=2 shiftwidth=2 softtabstop=2
 augroup end
+"{{{Cursed
+
+function! Trigrafy()
+    %s/\[/\?\?\(/ " [ = ??(
+    %s/\]/\?\?\)/ " ] = ??)
+    %s/\{/\?\?\</ " { = ??<
+    %s/\}/\?\?\>/ " } = ??>
+    %s/\\/\?\?\// " \ = ??/
+    %s/\^/\?\?\'/ " ^ = ??'
+    %s/\#/\?\?\=/ " # = ??=
+    %s/|/\?\?\!/ " | = ??!
+    %s/\~/\?\?\-/ " ~ = ??-
+endfunction
 
 "}}}
 
