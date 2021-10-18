@@ -29,6 +29,7 @@ set -gx EDITOR vim
 
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.scripts
 fish_add_path /usr/local/bin
 fish_add_path /usr/local/sbin
 fish_add_path /sbin
