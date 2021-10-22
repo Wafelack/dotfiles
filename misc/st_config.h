@@ -62,7 +62,7 @@ unsigned int defaultbg = 256;
 static unsigned int defaultcs = 258;
 static unsigned int defaultrcs = 258;
 
-static unsigned int cursorshape = 6;
+static unsigned int cursorshape = 2;
 
 static unsigned int cols = 80;
 static unsigned int rows = 24;

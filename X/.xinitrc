@@ -1,3 +1,3 @@
-$HOME/.local/bin/xstartup.sh
-$HOME/.local/bin/screens.sh
+$HOME/.scripts/xstartup.sh
+$HOME/.scripts/screens.sh
 exec dbus-launch dwm
