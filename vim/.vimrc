@@ -282,7 +282,7 @@ augroup indentation
 augroup end
 "{{{Cursed
 
-function! Trigrafy()
+function! Trigraphy()
     %s/\[/\?\?\(/ " [ = ??(
     %s/\]/\?\?\)/ " ] = ??)
     %s/\{/\?\?\</ " { = ??<
@@ -290,7 +290,7 @@ function! Trigrafy()
     %s/\\/\?\?\// " \ = ??/
     %s/\^/\?\?\'/ " ^ = ??'
     %s/\#/\?\?\=/ " # = ??=
-    %s/|/\?\?\!/ " | = ??!
+    %s/|/\?\?\!/  " | = ??!
     %s/\~/\?\?\-/ " ~ = ??-
 endfunction
 
@@ -302,12 +302,47 @@ execute pathogen#infect('plugin/{}', '~/sources/vim/{}')
 syntax enable
 filetype plugin indent on
 
+let g:plugins_folder = empty($VIM_PLUGINS_FOLDER) ? $HOME . '/.dotfiles/vim/.vim/plugin' : $VIM_PLUGINS_FOLDER
+
+function! AddPlugin(plugin, ...) abort
+    let s:plugname = get(a:, 1, system('basename ' . a:plugin))
+    let s:source   = get(a:, 2, 'git://github.com/')
+
+    let s:repository_link = s:source . a:plugin
+    echom s:repository_link
+
+    exec 'cd! ' . g:plugins_folder
+    exec '!git clone --quiet ' . s:repository_link . ' ' . s:plugname
+    exec '!git submodule add ' . s:repository_link . ' ' . s:plugname
+    exec 'cd! -'
+endfunction
+
+command! -nargs=+ PlugInstall call AddPlugin(<args>)
+
+function! InteractiveAdd() abort
+    let s:path = input('Repository (<username>/<repository>): ')
+    let s:source = input('Source (empty for default): ')
+    let s:plugname = input('Plugin name (empty for default): ')
+
+    if empty(s:source) && empty(s:plugname)
+        call AddPlugin(s:path)
+    elseif empty(s:source)
+        call AddPlugin(s:path, s:plugname)
+    else
+        call AddPlugin(s:path, s:plugname, s:source)
+    endif
+endfunction
+
+nnoremap <leader>pi :call InteractiveAdd()<CR>
+
 "}}}
 
 "{{{Fancy
 
 colorscheme pastry
 let g:rainbow_active = 1
+
+"}}}
 
 "{{{Filetypes
 
