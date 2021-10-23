@@ -1,3 +1,2 @@
-$HOME/.scripts/xstartup.sh
-$HOME/.scripts/screens.sh
-exec dbus-launch dwm
+setkxmap -option caps:escape
+exec dbus-launch stumpwm

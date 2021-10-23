@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Keyboard stuff
-setxkbmap -option caps:escape
-xmodmap -e "keysym Shift_R = Multi_key"
-
-# Satus line
+# Status line
 memory() {
     free | awk '/Mem/ { printf "%d/%d MiB\n", $3 / 1024.0, $2 / 1024.0 }'
 }

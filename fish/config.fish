@@ -46,7 +46,7 @@ function fish_prompt
     if test $s != 0
         echo -n (set_color red)$s (set_color normal)
     end
-    echo -n (set_color grey)(prompt_pwd)(set_color normal)
+    echo -n (set_color green)(prompt_pwd)(set_color normal)
     echo (git_branch)
     echo (set_color grey){$line_number}(set_color normal)@(set_color grey)(date +"%H:%M:%S")(set_color normal)" \$ "
     set -gx line_number (expr $line_number + 1)

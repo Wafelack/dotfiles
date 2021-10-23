@@ -1,5 +1,7 @@
 include "%L"
 
+keysym Shift_R = Multi_key
+
 # Zbalermorna
 <Multi_key> <l> <p> : ""
 <Multi_key> <l> <t> : ""
