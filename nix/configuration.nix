@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   boot.loader = {
@@ -65,6 +65,9 @@
       man-pages
       man-pages-posix
       multimc
+      vlc
+      unzip
+      arandr
     ];
   };
 
@@ -91,9 +94,12 @@
     pinentry-curses
   ];
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+  programs = {
+    gnupg.agent = {
+        enable = true;
+        enableSSHSupport = true;
+    };
+    slock.enable = true;
   };
 
   # This value determines the NixOS release from which the default

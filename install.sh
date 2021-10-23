@@ -22,5 +22,5 @@ link_folder scripts/
 link_folder vim/
 link_folder X/
 link_folder ghci/
-link_folder cl/
 link_folder fish/ ${HOME}/.config/fish/
+link_folder stumpwm/ ${HOME}/.stumpwm.d/
