@@ -68,6 +68,8 @@
       vlc
       unzip
       arandr
+      synapse
+      tor-browser-bundle-bin
     ];
   };
 
