@@ -225,10 +225,10 @@ endfunction
 
 augroup quickfix
 	autocmd!
-	autocmd FileType rust
 	" Stole part of that formatter from rust-lang/rust.vim. (But
 	" please do not use it, this plugin is overall bloated, just
 	" use the quickfix list.)
+	autocmd FileType rust
 				\ let &efm = '%E-->\ %f:%l:%c: %\d%#:%\d%# %.%\{-}error:%.%\{-} %m,' . '%W-->\ %f:%l:%c: %\d%#:%\d%# %.%\{-}warning:%.%\{-} %m,' . '%C-->\ %f:%l %m' . ',' . '%-G,' . '%-Gerror: aborting %.%#,' . '%-Gerror: Could not compile %.%#,' . '%Eerror: %m,' . '%Eerror[E%n]: %m,' . '%-Gwarning: the option `Z` is unstable %.%#,' . '%Wwarning: %m,' . '%Inote: %m,' . '%C %#--> %f:%l:%c'
 				\ | if !empty(glob("Cargo.toml"))
 					\   | setlocal makeprg=cargo
