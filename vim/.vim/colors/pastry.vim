@@ -30,3 +30,6 @@ highlight CursorLineNr ctermbg=8 cterm=none
 highlight CursorLine cterm=none
 highlight StatusLine ctermbg=1 ctermfg=15 cterm=bold
 highlight StatusLineNC ctermbg=2 ctermfg=15 cterm=bold
+match WhiteSpace /\t/
+highlight WhiteSpace ctermbg=0 ctermfg=8
+highlight NonText ctermbg=0 ctermfg=8
