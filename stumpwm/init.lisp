@@ -12,19 +12,22 @@
 (defparameter *pactl-sink* 0)
 (defparameter *pactl-command-template* (format NIL "pactl -- set-sink-volume ~a" *pactl-sink*))
 
+
+
+(define-key *root-map* (kbd "C-l") "exec slock")
+
+;; Commands
 (defun set-volume-to (volume)
   (run-or-raise (format NIL "~a ~a%" *pactl-command-template* volume)) '(:class "PACTL"))
 
 (defun add-to-volume (volume)
   (set-volume-to (if (> volume -1) (format NIL "+~a" volume) volume)))
 
-(define-key *root-map* (kbd "C-i") (set-volume-to "+10%")) ;; Increase volume
-(define-key *root-map* (kbd "C-d") (set-volume-to "-10%")) ;; Decrease volume
-(define-key *root-map* (kbd "M") (set-volume-to "0%")) ;; Mute
+(define-key *root-map* (kbd "C-i") "update-volume yes 10") ;; Increase volume
+(define-key *root-map* (kbd "C-d") "update-volume yes -10") ;; Decrease volume
+(define-key *root-map* (kbd "M") "update-volume no 0")) ;; Mute
+(define-key *root-map* (kbd "u") "update-volume")
 
-(define-key *root-map* (kbd "C-l") "exec slock")
-
-;; Commands
 (defcommand update-volume (add vol)
   (
    (:y-or-n "Add to existing volume?: ")
