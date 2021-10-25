@@ -1,3 +1,6 @@
 [submodule "vim/.vim/plugin/rainbow"]
 	path = vim/.vim/plugin/rainbow
-	url = https://github.com/luochen1990/rainbow
+    url = https://github.com/luochen1990/rainbow
+[submodule "vim/.vim/plugin/vim-fugitive"]
+	path = vim/.vim/plugin/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive

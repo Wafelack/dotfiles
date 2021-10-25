@@ -36,10 +36,7 @@
     libinput.enable = true;
     windowManager.stumpwm.enable = true;
     desktopManager.xterm.enable = false;
-    displayManager = {
-      startx.enable = true;
-      sessionCommands = "${pkgs.xorg.setxkmap}/bin/setxkmap -option caps:escape";
-    };
+    displayManager.startx.enable = true;
   };
 
   sound.enable = true;
@@ -70,6 +67,7 @@
       arandr
       synapse
       tor-browser-bundle-bin
+      screen
     ];
   };
 
@@ -94,6 +92,7 @@
     xorg.xmodmap
     nixpkgs-fmt
     pinentry-curses
+    pinentry-qt
   ];
 
   programs = {

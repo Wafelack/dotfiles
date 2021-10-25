@@ -142,7 +142,6 @@ nnoremap <leader>dt :tabclose<CR>
 nnoremap <leader>nt :tabnew<CR>
 nnoremap <leader>bs :source %<CR>
 nnoremap <leader>ds :call DeleteSexpr()<CR>
-nnoremap <C-f> :silent exec "!cargo fmt >& /dev/null"<CR>:exec "redraw!"<CR>
 nnoremap <C-x>q :qa!<CR>
 " Jump to help page
 nnoremap gh T\|yt\|:silent! exec ":help " . @"<CR>
@@ -226,24 +225,28 @@ endfunction
 augroup quickfix
     autocmd!
     autocmd FileType rust
-                \   if !empty(glob("Cargo.toml"))
-                \ | setlocal makeprg=cargo
-                \ | else
-                    \ | setlocal makeprg=rustc
-                    \ | endif
-    autocmd FileType haskell
-                \   if !empty(glob("stack.yaml"))
-                \ | setlocal makeprg=stack
-                \ | elseif !empty(glob("*.cabal"))
-                    \ | setlocal makeprg=cabal
+    " Stole part of that formatter from rust-lang/rust.vim. (But
+    " please do not use it, this plugin is overall bloated, just
+    " use the quickfix list.)
+                \ let &efm = '%E-->\ %f:%l:%c: %\d%#:%\d%# %.%\{-}error:%.%\{-} %m,' . '%W-->\ %f:%l:%c: %\d%#:%\d%# %.%\{-}warning:%.%\{-} %m,' . '%C-->\ %f:%l %m' . ',' . '%-G,' . '%-Gerror: aborting %.%#,' . '%-Gerror: Could not compile %.%#,' . '%Eerror: %m,' . '%Eerror[E%n]: %m,' . '%-Gwarning: the option `Z` is unstable %.%#,' . '%Wwarning: %m,' . '%Inote: %m,' . '%C %#--> %f:%l:%c'
+                \ | if !empty(glob("Cargo.toml"))
+                    \   | setlocal makeprg=cargo
                     \ | else
-                        \ | setlocal makeprg=ghc
+                        \   | setlocal makeprg=rustc
+                        \ | endif
+    autocmd FileType haskell
+                \ if !empty(glob("stack.yaml"))
+                \   | setlocal makeprg=stack
+                \ | elseif !empty(glob("*.cabal"))
+                    \   | setlocal makeprg=cabal
+                    \ | else
+                        \   | setlocal makeprg=ghc
                         \ | endif
     autocmd FileType c
                 \   if !empty(glob("makefile")) || !empty(glob("Makefile"))
-                \ | setlocal makeprg=make
+                \   | setlocal makeprg=make
                 \ | else
-                    \ | setlocal makeprg=cc
+                    \   | setlocal makeprg=cc
                     \ | endif
 
     autocmd QuickFixCmdPost make copen
@@ -340,15 +343,6 @@ nnoremap <leader>pi :call InteractiveAdd()<CR>
 "{{{Fancy
 
 colorscheme pastry
-let g:rainbow_active = 1
-
-"}}}
-
-"{{{Filetypes
-
-augroup filetypes
-    autocmd!
-    autocmd BufNewFile,BufRead *.sc setfiletype scala
-augroup end
+let g:rainbow_active = 2
 
 "}}}

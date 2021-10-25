@@ -1,2 +1,3 @@
 setkxmap -option caps:escape
-exec dbus-launch stumpwm
+xmodmap -e "keysym Shift_R = Multi_key"
+exec stumpwm

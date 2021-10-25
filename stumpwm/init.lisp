@@ -7,44 +7,33 @@
 ;; Keybindings
 (set-prefix-key (kbd "C-RET"))
 
-;; XTerm sucks.
-(add-key "c" "exec st")
-
 (add-key "P" "exec flameshot gui")
 (add-key "C-l" "exec slock")
+(add-key "C-f" "fullscreen") 
+
+;; XTerm sucks.
+(add-key "t" "exec st")
+;; The default binding for exec also sucks.
+(add-key "c" "exec")
 
 ;; Commands
 (defparameter *pactl-sink* 0)
 (defparameter *pactl-command-template* (format NIL "pactl -- set-sink-volume ~a" *pactl-sink*))
 
-(defun set-volume-to (volume)
-  (run-or-raise (format NIL "~a ~a%" *pactl-command-template* volume)) '(:class "PACTL"))
+(defun set-volume (volume)
+  (format NIL "exec ~a ~a%" *pactl-command-template* volume))
 
-(defun add-to-volume (volume)
-  (set-volume-to (if (> volume -1) (format NIL "+~a" volume) volume)))
+(defun update-volume (volume)
+  (set-volume (if (> volume -1) (format NIL "+~a" volume) volume)))
 
-(add-key "C-i" "update-volume yes 10")
-(add-key "C-d" "update-volume yes -10")
-(add-key "M" "update-volume no 0")
-(add-key "u" "update-volume")
+(add-key "C-i" (update-volume 10))
+(add-key "C-d" (update-volume -10))
+(add-key "M" (set-volume 0))
 
-(defcommand update-volume (add vol)
-  (
-   (:y-or-n "Add to existing volume?: ")
-   (:number "Percentage to add to the 0th sink: "))
-  (if add
-      (set-volume-to vol)
-      (add-to-volume vol)))
+;; Echo area and input box
+(set-fg-color "#eceff4")
+(set-bg-color "#2e3440")
+(set-border-color "#22272e")
+(set-font "unifont")
 
-;; Let's vimify Firefox.
-(define-remapped-keys
-  '(("Firefox"
-     ("C-h" . "Left")
-     ("C-j" . "Down")
-     ("C-k" . "Up")
-     ("C-l" . "Right")
-     ("C-n" . "Next")
-     ("C-N" . "Prior")
-     ("C-y" . "C-c")
-     ("C-d" . "C-x")
-     ("C-p" . "C-v"))))
+(setq *message-window-gravity* (setq *message-window-input-gravity* (setq *input-window-gravity* :top)))
