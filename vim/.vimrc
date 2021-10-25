@@ -23,9 +23,7 @@ augroup end
 
 set tabstop=4
 set shiftwidth=4
-" set expandtab smarttab nowrap
 set noexpandtab
-" set ai si
 
 "}}}
 
@@ -184,12 +182,22 @@ augroup end
 
 "{{{Tags
 
+function! RegenTags(root)
+	if !empty(glob('tags'))
+		silent exec '!ctags -R ' . a:root
+	endif
+endfunction
+
+" Assume we use Universal Ctags
 augroup tags
 	autocmd!
-	autocmd BufWritePost * 
-				\ if !empty(glob("tags")) 
-				\ | silent exec "!ctags -R ."
-				\ | endif
+	autocmd FileType rust let g:tags_root = './src/'
+	autocmd FileType c,cpp let g:tags_root = './sources/'
+	autocmd FileType lisp let g:tags_root = './'
+
+	autocmd BufWritePost *.rs call RegenTags('./src/')
+	autocmd BufWritePost *.cl,*.lisp call RegenTags('./')
+	autocmd BufWritePost *.c,*.cc,*.cpp,*.cxx call RegenTags('./sources/')
 augroup end
 
 "}}}
@@ -282,7 +290,8 @@ augroup end
 augroup indentation
 	autocmd!
 	autocmd FileType c,cpp setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
-	autocmd FileType scheme,lisp setlocal tabstop=2 shiftwidth=2 softtabstop=2
+	autocmd FileType scheme,lisp setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+	autocmd FileType rust setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup end
 
 "}}}
@@ -352,5 +361,21 @@ let g:rainbow_active = 2
 set list
 set listchars=tab:>—,eol:¬,trail:\ ,nbsp:¤
 set fillchars=vert:\ 
+
+"}}}
+
+"{{{Completion
+
+set omnifunc=syntaxcomplete#Complete
+
+"}}}
+
+
+"{{{Custom Filetypes
+
+augroup ftypes
+	autocmd!
+	autocmd BufNewFile,BufRead *.asd setfiletype lisp
+augroup end
 
 "}}}

@@ -24,3 +24,4 @@ link_folder X/
 link_folder ghci/
 link_folder fish/ ${HOME}/.config/fish/
 link_folder stumpwm/ ${HOME}/.stumpwm.d/
+link_folder git/

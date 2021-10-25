@@ -68,6 +68,8 @@
       synapse
       tor-browser-bundle-bin
       screen
+      universal-ctags
+      redshift
     ];
   };
 

@@ -1,0 +1,20 @@
+[user]
+	name  = Wafelack
+	email = wafelack@riseup.net
+[pull]
+	rebase = true
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = master
+[merge]
+	tool = fugitive
+[mergetool "fugitive"]
+	cmd = vim -f -c "Gvdiffsplit!" "$MERGED"
+[alias]
+	c  = commit -a
+	b  = branch
+	d  = diff
+	l  = log
+	ps = push
+	pl = pull
