@@ -21,37 +21,39 @@ augroup end
 
 "{{{Indentation
 
-set tabstop=4
-set shiftwidth=4
 set noexpandtab
 
 "}}}
 
 "{{{Status bar
 
-let modes = {
-			\ 'n' : 'N',
-			\ 'i' : 'I',
-			\ 'ic': 'IC',
-			\ 'ix': 'IX',
-			\ 'R' : 'R',
-			\ 'Rc': 'RC',
-			\ 'Rx': 'RX',
-			\ 'Rv': 'RC',
-			\ 'c' : 'C',
-			\ 'cv': 'CV',
-			\ 'ce': 'CE',
-			\ 'r' : 'R',
-			\ 'rm': 'RM',
-			\ 'r?': 'R?',
-			\ '!' : 'S',
-			\ 'v' : 'V',
-			\ 'V' : 'VL',
-			\ '': 'VB',
-			\ 's' : 'S',
-			\ 'S' : 'SL',
-			\ '': 'SB',
+function! FormatMode(mode)
+	let modes = {
+			\ 'n' : 'NORMAL',
+			\ 'i' : 'INSERT',
+			\ 'ic': 'INSERT-COMPL',
+			\ 'ix': 'INSERT-COMPL',
+			\ 'R' : 'REPLACE',
+			\ 'Rc': 'REPLACE-COMPL',
+			\ 'Rx': 'REPLACE-COMPL',
+			\ 'Rv': 'VIRTUAL-REPLACE',
+			\ 'c' : 'COMMAND',
+			\ 'cv': 'VIM-EX',
+			\ 'ce': 'NORMAL-EX',
+			\ 'r' : 'PROMPT',
+			\ 'rm': 'MORE',
+			\ 'r?': 'CONFIRM',
+			\ '!' : 'SHELL',
+			\ 'v' : 'VISUAL',
+			\ 'V' : 'VISUAL-LINE',
+			\ '': 'VISUAL-BLOCK',
+			\ 's' : 'SELECT-CHAR',
+			\ 'S' : 'SELECT-LINE',
+			\ '': 'SELECT-BLOCK',
 			\}
+	return modes[a:mode]
+endfunction
+
 
 function! GitBranch()
 	return system('git rev-parse --abbrev-ref HEAD 2> /dev/null | tr -d "\n"') 
@@ -66,15 +68,18 @@ function! StatusBranch()
 	endif
 endfunction
 
+highlight User1 ctermbg=12 ctermfg=15
+
 set laststatus=2
-set statusline=[%{modes[mode()]}]
-set statusline+=\ %f
-set statusline+=\ (%F)
-set statusline+=\ %m
+set statusline=%1*\ %{FormatMode(mode())}\ %* " Formatted edition mode.
+set statusline+=\ %f " File name.
+set statusline+=\ [%{StatusBranch()}] " Git branch.
+set statusline+=\ %m " Modified flag.
 set statusline+=\ %=
-set statusline+=\ %{StatusBranch()}
-set statusline+=\ %y
-set statusline+=\ %l\ %c\ %p%%
+set statusline+=\ %{&ft} " Language.
+set statusline+=\ [%{&ff}#%{&fileencoding}]
+set statusline+=%1*\ %p%%\ ::\ %l/%L\ :\ %c\ %* " Line:Col Percentage
+
 
 "}}}
 
@@ -145,10 +150,10 @@ nnoremap <C-x>q :qa!<CR>
 " Jump to help page
 nnoremap gh T\|yt\|:silent! exec ":help " . @"<CR>
 
-nnoremap <leader>cc :cclose<CR>
-nnoremap <leader>co :copen<CR>
-nnoremap <leader>cn :cn<CR>
-nnoremap <leader>cp :cp<CR>
+nnoremap <C-q>c :cclose<CR>
+nnoremap <C-q>o :copen<CR>
+nnoremap <C-q>n :cn<CR>
+nnoremap <C-q>p :cp<CR>
 nnoremap <leader>l :execute ("source" . g:session_file)<CR>
 
 "}}}
@@ -197,7 +202,7 @@ augroup tags
 
 	autocmd BufWritePost *.rs call RegenTags('./src/')
 	autocmd BufWritePost *.cl,*.lisp call RegenTags('./')
-	autocmd BufWritePost *.c,*.cc,*.cpp,*.cxx call RegenTags('./sources/')
+	autocmd BufWritePost *.c,*.cc,*.cpp,*.cxx,*.h,*.hh,*.hpp call RegenTags('./sources/')
 augroup end
 
 "}}}
@@ -289,9 +294,9 @@ augroup end
 
 augroup indentation
 	autocmd!
-	autocmd FileType c,cpp setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
-	autocmd FileType scheme,lisp setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-	autocmd FileType rust setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+	autocmd BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.h,*.hh,*.hpp set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+	autocmd BufNewFile,BufRead *.scm,*.lisp set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+	autocmd BufNewFile,BufRead *.rs set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup end
 
 "}}}
@@ -314,42 +319,15 @@ endfunction
 
 "{{{Plugins
 
-execute pathogen#infect('plugin/{}', '~/sources/vim/{}')
 syntax enable
 filetype plugin indent on
 
-let g:plugins_folder = empty($VIM_PLUGINS_FOLDER) ? $HOME . '/.dotfiles/vim/.vim/plugin' : $VIM_PLUGINS_FOLDER
+call plug#begin('~/.vim/plugged')
 
-function! AddPlugin(plugin, ...) abort
-	let s:plugname = get(a:, 1, system('basename ' . a:plugin))
-	let s:source   = get(a:, 2, 'git://github.com/')
+Plug 'tpope/vim-fugitive'
+Plug 'luochen1990/rainbow'
 
-	let s:repository_link = s:source . a:plugin
-	echom s:repository_link
-
-	exec 'cd! ' . g:plugins_folder
-	exec '!git clone --quiet ' . s:repository_link . ' ' . s:plugname
-	exec '!git submodule add ' . s:repository_link . ' ' . s:plugname
-	exec 'cd! -'
-endfunction
-
-command! -nargs=+ PlugInstall call AddPlugin(<args>)
-
-function! InteractiveAdd() abort
-	let s:path = input('Repository (<username>/<repository>): ')
-	let s:source = input('Source (empty for default): ')
-	let s:plugname = input('Plugin name (empty for default): ')
-
-	if empty(s:source) && empty(s:plugname)
-		call AddPlugin(s:path)
-	elseif empty(s:source)
-		call AddPlugin(s:path, s:plugname)
-	else
-		call AddPlugin(s:path, s:plugname, s:source)
-	endif
-endfunction
-
-nnoremap <leader>pi :call InteractiveAdd()<CR>
+call plug#end()
 
 "}}}
 
@@ -369,7 +347,6 @@ set fillchars=vert:\
 set omnifunc=syntaxcomplete#Complete
 
 "}}}
-
 
 "{{{Custom Filetypes
 

@@ -19,6 +19,7 @@ link_folder() {
 
 link_folder nix/ /etc/nixos/
 link_folder scripts/
+mkdir -p vim/.vim/plugged
 link_folder vim/
 link_folder X/
 link_folder ghci/

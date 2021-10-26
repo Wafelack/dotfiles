@@ -28,8 +28,8 @@ highlight Type ctermfg=13
 highlight Todo ctermbg=11
 highlight CursorLineNr ctermbg=8 cterm=none
 highlight CursorLine cterm=none
-highlight StatusLine ctermbg=1 ctermfg=15 cterm=bold
-highlight StatusLineNC ctermbg=2 ctermfg=15 cterm=bold
+" highlight StatusLine ctermbg=1 ctermfg=15 cterm=bold
+" highlight StatusLineNC ctermbg=2 ctermfg=15 cterm=bold
 
 highlight WhiteSpace ctermbg=0 ctermfg=8
 match WhiteSpace /\t/
