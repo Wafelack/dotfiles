@@ -3,17 +3,26 @@
 ;; Configuration file for GNU Emacs.
 
 ;; Packages
-(require 'package)
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Setup straight
 
-(package-initialize)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(defvar *wafelack-packages* '(slime company evil magit))
-
-(dolist (pack *wafelack-packages*)
-  (unless (package-installed-p pack)
-    (package-install pack)))
+(straight-use-package 'evil)
+(straight-use-package 'magit)
+(straight-use-package 'slime)
+(straight-use-package 'company)
 
 ;; Minor modes and hooks
 (global-display-line-numbers-mode 1)
@@ -37,6 +46,12 @@
 (setq make-backup-files nil) ;; Source control exists for this problem.
 (setq create-lockfiles nil)
 (setq inhibit-splash-screen t) ;; It is really annoying, you know.
+
+;; Keybindings
+(define-key evil-motion-state-map " " nil)
+(define-key evil-motion-state-map (kbd "SPC g i") 'magit)
+
+;; Auto-generated stuff
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
