@@ -19,13 +19,15 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(straight-use-package 'evil)
-(straight-use-package 'magit)
-(straight-use-package 'slime)
-(straight-use-package 'company)
+(straight-use-package 'evil) ;; Modal edition for the win
+(straight-use-package 'magit) ;; Git client
+(straight-use-package 'slime) ;; Lisp Interaction Mode
+(straight-use-package 'company) ;; Completion
+(straight-use-package 'ivy) ;; M-x completion
 
 ;; Minor modes and hooks
 (global-display-line-numbers-mode 1)
+(ivy-mode 1)
 
 ;; TODO: Write a macro to do that.
 (add-hook 'c-mode-hook 'eletric-pair-mode)
