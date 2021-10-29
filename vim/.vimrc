@@ -62,7 +62,7 @@ endfunction
 function! StatusBranch()
 	let l:branch = GitBranch()
 	if strlen(l:branch) > 0
-		return l:branch
+		return '[' . l:branch . ']'
 	else
 		return ''
 	endif
@@ -73,7 +73,7 @@ highlight User1 ctermbg=12 ctermfg=15
 set laststatus=2
 set statusline=%1*\ %{FormatMode(mode())}\ %* " Formatted edition mode.
 set statusline+=\ %f " File name.
-set statusline+=\ [%{StatusBranch()}] " Git branch.
+set statusline+=\ %{StatusBranch()} " Git branch.
 set statusline+=\ %m " Modified flag.
 set statusline+=\ %=
 set statusline+=\ %{&ft} " Language.
@@ -104,7 +104,7 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 0
 let g:netrw_list_style = 3
 let g:netrw_dirhistmax = 0
-let g:netrw_list_hide = netrw_gitignore#Hide()
+let g:netrw_list_hide = netrw_gitignore#Hide() . ',.*\.o'
 let g:netrw_winsize = 25
 
 "}}}
@@ -271,12 +271,15 @@ augroup end
 "{{{Snippets
 
 function! GetScreamingSnakeBasename(str)
-	let l:basename = split(a:str, '/')[-1]
-	return '_' . toupper(substitute(l:basename, '\.', '_', 'g'))
+	let l:relativel = split(a:str, '/')
+	if l:relativel[0] == 'sources' || l:relativel[0] == 'src'
+		let l:relativel = l:relativel[1:]
+	endif
+	return '_' . substitute(toupper(join(l:relativel, '_')), '\.', '_', 'g')
 endfunction
 
 function! WriteHeaderCode()
-	let l:name = GetScreamingSnakeBasename(expand("%"))
+	let l:name = GetScreamingSnakeBasename(fnamemodify(expand("%"), ":~:."))
 	execute "normal! i#ifndef " . l:name . "\<CR>"
 	execute "normal! i# define " . l:name . " 1\<CR>"
 	execute "normal! i\<CR>\<CR>\<CR>#endif /* " . l:name . " */"
@@ -326,6 +329,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
+Plug 'ackyshake/VimCompletesMe'
 
 call plug#end()
 
@@ -334,11 +338,23 @@ call plug#end()
 "{{{Fancy
 
 colorscheme pastry
+
 let g:rainbow_active = 2
 
 set list
 set listchars=tab:>—,eol:¬,trail:\ ,nbsp:¤
 set fillchars=vert:\ 
+
+"}}}
+
+"{{{EMACS keybindings, because it is fun
+
+nnoremap <Esc>x :exec input("M-x ", "", "command")<CR>
+command! -nargs=* Compile make <args>
+cnoreabbrev compile Compile
+
+nnoremap <C-x><C-f> :e .<CR>
+nnoremap <C-x><C-c> :qa<CR>
 
 "}}}
 

@@ -1,5 +1,9 @@
 set -U fish_greeting ""
 
+function visukey $argv
+	screenkey --mods-mode emacs -f "Liberation Mono" --position bottom
+end
+
 function py
 python3 $argv
 end

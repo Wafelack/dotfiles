@@ -47,6 +47,8 @@
     extraGroups = [ "wheel" "networkmanager" "audio" "sound" "video" ];
     shell = "/run/current-system/sw/bin/fish";
     packages = with pkgs; [
+      screenkey
+      inkscape
       neofetch
       flameshot
       emacs
@@ -70,6 +72,8 @@
       screen
       universal-ctags
       redshift
+      simplescreenrecorder
+      tree
     ];
   };
 
