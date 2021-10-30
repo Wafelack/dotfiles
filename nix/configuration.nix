@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -42,11 +42,21 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "steam-original"
+    "steam"
+    "steam-runtime"
+  ];
+  programs.steam.enable = true;
+
   users.users.wafelack = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "sound" "video" ];
     shell = "/run/current-system/sw/bin/fish";
     packages = with pkgs; [
+      steam
+      acpi
+      clang
       screenkey
       inkscape
       neofetch
@@ -81,9 +91,12 @@
   security.doas = {
     enable = true;
     extraRules = [
-      { users = [ "wafelack" ]; persist = true; keepEnv = true; }  
+      { users = [ "wafelack" ]; persist = true; keepEnv = true; }
     ];
   };
+
+
+
 
   environment.systemPackages = with pkgs; [
     (st.overrideAttrs (oldAttrs: rec {
@@ -103,8 +116,8 @@
 
   programs = {
     gnupg.agent = {
-        enable = true;
-        enableSSHSupport = true;
+      enable = true;
+      enableSSHSupport = true;
     };
     slock.enable = true;
   };

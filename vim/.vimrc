@@ -331,6 +331,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
 Plug 'ackyshake/VimCompletesMe'
 
+Plug '~/sources/vim/noc.vim'
+
 call plug#end()
 
 "}}}

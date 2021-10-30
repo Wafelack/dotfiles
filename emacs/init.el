@@ -24,13 +24,21 @@
 (straight-use-package 'slime) ;; Lisp Interaction Mode
 (straight-use-package 'company) ;; Completion
 (straight-use-package 'ivy) ;; M-x completion
+(straight-use-package 'projectile) ;; Project management
+
 
 ;; Minor modes and hooks
 (global-display-line-numbers-mode 1)
+
 (ivy-mode 1)
 
+(projectile-mode +1)
+
 ;; TODO: Write a macro to do that.
-(add-hook 'c-mode-hook 'eletric-pair-mode)
+(add-hook 'c-mode-hook
+	  (lambda ()
+	    (electric-pair-mode 1)
+	    (setq tab-width 8)))
 (add-hook 'emacs-lisp-mode-hook 'electric-pair-mode)
 
 (add-hook 'after-init-hook 'global-company-mode)
@@ -47,11 +55,19 @@
 (setq insert-default-directory nil)
 (setq make-backup-files nil) ;; Source control exists for this problem.
 (setq create-lockfiles nil)
+(setq auto-save-default nil)
 (setq inhibit-splash-screen t) ;; It is really annoying, you know.
 
 ;; Keybindings
 (define-key evil-motion-state-map " " nil)
 (define-key evil-motion-state-map (kbd "SPC g i") 'magit)
+(define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
+
+(defun insert-tab-chr ()
+  (interactive)
+  (insert "\t"))
+
+(define-key evil-insert-state-map (kbd "TAB") 'insert-tab-chr)
 
 ;; Auto-generated stuff
 
