@@ -51,7 +51,7 @@
 
   users.users.wafelack = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "audio" "sound" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "sound" "video" "docker" ];
     shell = "/run/current-system/sw/bin/fish";
     packages = with pkgs; [
       steam
@@ -125,6 +125,8 @@
   fonts.fonts = with pkgs; [
     unifont
   ];
+
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

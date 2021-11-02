@@ -322,18 +322,11 @@ endfunction
 
 "{{{Plugins
 
+execute pathogen#infect('plugin/{}')
+silent! HelpTags
+
 syntax enable
 filetype plugin indent on
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-fugitive'
-Plug 'luochen1990/rainbow'
-Plug 'ackyshake/VimCompletesMe'
-
-Plug '~/sources/vim/noc.vim'
-
-call plug#end()
 
 "}}}
 
@@ -346,6 +339,8 @@ let g:rainbow_active = 2
 set list
 set listchars=tab:>—,eol:¬,trail:\ ,nbsp:¤
 set fillchars=vert:\ 
+
+set showtabline=2
 
 "}}}
 

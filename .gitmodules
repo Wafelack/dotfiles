@@ -1,3 +1,15 @@
 [submodule "vim/vim-plug"]
 	path = vim/vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "vim/.vim/plugin/vim-fugitive"]
+	path = vim/.vim/plugin/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "vim/.vim/plugin/rainbow"]
+	path = vim/.vim/plugin/rainbow
+	url = https://github.com/luochen1990/rainbow
+[submodule "vim/.vim/plugin/VimCompletesMe"]
+	path = vim/.vim/plugin/VimCompletesMe
+	url = https://github.com/ackyshake/VimCompletesMe
+[submodule "vim/.vim/plugin/vim-orgmode"]
+	path = vim/.vim/plugin/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode
