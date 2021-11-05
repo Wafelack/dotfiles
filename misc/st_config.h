@@ -1,4 +1,4 @@
-static char *font = "Liberation Mono:pixelsize=16:antialias=true:autohint=true";
+static char *font = "iosevka:pixelsize=18:antialias=true:autohint=true";
 static int borderpx = 2;
 
 static char *shell = "/bin/fish";

@@ -49,11 +49,55 @@
   ];
   programs.steam.enable = true;
 
+
   users.users.wafelack = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "sound" "video" "docker" ];
     shell = "/run/current-system/sw/bin/fish";
-    packages = with pkgs; [
+    packages = with pkgs;
+      let 
+    tectonic-fixed = with pkgs; rustPlatform.buildRustPackage rec {
+    pname = "tectonic";
+    version = "0.8.0";
+
+    src = fetchFromGitHub {
+      owner = "tectonic-typesetting";
+      repo = "tectonic";
+      rev = "09b15758b41fe25d6a8a1e3b6f475336fa72a667";
+      fetchSubmodules = true;
+      sha256 = "sha256-FY8/2F1HE/I6/NiK7rulYFZjerYho0yJi7sCXl5aR44=";
+    };
+
+    cargoSha256 = "sha256-P2j5VloAX5k4YizbdyyLO7+0dBeDtEGg5NLeIrwKYt0=";
+
+    nativeBuildInputs = [ pkg-config makeWrapper ];
+
+    buildInputs = [ fontconfig harfbuzz openssl icu ]
+      ++ lib.optionals stdenv.isDarwin (with darwin.apple_sdk.frameworks; [ ApplicationServices Cocoa Foundation ]);
+
+    # Tectonic runs biber when it detects it needs to run it, see:
+    # https://github.com/tectonic-typesetting/tectonic/releases/tag/tectonic%400.7.0
+    postInstall = ''
+      wrapProgram $out/bin/tectonic \
+        --prefix PATH "${lib.getBin biber}/bin"
+    '' + lib.optionalString stdenv.isLinux ''
+      substituteInPlace dist/appimage/tectonic.desktop \
+        --replace Exec=tectonic Exec=$out/bin/tectonic
+      install -D dist/appimage/tectonic.desktop -t $out/share/applications/
+      install -D dist/appimage/tectonic.svg -t $out/share/icons/hicolor/scalable/apps/
+    '';
+
+    doCheck = true;
+
+    meta = with lib; {
+      description = "Modernized, complete, self-contained TeX/LaTeX engine, powered by XeTeX and TeXLive";
+      homepage = "https://tectonic-typesetting.github.io/";
+      changelog = "https://github.com/tectonic-typesetting/tectonic/blob/tectonic@${version}/CHANGELOG.md";
+      license = with licenses; [ mit ];
+      maintainers = [ maintainers.lluchs maintainers.doronbehar ];
+    };
+  }; in 
+      [tectonic-fixed
       steam
       acpi
       clang
@@ -95,9 +139,6 @@
     ];
   };
 
-
-
-
   environment.systemPackages = with pkgs; [
     (st.overrideAttrs (oldAttrs: rec {
       configFile = writeText "config.def.h" (builtins.readFile "/home/wafelack/.dotfiles/misc/st_config.h");
@@ -124,6 +165,7 @@
 
   fonts.fonts = with pkgs; [
     unifont
+    iosevka
   ];
 
   virtualisation.docker.enable = true;

@@ -1,6 +1,7 @@
 (in-package :stumpwm)
 
 ;; Shell commands
+(run-shell-command "feh --bg-scale ~/.dotfiles/wallpaper.png")
 (run-shell-command "setkxmap -option caps:escape")
 (run-shell-command "xmodmap -e 'keysym Shift_R = Multi_key'")
 

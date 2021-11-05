@@ -98,7 +98,8 @@ set incsearch
 
 "}}}
 
-"{{{File Browsing
+command! -nargs=1 Mkdir call system('mkdir ' . <args>)
+nnoremap mkd :Mkdir input('New directory: ', '', 'file')<CR>
 
 let g:netrw_banner = 0
 let g:netrw_browse_split = 0
@@ -156,6 +157,16 @@ nnoremap <C-q>n :cn<CR>
 nnoremap <C-q>p :cp<CR>
 nnoremap <leader>l :execute ("source" . g:session_file)<CR>
 
+" Git interaction
+nnoremap <leader>gic :Git add .<CR>:Git commit<CR>
+nnoremap <leader>gip :Git push<CR>
+nnoremap <leader>giP :Git push
+nnoremap <leader>gid :Git diff<CR>
+
+" Tabs
+nnoremap <leader>P :tabprevious<CR>
+nnoremap <leader>N :tabnext<CR>
+
 "}}}
 
 "{{{Backups
@@ -196,13 +207,9 @@ endfunction
 " Assume we use Universal Ctags
 augroup tags
 	autocmd!
-	autocmd FileType rust let g:tags_root = './src/'
-	autocmd FileType c,cpp let g:tags_root = './sources/'
-	autocmd FileType lisp let g:tags_root = './'
-
 	autocmd BufWritePost *.rs call RegenTags('./src/')
 	autocmd BufWritePost *.cl,*.lisp call RegenTags('./')
-	autocmd BufWritePost *.c,*.cc,*.cpp,*.cxx,*.h,*.hh,*.hpp call RegenTags('./sources/')
+	autocmd BufWritePost *.c,*.cc,*.cpp,*.cxx,*.h,*.hh,*.hpp call RegenTags('./src/')
 augroup end
 
 "}}}
@@ -322,7 +329,7 @@ endfunction
 
 "{{{Plugins
 
-execute pathogen#infect('plugin/{}')
+execute pathogen#infect('plugin/{}', '~wafelack/sources/vim/{}')
 silent! HelpTags
 
 syntax enable
@@ -352,6 +359,9 @@ cnoreabbrev compile Compile
 
 nnoremap <C-x><C-f> :e .<CR>
 nnoremap <C-x><C-c> :qa<CR>
+
+nnoremap <C-x>1 :only<CR>
+nnoremap <C-x><C-f> :execute ':e' . input('Find file: ', expand('%'), 'file')<CR>
 
 "}}}
 
