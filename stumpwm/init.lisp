@@ -2,7 +2,7 @@
 
 ;; Shell commands
 (run-shell-command "feh --bg-scale ~/.dotfiles/wallpaper.png")
-(run-shell-command "setkxmap -option caps:escape")
+(run-shell-command "setxkbmap -option caps:escape")
 (run-shell-command "xmodmap -e 'keysym Shift_R = Multi_key'")
 
 ;; Well, I do think it is easier to write.
@@ -68,12 +68,6 @@
 (defparameter *pactl-sink* 0)
 (defparameter *pactl-command-template* (format NIL "pactl -- set-sink-volume ~a" *pactl-sink*))
 
-;; (defun set-volume (volume)
-;;   (format NIL "exec ~a ~a%" *pactl-command-template* volume))
-
-;; (defun update-volume (volume)
-;;   (set-volume (if (> volume -1) (format NIL "+~a" volume) volume)))
-
 (defcommand update-volume (value)
   ((:number "Percentage to add: "))
   (run-shell-command (format NIL "~a ~a%" *pactl-command-template* (if (< value 0) value (format NIL "+~D" value)))))
@@ -81,6 +75,21 @@
 (add-key "C-i" "update-volume 10")
 (add-key "C-d" "update-volume -10")
 (add-key "M" "update-volume -100") ;; This is fine.
+
+(defun desktop-layout ()
+  (run-shell-command "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1680x1050 --pos 1920x0 --rotate normal"))
+
+(defun laptop-layout ()
+  (run-shell-command "xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off"))
+
+(defcommand screen-layout (layout)
+  ((:y-or-n "Switch to desktop layout?: "))
+  (if layout
+    (desktop-layout)
+    (laptop-layout)))
+
+(add-key "D" "screen-layout y")
+(add-key "L" "screen-layout n")
 
 (defcommand set-brightness (output value)
   ((:string "Output: ")
