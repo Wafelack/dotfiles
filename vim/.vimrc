@@ -204,12 +204,14 @@ function! RegenTags(root)
 	endif
 endfunction
 
+let g:regenerate_tags = 1
+
 " Assume we use Universal Ctags
 augroup tags
 	autocmd!
-	autocmd BufWritePost *.rs call RegenTags('./src/')
-	autocmd BufWritePost *.cl,*.lisp call RegenTags('./')
-	autocmd BufWritePost *.c,*.cc,*.cpp,*.cxx,*.h,*.hh,*.hpp call RegenTags('./src/')
+	autocmd BufWritePost *.rs if (g:regenerate_tags) | call RegenTags('./src/') | endif
+	autocmd BufWritePost *.cl,*.lisp if (g:regenerate_tags) | call RegenTags('./') | endif
+	autocmd BufWritePost *.c,*.cc,*.cpp,*.cxx,*.h,*.hh,*.hpp if (g:regenerate_tags) | call RegenTags('./src/') | endif
 augroup end
 
 "}}}
@@ -362,6 +364,50 @@ nnoremap <C-x><C-c> :qa<CR>
 
 nnoremap <C-x>1 :only<CR>
 nnoremap <C-x><C-f> :execute ':e' . input('Find file: ', expand('%'), 'file')<CR>
+
+"}}}
+
+"{{{Lojban mode
+
+let g:lojban_mode = 0
+
+command! -nargs=0 LojbanMode let g:lojban_mode = !g:lojban_mode
+nnoremap <leader>jbo :LojbanMode<CR>
+
+augroup lojban_mode
+	autocmd!
+	autocmd BufEnter *
+		\ if g:lojban_mode
+			\ | inoremap <buffer> p 
+			\ | inoremap <buffer> t 
+			\ | inoremap <buffer> k 
+			\ | inoremap <buffer> f 
+			\ | inoremap <buffer> l 
+			\ | inoremap <buffer> s 
+			\ | inoremap <buffer> c 
+			\ | inoremap <buffer> m 
+			\ | inoremap <buffer> x 
+			\ | inoremap <buffer> b 
+			\ | inoremap <buffer> d 
+			\ | inoremap <buffer> g 
+			\ | inoremap <buffer> v 
+			\ | inoremap <buffer> r 
+			\ | inoremap <buffer> z 
+			\ | inoremap <buffer> j 
+			\ | inoremap <buffer> n 
+			\ | inoremap <buffer> q 
+			\ | inoremap <buffer> w 
+			\ | inoremap <buffer> a 
+			\ | inoremap <buffer> e 
+			\ | inoremap <buffer> i 
+			\ | inoremap <buffer> o 
+			\ | inoremap <buffer> u 
+			\ | inoremap <buffer> y 
+			\ | inoremap <buffer> . 
+			\ | inoremap <buffer> ' 
+			\ | inoremap <buffer> : 
+		\ | endif
+augroup end
 
 "}}}
 
