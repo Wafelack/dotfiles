@@ -27,3 +27,4 @@ link_folder fish/ ${HOME}/.config/fish/
 link_folder stumpwm/ ${HOME}/.stumpwm.d/
 link_folder git/
 link_folder emacs/ ${HOME}/.emacs.d/
+link_folder himalaya ${HOME}/.config/himalaya/
