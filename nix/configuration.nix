@@ -99,7 +99,12 @@
         }; in
       [
         tectonic-fixed
+        himalaya
+        pass
+        openscad
         steam
+        irssi
+        killall
         acpi
         clang
         screenkey

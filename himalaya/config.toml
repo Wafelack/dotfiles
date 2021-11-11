@@ -1,0 +1,24 @@
+name          = "Wafelack"
+downloads-dir = "/home/wafelack/.download"
+signature     = """
+---
+Regards, Wafelack.
+
+Public key: 0xe3c6912caa743bd8
+Website: http://wafelack.fr
+"""
+
+[riseup]
+default = true
+email   = "wafelack@riseup.net"
+
+imap-host       = "imap.riseup.net"
+imap-port       = 143
+imap-login      = "wafelack@riseup.net"
+imap-passwd-cmd = "pass show riseup"
+imap-starttls   = true
+
+smtp-host       = "smtp.riseup.net"
+smtp-port       = 465
+smtp-login      = "wafelack@riseup.net"
+smtp-passwd-cmd = "pass show riseup"

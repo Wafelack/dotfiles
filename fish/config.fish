@@ -1,5 +1,31 @@
 set -U fish_greeting ""
 
+# himalaya
+
+function hl
+	himalaya list
+end
+
+function hw
+	himalaya write
+end
+
+function hr
+	echo -n "* Creating temporary file..."
+	set -l fname (mktemp)
+	echo "done"
+	echo -n "* Fetching mail content..."
+	himalaya read $argv[1] > $fname
+	echo "done"
+	vim $fname
+	set -l answer (read -P 'Do you want to delete the temporary file [y/n] ? ') 
+	if test "$answer" = 'y'
+		echo -n "* Deleting temporary file..."
+		rm $fname
+		echo "done"
+	end
+end
+
 function visukey $argv
 	screenkey --mods-mode emacs -f "Liberation Mono" --position bottom
 end
