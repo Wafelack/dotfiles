@@ -271,7 +271,7 @@ augroup quickfix
 				\ | else
 					\   | setlocal makeprg=cc
 					\ | endif
-
+	autocmd FileType tex setlocal makeprg=tectonic
 	autocmd QuickFixCmdPost make copen
 augroup end
 
@@ -306,8 +306,7 @@ augroup end
 
 augroup indentation
 	autocmd!
-	autocmd BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.h,*.hh,*.hpp set noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
-	autocmd BufNewFile,BufRead *.scm,*.lisp set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+	autocmd BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.h,*.hh,*.hpp,*.scm,*.lisp set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 	autocmd BufNewFile,BufRead *.rs set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup end
 

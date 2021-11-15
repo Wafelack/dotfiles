@@ -47,7 +47,37 @@
 (evil-mode 1)
 
 ;; SLIME
+
 (setq inferior-lisp-program "/etc/profiles/per-user/wafelack/bin/sbcl")
+
+(defun restart-slime ()
+  (interactive)
+  (cl-flet ((slime-buf ()
+	    	       (get-buffer (format "*slime-repl ~A*" (file-name-nondirectory inferior-lisp-program))))
+	    (get-current-buf (slime-buf)
+			     (when (and slime-buf
+					(eq slime-buf
+					    (current-buffer))
+					(> (count-windows) 1))
+			       (other-window 1))
+			     (current-buffer)))
+    (let* ((inferior-lisp-buf (get-buffer "*inferior-lisp*"))
+	   (slime-buf (slime-buf))
+	   (current-buf (get-current-buf slime-buf)))
+      (if (and inferior-lisp-buf
+	       slime-buf)
+	  (slime-restart-inferior-lisp)
+	(progn
+	  (slime)
+	  (switch-to-buffer current-buf)))
+      (setq slime-buf (slime-buf))
+      (delete-other-windows)
+      (split-window-horizontally)
+      (select-window (frame-first-window))
+      (switch-to-buffer current-buf)
+      (other-window 1)
+      (switch-to-buffer slime-buffer))))
+
 
 (slime-setup '(slime-fancy))
 

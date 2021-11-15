@@ -99,6 +99,7 @@
         }; in
       [
         tectonic-fixed
+        drawio
         himalaya
         pass
         openscad
@@ -147,7 +148,7 @@
 
   environment.systemPackages = with pkgs; [
     (st.overrideAttrs (oldAttrs: rec {
-      configFile = writeText "config.def.h" (builtins.readFile "/home/wafelack/.dotfiles/misc/st_config.h");
+      configFile = writeText "config.def.h" (builtins.readFile "/home/wafelack/.dotfiles/st/st_config.h");
       postPatch = "${oldAttrs.postPatch}\ncp ${configFile} config.def.h";
     }))
     vim
