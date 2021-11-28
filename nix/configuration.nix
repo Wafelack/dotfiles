@@ -96,9 +96,14 @@
             license = with licenses; [ mit ];
             maintainers = [ maintainers.lluchs maintainers.doronbehar ];
           };
+        }; 
+        torBrowserWithAudio = pkgs.tor-browser-bundle-bin.override {
+          mediaSupport = true;
+          pulseaudioSupport = true;
         }; in
       [
         tectonic-fixed
+        kdenlive
         drawio
         himalaya
         pass
@@ -129,7 +134,7 @@
         unzip
         arandr
         synapse
-        tor-browser-bundle-bin
+        torBrowserWithAudio
         screen
         universal-ctags
         redshift
@@ -148,7 +153,7 @@
 
   environment.systemPackages = with pkgs; [
     (st.overrideAttrs (oldAttrs: rec {
-      configFile = writeText "config.def.h" (builtins.readFile "/home/wafelack/.dotfiles/st/st_config.h");
+      configFile = writeText "config.def.h" (builtins.readFile "/home/wafelack/.dotfiles/st/config.h");
       postPatch = "${oldAttrs.postPatch}\ncp ${configFile} config.def.h";
     }))
     vim
@@ -190,11 +195,31 @@
             cp "$src/fonts/dunda-regular.otf" "${fontsDir}"
           '';
       };
+      crisa = pkgs.stdenv.mkDerivation {
+        name = "fira-code-zlm";
+        version = "0.1";
+        src = pkgs.fetchFromGitHub {
+          owner = "jackhumbert";
+          repo = "zbalermorna";
+          rev = "920b28d798ae1c06885c674bbf02b08ffed12b2f";
+          sha256 = "00sl3f1x4frh166mq85lwl9v1f5r3ckkfg8id5fibafymick5vyp";
+        };
+        installPhase =
+          let
+            fontsDir  = "$out/share/fonts";
+          in
+          ''
+            mkdir -p "${fontsDir}"
+            cp "$src/fonts/crisa-regular.otf" "${fontsDir}"
+          '';
+      };
     in
     with pkgs; [
       unifont
       iosevka
       dunda
+      crisa
+      libertine
     ];
 
   virtualisation.docker.enable = true;

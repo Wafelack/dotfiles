@@ -1,0 +1,24 @@
+(defcfg
+  input  (device-file "/dev/input/event0")
+  output (uinput-sink "KMonad"
+		      "/run/current-system/sw/bin/sleep 1 && /run/current-system/sw/bin/setxkbmap -option compose:ralt")
+  fallthrough   true
+  allow-cmd     true
+  cmp-seq       ralt
+  cmp-seq-delay 5)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ssrq  ins  del   pgup pgdn home end
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc             nlck kp/  kp*  kp- 
+  tab  q    w    e    r    t    y    u    o    p    [    ]         ret              kp7  kp8  kp9  kp+
+  caps a    s    d    f    g    h    j    k    l    ;    '    \                     kp4  kp5  kp6
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft             up        kp1  kp2  kp3  kprt 
+  lctl lmet lalt           spc            ralt rctl                 left down rght  kp0  kp.)
+
+(deflayer qwerty
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ssrq  ins  del   pgup pgdn home end
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc             nlck kp/  kp*  kp- 
+  tab  q    w    e    r    t    y    u    o    p    [    ]         ret              kp7  kp8  kp9  kp+
+  caps a    s    d    f    g    h    j    k    l    ;    '    \                     kp4  kp5  kp6
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft             up        kp1  kp2  kp3  kprt 
+  lctl lmet lalt           spc            ralt rctl                 left down rght  kp0  kp.)

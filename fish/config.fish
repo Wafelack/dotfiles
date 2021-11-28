@@ -63,12 +63,8 @@ end
 set -gx GPG_TTY (tty)
 set -gx EDITOR vim
 
-fish_add_path $HOME/.cargo/bin
-fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.scripts
-fish_add_path /usr/local/bin
-fish_add_path /usr/local/sbin
-fish_add_path /sbin
+set -x PATH $HOME/.cargo/bin $PATH
+set -x PATH $HOME/.local/bin $PATH
 
 function git_branch
 	set branch (git branch 2> /dev/null | grep '^*' | colrm 1 2)

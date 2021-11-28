@@ -352,7 +352,7 @@ set showtabline=2
 
 "}}}
 
-"{{{EMACS keybindings, because it is fun
+"{{{EMACS stuff, because it is fun
 
 nnoremap <Esc>x :exec input("M-x ", "", "command")<CR>
 command! -nargs=* Compile make <args>
@@ -363,6 +363,12 @@ nnoremap <C-x><C-c> :qa<CR>
 
 nnoremap <C-x>1 :only<CR>
 nnoremap <C-x><C-f> :execute ':e' . input('Find file: ', expand('%'), 'file')<CR>
+
+let g:auto_fill_mode = 0
+let g:auto_fill_limit = 79
+
+command! -nargs=0 AutoFillMode let g:auto_fill_mode = !g:auto_fill_mode
+nnoremap <leader>afm :AutoFillMode<CR>
 
 "}}}
 
