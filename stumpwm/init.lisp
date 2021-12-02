@@ -1,5 +1,8 @@
 (in-package :stumpwm)
 
+(defvar *layout* 0)
+(defvar *layouts* '(US RU FR))
+
 ;; Shell commands
 (run-shell-command "feh --bg-scale ~/.dotfiles/wallpaper.png")
 (run-shell-command "setxkbmap -option caps:escape")
@@ -53,9 +56,11 @@
     (let* ((total-width (stumpwm::head-width (current-head)))
 	   (current (current-window))
 	   (left (display-windows current))
-	   (right (format NIL "~a | ~a ~D%"
+	   (right (format NIL "~a | ~a ~D% | ~a"
 			  (string-trim '(#\Return #\Newline #\Linefeed) (run-shell-command "date +'%a, %b %d - %H:%M'" T))
-			  bar percentage)))
+			  bar
+        percentage
+        (lit-layout *layout*))))
       (format NIL "~a~a~a" left (gen-mid-space left right) right))))
 
 (setf *mode-line-background-color* "#2e3440")
@@ -96,7 +101,18 @@
    (:number "New brightness: "))
   (run-shell-command (format NIL "xrandr --output ~a --brightness ~f" output (/ value 10)))) ;; As stump only accepts integer values... I do think a 1/10 control is enough.
 
+(defun lit-layout (l)
+  (string-downcase (string (nth *layout* *layouts*))))
+
+(defun set-layout (l)
+  (run-shell-command (format NIL "setxkbmap ~a" (lit-layout l))))
+
+(defcommand toggle-layout () ()
+  (setq *layout* (mod (1+ *layout*) (length *layouts*)))
+  (set-layout *layout*))
+
 (add-key "C-e" "set-brightness eDP-1")
+(add-key "C-TAB" "toggle-layout")
 (add-key "C-c" "set-brightness")
 
 ;; Echo area and input box
