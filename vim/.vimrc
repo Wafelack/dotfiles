@@ -85,6 +85,13 @@ set statusline+=%1*\ %p%%\ ::\ %l/%L\ :\ %c\ %* " Line:Col Percentage
 
 "{{{Readability and handiness
 
+augroup autofill
+	autocmd!
+	autocmd BufNewFile,BufRead *.tex setlocal textwidth=80
+augroup end
+
+augroup end
+
 set completeopt=menuone
 set path+=** """ Fuzzy search
 set wildmenu
@@ -272,6 +279,7 @@ augroup quickfix
 					\   | setlocal makeprg=cc
 					\ | endif
 	autocmd FileType tex setlocal makeprg=tectonic
+	autocmd BufNewFile,BufRead *.tex setfiletype tex
 	autocmd QuickFixCmdPost make copen
 augroup end
 

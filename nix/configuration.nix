@@ -103,6 +103,7 @@
         }; in
       [
         tectonic-fixed
+        anki
         kdenlive
         drawio
         himalaya
@@ -140,6 +141,7 @@
         redshift
         simplescreenrecorder
         tree
+	qbittorrent
       ];
   };
 
@@ -150,6 +152,12 @@
       { users = [ "wafelack" ]; persist = true; keepEnv = true; }
     ];
   };
+   
+nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "nixos-config=/etc/nixos/configuration.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
 
   environment.systemPackages = with pkgs; [
     (st.overrideAttrs (oldAttrs: rec {
@@ -178,7 +186,7 @@
   fonts.fonts =
     let
       dunda = pkgs.stdenv.mkDerivation {
-        name = "fira-code-zlm";
+        name = "dunda-zlm";
         version = "0.1";
         src = pkgs.fetchFromGitHub {
           owner = "jackhumbert";
@@ -196,7 +204,7 @@
           '';
       };
       crisa = pkgs.stdenv.mkDerivation {
-        name = "fira-code-zlm";
+        name = "crisa-zlm";
         version = "0.1";
         src = pkgs.fetchFromGitHub {
           owner = "jackhumbert";

@@ -74,9 +74,6 @@ function git_branch
 end
 
 function fish_prompt
-	if set -q IN_NIX_SHELL
-		echo -n (set_color blue)"["(set_color green)"nix-shell"(set_color blue)"] "
-	end
 	echo -n (set_color magenta)(whoami)(set_color blue)"@"(set_color purple)(hostname)
 	echo -n (set_color blue)"["(set_color yellow)(prompt_pwd)(set_color blue)"]"(set_color normal)
 	echo (set_color blue)"\$ "
@@ -87,10 +84,12 @@ function fish_right_prompt
 
 	echo -n (git_branch)
 
+	if set -q IN_NIX_SHELL
+		echo -n (set_color blue)" ("(set_color yellow)"nix-shell"(set_color blue)")"
+	end
 	if test $s != 0
 		echo -n (set_color red) $s(set_color normal)
 	end
-
 end
 
 if status is-interactive

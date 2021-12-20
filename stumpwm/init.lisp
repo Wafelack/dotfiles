@@ -57,7 +57,7 @@
 	   (current (current-window))
 	   (left (display-windows current))
 	   (right (format NIL "~a | ~a ~D% | ~a"
-			  (string-trim '(#\Return #\Newline #\Linefeed) (run-shell-command "date +'%a, %b %d - %H:%M'" T))
+			  (string-trim '(#\Return #\Newline #\Linefeed) (run-shell-command "rdate '%a %d %b - %H:%M'" T))
 			  bar
         percentage
         (lit-layout *layout*))))
