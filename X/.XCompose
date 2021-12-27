@@ -210,7 +210,7 @@ keysym Shift_R = Multi_key
 <Multi_key> <g> <P> <i> : "Π"
 <Multi_key> <g> <p> <i> : "π"
 <Multi_key> <g> <R> : "Ρ"
-<Multi_key> <g> <p> : "ρ"
+<Multi_key> <g> <r> : "ρ"
 <Multi_key> <g> <S> : "Σ"
 <Multi_key> <g> <s> : "σ"
 <Multi_key> <g> <T> <a> : "Τ"

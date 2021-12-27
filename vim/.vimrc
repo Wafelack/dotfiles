@@ -90,7 +90,7 @@ augroup autofill
 	autocmd BufNewFile,BufRead *.tex setlocal textwidth=80
 augroup end
 
-augroup end
+command! -nargs=* W w <args>
 
 set completeopt=menuone
 set path+=** """ Fuzzy search
@@ -314,7 +314,7 @@ augroup end
 
 augroup indentation
 	autocmd!
-	autocmd BufNewFile,BufRead *.c,*.cpp,*.cc,*.cxx,*.h,*.hh,*.hpp,*.scm,*.lisp set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+	autocmd BufNewFile,BufRead *.hs,*.pas,*.c,*.cpp,*.cc,*.cxx,*.h,*.hh,*.hpp,*.scm,*.lisp set expandtab tabstop=2 shiftwidth=2 softtabstop=2
 	autocmd BufNewFile,BufRead *.rs set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup end
 

@@ -41,6 +41,8 @@
 
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam-original"
@@ -141,7 +143,8 @@
         redshift
         simplescreenrecorder
         tree
-	qbittorrent
+        qbittorrent
+        fpc
       ];
   };
 
@@ -228,6 +231,7 @@ nix.nixPath = [
       dunda
       crisa
       libertine
+      doulos-sil
     ];
 
   virtualisation.docker.enable = true;
